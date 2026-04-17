@@ -2639,7 +2639,42 @@
       function renderScoringPanel(data) {
         const s = data.scoring;
         if (!s) {
-          info.panelScoring.innerHTML = `<p class="empty-panel">No v2.1 scorecard for this market (GCC baseline or outside the 24-country shortlist).</p>`;
+          // Fallback: render v1 lens breakdown + overall score
+          const lensRows = Object.entries(lensLabels).map(([key, [max, label]]) => {
+            const val = data.lenses?.[key] ?? 0;
+            return `
+              <div class="score-row">
+                <span class="score-label">${label}</span>
+                <div class="score-bar"><span style="--width:${(val/max)*100}%"></span></div>
+                <span class="score-val">${val}/${max}</span>
+              </div>`;
+          }).join("");
+          const reasonMap = {
+            "United Arab Emirates": "GCC baseline — home market, no expansion scoring applied",
+            "Saudi Arabia": "GCC baseline — live market, no expansion scoring applied",
+            Qatar: "GCC baseline — live market, no expansion scoring applied",
+            Kuwait: "GCC baseline — live market, no expansion scoring applied",
+            Oman: "GCC baseline — live market, no expansion scoring applied",
+            Bahrain: "GCC baseline — live market, no expansion scoring applied",
+            "United Kingdom": "Existing presence baseline — not rescored in v2.1",
+            Thailand: "Outside the 24-country shortlist — flagged do-not-enter organically (Klook dominance + MoTA friction)",
+            Indonesia: "Outside the 24-country shortlist — partnership-only route (Traveloka dominance)",
+            "Hong Kong": "Outside the 24-country shortlist — Phase 3 licensing candidate",
+            "South Korea": "Outside the 24-country shortlist — licensing-only route",
+            Azerbaijan: "Outside the 24-country shortlist — micro-market, secondary priority",
+            Singapore: "In shortlist but small geo footprint — see clickable deck list",
+            Malta: "Micro-market — UNESCO cap limits active rollout",
+          };
+          const reason = reasonMap[data.title] || "v2.1 scorecard not computed for this market";
+          info.panelScoring.innerHTML = `
+            <div class="composite-pill"><strong>${data.score}/100</strong><span>Deck score</span></div>
+            <div class="score-breakdown">${lensRows}</div>
+            <div class="catalyst-card">
+              <h3>Why no v2.1 composite</h3>
+              <div class="catalyst-band">${reason}</div>
+              ${data.why ? `<ul class="catalyst-factors"><li>${data.why}</li></ul>` : ""}
+            </div>
+          `;
           return;
         }
         const rows = [
@@ -2678,7 +2713,27 @@
       function renderSignalsPanel(data) {
         const g = data.signals;
         if (!g) {
-          info.panelSignals.innerHTML = `<p class="empty-panel">No Pass 2 keyword signals for this market.</p>`;
+          // Fallback: render qualitative signal fields from coverageData
+          const pairs = [
+            ["Competition", data.competition],
+            ["Moat signal", data.moatSignal],
+            ["GCC signal", data.gccSignal],
+            ["Contractable share", data.contractable],
+            ["Onboarding window", data.onboarding],
+            ["Top ticket", data.topTicket],
+          ].filter(([, v]) => Boolean(v));
+          const metas = pairs.map(([l, v]) => `<div class="meta"><span>${l}</span><strong>${v}</strong></div>`).join("");
+          info.panelSignals.innerHTML = `
+            <div class="meta-grid">${metas || '<div class="meta"><span>Signals</span><strong>—</strong></div>'}</div>
+            <div class="catalyst-card">
+              <h3>Pass 2 keyword signals</h3>
+              <div class="catalyst-band">Not collected for this market</div>
+              <ul class="catalyst-factors">
+                <li>Pass 2 DataForSEO scrape covers the 24-country shortlist only.</li>
+                <li>Qualitative signals above come from deck v4 Section 3.</li>
+              </ul>
+            </div>
+          `;
           return;
         }
         const landmarks = (g.topLandmarks || "").split(" | ").filter(Boolean).map((pair) => {
@@ -2722,7 +2777,16 @@
               Launch: ${gmv.launch}
             </div>
           </div>
-        ` : `<p class="empty-panel" style="margin-top: 14px;">Y1 GMV envelope not modeled (not in Phase 1–2 shortlist).</p>`;
+        ` : `
+          <div class="catalyst-card" style="margin-top: 14px;">
+            <h3>Y1 GCC GMV envelope</h3>
+            <div class="catalyst-band">Not modeled for this market</div>
+            <ul class="catalyst-factors">
+              <li>Envelopes are sized only for Phase 1–2 direct-entry + licensing anchors (Malaysia, Singapore, Italy, Spain, Austria, Switzerland, Jordan).</li>
+              ${data.timing ? `<li>Deck timing: ${data.timing}.</li>` : ""}
+              ${data.path ? `<li>Recommended path: ${data.path}.</li>` : ""}
+            </ul>
+          </div>`;
         info.panelEconomics.innerHTML = `
           <div class="meta-grid">${pairsHtml || '<div class="meta"><span>Economics</span><strong>—</strong></div>'}</div>
           ${gmvHtml}
