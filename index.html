@@ -693,6 +693,42 @@
         font-variant-numeric: tabular-nums;
       }
 
+      .deck-ref-list {
+        margin: 8px 0 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .deck-ref {
+        padding: 10px 12px;
+        border-radius: 10px;
+        background: rgba(146, 232, 255, 0.04);
+        border: 1px solid rgba(146, 232, 255, 0.12);
+      }
+
+      .deck-ref-label {
+        font-size: 13px;
+        color: var(--text);
+        margin-bottom: 4px;
+      }
+
+      .deck-ref-detail {
+        font-size: 12.5px;
+        line-height: 1.55;
+        color: var(--muted);
+        margin-bottom: 4px;
+      }
+
+      .deck-ref-source {
+        font-size: 11px;
+        letter-spacing: 0.02em;
+        color: rgba(146, 232, 255, 0.75);
+        font-variant-numeric: tabular-nums;
+      }
+
       .gmv-block {
         margin-top: 14px;
         padding: 14px;
@@ -1265,6 +1301,7 @@
             </section>
 
             <section class="tab-panel" data-panel="evidence">
+              <div id="info-deck-refs"></div>
               <div class="facts">
                 <h3>Deck Evidence</h3>
                 <ul class="facts-list" id="info-facts"></ul>
@@ -2329,6 +2366,211 @@
         if (coverageData[name]) Object.assign(coverageData[name], ext);
       });
 
+      // Deck v4 source references (Section + specific fact per country, citation-ready).
+      // Each entry: { title, refs: [{label, detail, deckRef}] }
+      const deckRefs = {
+        "Greece": {
+          title: "Why state-gated",
+          refs: [
+            { label: "hhticket.gr", detail: "State-run ticket platform operated by Ministry of Culture; no reseller API, no cache-ticket primitive — all top attractions route through it.", deckRef: "Deck v4 · §3 Regulatability (L407-417)" },
+            { label: "DQ flag", detail: "Auto-disqualifier on Regulatability lens (1 flag) until state platform opens B2B access or HHR concession published.", deckRef: "Deck v4 · §4 Scorecard filter" },
+            { label: "Air route", detail: "Emirates DXB-ATH daily + EK ops; capacity is there, but supply gate blocks conversion.", deckRef: "Deck v4 · §5 Catalyst overlay" },
+          ],
+        },
+        "Jordan": {
+          title: "API-Led Entry",
+          refs: [
+            { label: "Jordan Pass B2B API", detail: "State-controlled but digital-native (API-open) — classifies as regulated-open, not state-gated. Direct commercial integration scheduled.", deckRef: "Deck v4 · §3 + §6 (L390, L1352)" },
+            { label: "Saudia BAH→AMM", detail: "5x weekly new route + Royal Jordanian GCC expansion adds air seat capacity 2026-27.", deckRef: "Deck v4 · §5 Catalyst (mega-event + air + campaign)" },
+            { label: "JTB halal campaign", detail: "Jordan Tourism Board halal-family marketing push 2026 — GCC-targeted.", deckRef: "Deck v4 · §5 Catalyst +10" },
+            { label: "FX peg", detail: "JOD pegged to USD (0.709) — economics lens scores 16/20, no FX drag risk.", deckRef: "Deck v4 · §3 Economics" },
+          ],
+        },
+        "Malaysia": {
+          title: "Direct entry anchor",
+          refs: [
+            { label: "Visit Malaysia 2026", detail: "Government tourism campaign targets 2M Arab tourists — explicit GCC thesis alignment.", deckRef: "Deck v4 · §5 Catalyst (L1234)" },
+            { label: "VFS Global MY-GCC", detail: "Visa partnership cuts friction for GCC passport holders.", deckRef: "Deck v4 · §5 Catalyst factor 2" },
+            { label: "MH KL-RUH/JED", detail: "Malaysia Airlines 4x weekly KL-Riyadh + KL-Jeddah resumption Q2'26.", deckRef: "Deck v4 · §5 Air capacity" },
+            { label: "GCC bias 0.21×", detail: "Highest GCC-bias ratio in the 24-country shortlist — moat lens 19/20.", deckRef: "Deck v4 · §2 Pass 2 DataForSEO (keyword scrape)" },
+          ],
+        },
+        "Italy": {
+          title: "Mega-event catalyst",
+          refs: [
+            { label: "Milano-Cortina 2026", detail: "Winter Olympics (Feb 2026) — tourism board spillover effect on travel demand Q1-Q2'26.", deckRef: "Deck v4 · §5 Catalyst (mega-event)" },
+            { label: "Gulf Air BAH→MXP/FCO", detail: "Route resumption May'26 adds GCC air capacity into Milan + Rome.", deckRef: "Deck v4 · §5 Air capacity" },
+            { label: "Vatican Jubilee 2025", detail: "Residual religious-tourism tail still active into 2026-27.", deckRef: "Deck v4 · §5 Catalyst factor 3" },
+            { label: "Musement home market", detail: "Local OTA incumbent → moat lens 3/20 (low). Offset by demand 22/30.", deckRef: "Deck v4 · §3 Moat signal" },
+          ],
+        },
+        "Spain": {
+          title: "Mega-event catalyst",
+          refs: [
+            { label: "Ryder Cup 2027", detail: "Camiral Golf Resort (Catalonia) hosts — premium anchor event, GCC golf tourism correlation.", deckRef: "Deck v4 · §5 Catalyst (mega-event)" },
+            { label: "Saudia MAD/BCN", detail: "Frequency bump on Madrid + Barcelona routes.", deckRef: "Deck v4 · §5 Air capacity" },
+            { label: "Turespaña halal 2026", detail: "Spanish tourism board halal-family campaign explicitly targets GCC.", deckRef: "Deck v4 · §5 Catalyst factor 3" },
+            { label: "ETIAS drag", detail: "EU ETIAS visa-waiver rollout adds friction — Y1 launch factor 0.4× (conservative).", deckRef: "Deck v4 · §6 Y1 GMV envelope" },
+          ],
+        },
+        "France": {
+          title: "Existing presence baseline",
+          refs: [
+            { label: "ETC 2026 halo", detail: "European Travel Commission post-Olympics (Paris 2024) residual tourism lift.", deckRef: "Deck v4 · §5 Catalyst (macro tailwind)" },
+            { label: "GYG + Musement home", detail: "GetYourGuide HQ + Musement dominance → moat lens 3/20. Demand 28/30 still leads.", deckRef: "Deck v4 · §3 Moat + Demand" },
+            { label: "Disneyland Paris", detail: "Dominant landmark (2,400 GCC queries/mo) — covered by existing presence playbook.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+          ],
+        },
+        "Austria": {
+          title: "GCC-moat niche",
+          refs: [
+            { label: "Khaleeji Vienna season", detail: "Recurring GCC travel pattern (Jun-Aug) — no net-new catalyst but durable base.", deckRef: "Deck v4 · §5 Catalyst (flat default)" },
+            { label: "GCC bias 0.05×", detail: "Above-average GCC-to-WW ratio (moat lens 12/20) — halal-family positioning.", deckRef: "Deck v4 · §2 Pass 2 DataForSEO" },
+            { label: "Schönbrunn/Hofburg", detail: "Imperial palace circuit — contractable via direct ÖBM relationships.", deckRef: "Deck v4 · §3 Supply" },
+          ],
+        },
+        "Switzerland": {
+          title: "Premium affiliate play",
+          refs: [
+            { label: "Jungfraujoch/Titlis", detail: "Alpine-peak premium landmarks (basket $72) — top-ticket economics.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+            { label: "Affiliate ramp", detail: "Y1 launch factor 0.4× — affiliate model, not direct entry. 6mo coverage.", deckRef: "Deck v4 · §6 Y1 GMV envelope" },
+            { label: "GCC bias 0.05×", detail: "Moat 12/20 — GCC-family premium alpine niche.", deckRef: "Deck v4 · §2 Pass 2" },
+          ],
+        },
+        "Netherlands": {
+          title: "Tiqets-home moat gap",
+          refs: [
+            { label: "Tiqets home market", detail: "Dutch incumbent HQ — direct competitive moat.", deckRef: "Deck v4 · §3 Moat signal" },
+            { label: "iDEAL payment friction", detail: "Domestic payment rail excludes international issuers — 2 flags on regulatability.", deckRef: "Deck v4 · §3 Regulatability" },
+            { label: "Van Gogh / Keukenhof", detail: "High landmark demand (9/10 passing) but supply gated by incumbent contracts.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+          ],
+        },
+        "Germany": {
+          title: "GetYourGuide-home market",
+          refs: [
+            { label: "GYG home market", detail: "GetYourGuide Berlin HQ — moat lens 7/20. No directional shift near-term.", deckRef: "Deck v4 · §3 Moat signal" },
+            { label: "Europa-Park", detail: "Theme-park anchor (180 GCC queries/mo) — contractable but already covered.", deckRef: "Deck v4 · §2 Pass 2" },
+            { label: "Economics 19/20", detail: "Strong basket + low CPC ($0.20 weighted) — economics compensates for moat gap.", deckRef: "Deck v4 · §3 Economics" },
+          ],
+        },
+        "Ireland": {
+          title: "Air-capacity catalyst",
+          refs: [
+            { label: "Etihad DUB 2x", detail: "Capacity doubling on AUH-DUB 2026-27 — incremental GCC seat lift.", deckRef: "Deck v4 · §5 Catalyst (macro tailwind)" },
+            { label: "Ryder Cup spillover", detail: "Adjacent 2027 UK/IE golf-tourism residual (cross-border GCC travelers).", deckRef: "Deck v4 · §5 Catalyst factor 2" },
+            { label: "Supply 17/20", detail: "Strong OTA/supply landscape but moat low (3/20) — demand 12/30 caps upside.", deckRef: "Deck v4 · §3 Supply/Moat" },
+          ],
+        },
+        "Portugal": {
+          title: "Golden Visa drag",
+          refs: [
+            { label: "Golden Visa phase-out", detail: "Not GCC-positive — residency-visa investors were the legacy GCC corridor.", deckRef: "Deck v4 · §3 Demand + §5 Catalyst" },
+            { label: "Supply 8/20", detail: "Thin tour-led supply vs Spain/Italy — no state-owned landmark circuit.", deckRef: "Deck v4 · §3 Supply" },
+            { label: "Sintra/Pena", detail: "5/10 landmarks passing — Lisbon + Porto city-break only.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+          ],
+        },
+        "Hungary": {
+          title: "Budapest-only niche",
+          refs: [
+            { label: "Széchenyi Baths anchor", detail: "Top GCC keyword (70 queries/mo) — thermal-spa halal positioning.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+            { label: "GCC bias 0.05×", detail: "Moat lens 12/20 — one of few CEE markets with meaningful GCC skew.", deckRef: "Deck v4 · §2 Pass 2 DataForSEO" },
+            { label: "City-scope only", detail: "Budapest 100% of volume — no secondary-city spread.", deckRef: "Deck v4 · §3 Supply" },
+          ],
+        },
+        "Czech Republic": {
+          title: "Prague city-break only",
+          refs: [
+            { label: "Old Town Square", detail: "Dominant GCC landmark (140 queries/mo) — everything clusters in Prague.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+            { label: "Economics 19/20", detail: "Strong basket-to-CPC ratio ($0.11 weighted CPC) — favorable acquisition.", deckRef: "Deck v4 · §3 Economics" },
+            { label: "Moat 7/20", detail: "No direct OTA dominance but no GCC-bias either — flat default catalyst.", deckRef: "Deck v4 · §3 Moat" },
+          ],
+        },
+        "Poland": {
+          title: "Auschwitz-SOV only",
+          refs: [
+            { label: "Auschwitz tour", detail: "400 GCC queries/mo — single-keyword dominance, not a portfolio play.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+            { label: "Supply 6/20", detail: "4/10 landmarks passing — thinnest supply in shortlist.", deckRef: "Deck v4 · §3 Supply" },
+            { label: "1 flag", detail: "Not disqualified but low lens balance — 42/110 composite.", deckRef: "Deck v4 · §4 Scorecard" },
+          ],
+        },
+        "Croatia": {
+          title: "Thin tour-led supply",
+          refs: [
+            { label: "Game of Thrones tour DBV", detail: "Cultural-anchor keyword — Dubrovnik set-jet tourism niche.", deckRef: "Deck v4 · §2 Pass 2" },
+            { label: "Krka / Plitvice", detail: "National-park supply — state-park gated but with reseller access.", deckRef: "Deck v4 · §3 Supply" },
+            { label: "Economics 19/20", detail: "$0.04 weighted CPC — extremely low acquisition cost offsets demand 12/30.", deckRef: "Deck v4 · §3 Economics" },
+          ],
+        },
+        "Malta": {
+          title: "UNESCO micro-market",
+          refs: [
+            { label: "Hypogeum cap", detail: "UNESCO daily visitor cap (10/slot) — structural ceiling on top ticket.", deckRef: "Deck v4 · §3 Supply (L280)" },
+            { label: "2/10 landmarks", detail: "Thinnest landmark-passing rate in shortlist.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+            { label: "Micro-market note", detail: "UNESCO cap + island geo — not ramp-able beyond baseline.", deckRef: "Deck v4 · §3 Note" },
+          ],
+        },
+        "Morocco": {
+          title: "French-SEO dependency",
+          refs: [
+            { label: "Hassan II mosque", detail: "Top GCC landmark (60 queries/mo) but French-SEO is gatekeeper for traffic.", deckRef: "Deck v4 · §2 Pass 2" },
+            { label: "Language moat gap", detail: "No GCC-native OTA presence — moat lens 7/20 via language barrier.", deckRef: "Deck v4 · §3 Moat" },
+            { label: "1 flag", detail: "Flagged but not disqualified — regulatability manageable.", deckRef: "Deck v4 · §4 Scorecard" },
+          ],
+        },
+        "Egypt": {
+          title: "MoTA monopoly",
+          refs: [
+            { label: "Ministry of Tourism monopoly", detail: "State-controlled antiquity ticket system — 3 flags on regulatability.", deckRef: "Deck v4 · §3 Regulatability + §4 DQ" },
+            { label: "EGP volatility", detail: "Currency risk — economics lens 10/20 despite strong demand (22/30).", deckRef: "Deck v4 · §3 Economics" },
+            { label: "Nile cruise anchor", detail: "800 GCC queries/mo — absolute top-of-list but supply is state-gated.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+          ],
+        },
+        "South Africa": {
+          title: "Long-haul safari niche",
+          refs: [
+            { label: "Kruger safari", detail: "130 GCC queries/mo — single-keyword dominance, not portfolio.", deckRef: "Deck v4 · §2 Pass 2" },
+            { label: "6/10 landmarks", detail: "Thin landmark pass-rate; Cape Town + safari concentration.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+            { label: "Strategic 4/10", detail: "Long-haul, off-corridor vs core GCC flight-map.", deckRef: "Deck v4 · §3 Strategic fit" },
+          ],
+        },
+        "Turkey": {
+          title: "4-flag hard stop",
+          refs: [
+            { label: "DQ · regulatory", detail: "PSP restrictions + FX controls + MoTA friction + mandatory pre-booking = 4 flags.", deckRef: "Deck v4 · §3 Regulatability + §4 DQ filter" },
+            { label: "Demand 22/30 wasted", detail: "High latent demand (2,290 full GCC vol) but compositely blocked.", deckRef: "Deck v4 · §2 Pass 2" },
+            { label: "Cappadocia balloon", detail: "530 GCC queries/mo — top tourism anchor, inaccessible via normal OTA stack.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+          ],
+        },
+        "Japan": {
+          title: "Direct-lock inventory",
+          refs: [
+            { label: "Shibuya Sky / teamLab", detail: "Direct-lock inventory — OTAs don't get the anchor passes without carrier deal.", deckRef: "Deck v4 · §3 Supply" },
+            { label: "JPY volatility", detail: "Currency drag on economics (10/20) but mitigated by FX-positive demand.", deckRef: "Deck v4 · §3 Economics" },
+            { label: "2 flags", detail: "Not DQ but two regulatability friction points (carrier lock + payment).", deckRef: "Deck v4 · §4 Scorecard" },
+          ],
+        },
+        "Singapore": {
+          title: "Phase-1 stable base",
+          refs: [
+            { label: "Universal Studios anchor", detail: "740 GCC queries/mo — single theme-park dominates the demand curve.", deckRef: "Deck v4 · §2 Pass 2" },
+            { label: "Composite 86/110", detail: "Highest base /100 of shortlist (83/100). Stable, no catalyst lift.", deckRef: "Deck v4 · §4 Scorecard" },
+            { label: "Y1 GMV $400-700K", detail: "Q4'26 launch · 3mo Y1 · 0.5× ramp.", deckRef: "Deck v4 · §6 Y1 GMV envelope" },
+          ],
+        },
+        "United Kingdom": {
+          title: "Existing presence",
+          refs: [
+            { label: "Baseline market", detail: "Already live — not scored for new entry. ETA visa-waiver adds modest tailwind.", deckRef: "Deck v4 · §5 Catalyst (macro tailwind)" },
+            { label: "Landmark coverage", detail: "10/10 passing — full playbook proven.", deckRef: "Deck v4 · §2 Pass 2 keyword scrape" },
+            { label: "Reference point", detail: "UK performance is the benchmark France launch is validating against.", deckRef: "Deck v4 · §7 Ops (playbook transfer)" },
+          ],
+        },
+      };
+
+      Object.entries(deckRefs).forEach(([name, refs]) => {
+        if (coverageData[name]) coverageData[name].deckRefs = refs;
+      });
+
       const continentByName = {
         "Saudi Arabia": "GCC",
         "United Arab Emirates": "GCC",
@@ -2493,6 +2735,7 @@
         panelSignals: document.getElementById("panel-signals"),
         panelEconomics: document.getElementById("panel-economics"),
         panelRisks: document.getElementById("panel-risks"),
+        deckRefsBox: document.getElementById("info-deck-refs"),
       };
       const scrim = document.getElementById("scrim");
       const tabNav = document.getElementById("tab-nav");
@@ -2810,6 +3053,43 @@
         info.panelRisks.innerHTML = `<div class="meta-grid">${html || '<div class="meta"><span>Risks</span><strong>—</strong></div>'}</div>`;
       }
 
+      function renderDeckRefs(data) {
+        const refs = data.deckRefs;
+        if (!refs || !Array.isArray(refs.refs) || refs.refs.length === 0) {
+          const fallback = {
+            "United Arab Emirates": "Home market — no expansion refs. See Deck v4 §1 Ops baseline.",
+            "Saudi Arabia": "Live GCC market — baseline Ops section, not expansion scorecard.",
+            Qatar: "Live GCC market — baseline Ops section.",
+            Kuwait: "Live GCC market — baseline Ops section.",
+            Oman: "Live GCC market — baseline Ops section.",
+            Bahrain: "Live GCC market — baseline Ops section.",
+            Thailand: "Outside 24-country shortlist — do-not-enter (Klook dominance + MoTA friction). See Deck v4 §8 Appendix.",
+            Indonesia: "Outside 24-country shortlist — partnership-only (Traveloka). See Deck v4 §8 Appendix.",
+            "Hong Kong": "Outside 24-country shortlist — Phase 3 licensing. See Deck v4 §7 Phase plan.",
+            "South Korea": "Outside 24-country shortlist — licensing-only. See Deck v4 §7 Phase plan.",
+            Azerbaijan: "Outside 24-country shortlist — micro-market. See Deck v4 §8 Appendix.",
+          };
+          const msg = fallback[data.title] || "Source references not itemized for this market. See Deck v4 · Platinumlist Global Expansion (April 2026) and the companion Notion methodology page.";
+          info.deckRefsBox.innerHTML = `
+            <div class="catalyst-card" style="margin-bottom: 14px;">
+              <h3>Deck v4 · Source References</h3>
+              <div class="catalyst-band">${msg}</div>
+            </div>`;
+          return;
+        }
+        const items = refs.refs.map((r) => `
+          <li class="deck-ref">
+            <div class="deck-ref-label"><strong>${r.label}</strong></div>
+            <div class="deck-ref-detail">${r.detail}</div>
+            <div class="deck-ref-source">${r.deckRef}</div>
+          </li>`).join("");
+        info.deckRefsBox.innerHTML = `
+          <div class="catalyst-card" style="margin-bottom: 14px;">
+            <h3>Deck v4 · Source References${refs.title ? ` — ${refs.title}` : ""}</h3>
+            <ul class="deck-ref-list">${items}</ul>
+          </div>`;
+      }
+
       function updateInfo(data, statusLabel) {
         info.status.textContent = statusLabel;
         info.status.style.color = statusColors[data.status] || statusColors.open;
@@ -2846,6 +3126,7 @@
         renderSignalsPanel(data);
         renderEconomicsPanel(data);
         renderRisksPanel(data);
+        renderDeckRefs(data);
         activateTab("overview");
       }
 
