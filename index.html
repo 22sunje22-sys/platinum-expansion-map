@@ -1265,6 +1265,7 @@
               <button type="button" class="tab-btn" data-tab="scoring">Scoring</button>
               <button type="button" class="tab-btn" data-tab="signals">Signals</button>
               <button type="button" class="tab-btn" data-tab="economics">Economics</button>
+              <button type="button" class="tab-btn" data-tab="launch">Launch</button>
               <button type="button" class="tab-btn" data-tab="risks">Risks</button>
               <button type="button" class="tab-btn" data-tab="evidence">Evidence</button>
             </div>
@@ -1294,6 +1295,10 @@
 
             <section class="tab-panel" data-panel="economics">
               <div id="panel-economics"></div>
+            </section>
+
+            <section class="tab-panel" data-panel="launch">
+              <div id="panel-launch"></div>
             </section>
 
             <section class="tab-panel" data-panel="risks">
@@ -2571,6 +2576,115 @@
         if (coverageData[name]) coverageData[name].deckRefs = refs;
       });
 
+      // Google TAC (Travel Analytics Center) data — global TAM vs GCC-specific DataForSEO.
+      // Full-market context layer; does NOT re-weight the scorecard (v2.1 thesis stays GCC-first).
+      // Source: Spain Attractions Launch Strategy TAC · April 2026 · Platinumlist Marketing.
+      const tacData = {
+        "Spain": {
+          annualVolume: "100M",
+          monthlyRunRate: "~10M",
+          domesticShare: 31,
+          internationalShare: 69,
+          peakSeason: "May–Aug",
+          shoulderSeason: "Sep–Oct, Mar–Apr",
+          lowSeason: "Nov–Feb",
+          topOrigins: [
+            { country: "🇪🇸 Spain (domestic)", volume: "80M" },
+            { country: "🇬🇧 United Kingdom", volume: "20M" },
+            { country: "🇩🇪 Germany", volume: "10M" },
+            { country: "🇫🇷 France", volume: "10M" },
+            { country: "🇺🇸 United States", volume: "10M" },
+            { country: "🇮🇹 Italy", volume: "8M" },
+            { country: "🇳🇱 Netherlands", volume: "4M" },
+            { country: "🇧🇷 Brazil", volume: "3M" },
+            { country: "🇵🇹 Portugal", volume: "3M" },
+          ],
+          topCities: [
+            { city: "Barcelona", volume: "30M" },
+            { city: "Madrid", volume: "30M" },
+            { city: "Canary Islands", volume: "10M" },
+            { city: "Balearic Islands", volume: "8M" },
+            { city: "San Martín de la Vega (Warner)", volume: "7M" },
+            { city: "Salou (PortAventura)", volume: "6M" },
+            { city: "Seville", volume: "6M" },
+            { city: "Valencia", volume: "4M" },
+          ],
+          categories: [
+            { name: "Museum Tickets & Passes", volume: "30M" },
+            { name: "Theme Parks", volume: "20M" },
+            { name: "Attraction Tickets", volume: "20M" },
+            { name: "Well-Being / Spa", volume: "20M" },
+            { name: "Things to Do", volume: "20M" },
+            { name: "Aquarium & Zoo", volume: "8M" },
+            { name: "Water Parks", volume: "4M" },
+          ],
+          topLanguages: [
+            { lang: "Spanish (es)", volume: "60M" },
+            { lang: "English (en)", volume: "50M" },
+            { lang: "French (fr)", volume: "10M" },
+            { lang: "German (de)", volume: "10M" },
+            { lang: "Italian (it)", volume: "10M" },
+            { lang: "Portuguese (pt)", volume: "7M" },
+            { lang: "Dutch (nl)", volume: "6M" },
+          ],
+          localizationPhase1: "ES + EN",
+          localizationPhase2: "FR · DE · IT · PT · NL",
+          localizationNote: "ES + EN cover ~80% of search volume. Phase 1 = ES + EN. Add Catalan for Barcelona region SEO.",
+          onboardingWindow: "By Feb to fully capture May–Aug peak; creative seeding starts March.",
+          source: "Google TAC · Apr 2025 – Apr 2026 · Activities category",
+        },
+      };
+
+      Object.entries(tacData).forEach(([name, t]) => {
+        if (coverageData[name]) coverageData[name].tac = t;
+      });
+
+      // Per-market launch plans — city sequencing, bundles, whitespace, festival plays.
+      // Tactical layer distinct from the scorecard (which answers "should we enter?") —
+      // answers "if we enter, in what order and with what packaging?"
+      const launchPlans = {
+        "Spain": {
+          launchCitiesOrder: [
+            "Barcelona + Madrid (Day 1)",
+            "Canary Islands + Balearic Islands",
+            "Seville + Andalusia",
+            "Valencia + Levante",
+          ],
+          bundles: [
+            { name: "Gaudí Pass", sku: "Sagrada + Casa Batlló + Casa Milà + Park Güell", target: "exclusive / parity", city: "Barcelona" },
+            { name: "Art Triangle", sku: "Prado + Reina Sofía + Thyssen", target: "premium combo", city: "Madrid" },
+            { name: "Royal Madrid Day", sku: "Royal Palace + Bernabéu + Parque Warner", target: "family-adult", city: "Madrid" },
+            { name: "Catalan Art Pass", sku: "Figueres Dalí + Cadaqués + Púbol + BCN Gaudí", target: "3-day premium · 40%+ take-rate", city: "Catalonia" },
+            { name: "Winter Sun Pack", sku: "Siam Park + Teide + whale-watching", target: "UK/DE/NL senior+family Nov–Feb", city: "Canary Islands" },
+          ],
+          whitespace: [
+            { play: "Parques Reunidos portfolio deal", detail: "Siam Park + Loro Parque + Aqualandia + Aqualand chain — 30+ European parks under one group. Single portfolio negotiation." },
+            { play: "Hammam Al Ándalus exclusivity", detail: "4 venues (MAD/GRA/MAL/COR). 20M Well-Being searches, weak digital distribution. Hero brand anchor." },
+            { play: "AIRE Ancient Baths", detail: "Sevilla + Barcelona venues. Premium spa niche, under-indexed on OTAs." },
+            { play: "Regional spa towns", detail: "Archena · Alhama · Caldes · Solán · Lanjarón · Panticosa — combined ~900K searches, near-zero international OTA presence." },
+          ],
+          festivals: [
+            { name: "San Fermín", dates: "Jul 6–14", city: "Pamplona" },
+            { name: "Las Fallas", dates: "Mar 15–19", city: "Valencia" },
+            { name: "Feria de Abril", dates: "April", city: "Sevilla" },
+            { name: "La Mercè", dates: "September", city: "Barcelona" },
+            { name: "Semana Santa", dates: "Easter week", city: "Andalusia" },
+          ],
+          tier1Anchors: [
+            { city: "Barcelona", items: ["Sagrada Família — 4.7M", "Park Güell — 2M", "Casa Batlló — 1.2M", "L'Aquàrium — 1.6M", "Camp Nou — 1.2M"] },
+            { city: "Madrid", items: ["Reina Sofía — 3.4M", "Prado — 2.5M", "Royal Palace — 1.5M", "Bernabéu — 1.5M", "Parque Warner — 2.0M"] },
+            { city: "Canary Islands", items: ["Siam Park (#1 WP Europe 10y)", "Loro Parque (#1 zoo TA)", "Teide Cable Car — 1.5M"] },
+            { city: "Andalusia", items: ["Alhambra — 2.7M", "Real Alcázar — 2M", "Mezquita Córdoba — 2M"] },
+            { city: "Valencia", items: ["Oceanogràfic — 2.4M (largest EU aquarium)"] },
+          ],
+          keyInsight: "Sagrada + Alhambra + Prado + Reina Sofía + Royal Palace alone = ~13M annual visitor-ticket demand. BCN + MAD = 60% of Spain volume (60M searches).",
+        },
+      };
+
+      Object.entries(launchPlans).forEach(([name, lp]) => {
+        if (coverageData[name]) coverageData[name].launchPlan = lp;
+      });
+
       const continentByName = {
         "Saudi Arabia": "GCC",
         "United Arab Emirates": "GCC",
@@ -2734,6 +2848,7 @@
         panelScoring: document.getElementById("panel-scoring"),
         panelSignals: document.getElementById("panel-signals"),
         panelEconomics: document.getElementById("panel-economics"),
+        panelLaunch: document.getElementById("panel-launch"),
         panelRisks: document.getElementById("panel-risks"),
         deckRefsBox: document.getElementById("info-deck-refs"),
       };
@@ -3036,6 +3151,153 @@
         `;
       }
 
+      function renderLaunchPanel(data) {
+        if (!info.panelLaunch) return;
+        const cs = data.countrySignals;
+        const lp = data.launchPlan;
+        const tac = data.tac;
+
+        // If no data at all, show a placeholder
+        if (!cs && !lp && !tac) {
+          info.panelLaunch.innerHTML = `
+            <div class="catalyst-card">
+              <h3>Launch inputs</h3>
+              <div class="catalyst-band">Not yet gathered for this market</div>
+              <ul class="catalyst-factors">
+                <li>Wikipedia pageviews, Google Trends seasonality, and inventory-mix classification are gathered via <code>scripts/</code> pipeline.</li>
+                <li>This tab populates automatically once <code>data/country-signals.json</code> includes this market.</li>
+              </ul>
+            </div>`;
+          return;
+        }
+
+        const monthNames = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        let html = "";
+
+        // Section 1: landmarks (Wikipedia)
+        if (cs && cs.landmarks) {
+          const L = cs.landmarks;
+          const rows = L.top5.map(l => {
+            const yoy = l.yoyGrowthPct == null ? "—" : (l.yoyGrowthPct >= 0 ? `+${l.yoyGrowthPct}%` : `${l.yoyGrowthPct}%`);
+            const yoyColor = l.yoyGrowthPct == null ? "#64748b" : (l.yoyGrowthPct >= 0 ? "#10b981" : "#ef4444");
+            return `<li>
+              <span>${l.name}</span>
+              <span>${fmtNumber(l.annualPageviews)} <small style="color:${yoyColor}">${yoy}</small></span>
+            </li>`;
+          }).join("");
+          html += `
+            <div class="catalyst-card" style="margin-bottom:14px;">
+              <h3>Top landmarks · Wikipedia demand proxy</h3>
+              <div class="meta-grid" style="margin-bottom:10px;">
+                <div class="meta"><span>Annual pageviews (top 5)</span><strong>${fmtNumber(L.totalY1)}</strong></div>
+                <div class="meta"><span>YoY growth</span><strong>${L.yoyGrowthPct == null ? "—" : L.yoyGrowthPct+"%"}</strong></div>
+                <div class="meta"><span>Top SKU concentration</span><strong>${L.concentrationRatio == null ? "—" : L.concentrationRatio+"%"}</strong></div>
+                <div class="meta"><span>Anchor</span><strong>${L.topLandmark || "—"}</strong></div>
+              </div>
+              <ul class="landmark-list">${rows}</ul>
+              <p class="catalyst-footnote">Wikipedia Pageviews API · last 12mo vs prior 12mo · all-access all-agents</p>
+            </div>`;
+        }
+
+        // Section 2: seasonality (Trends or Wikipedia)
+        if (cs && cs.seasonality && cs.seasonality.curve) {
+          const s = cs.seasonality;
+          const bars = s.curve.map((v, i) => {
+            const isPeak = (i + 1) === s.peakMonth;
+            return `<div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:4px;">
+              <div style="width:100%;background:${isPeak ? "#10b981" : "rgba(16,185,129,0.25)"};height:${Math.max(v, 2)}px;border-radius:2px 2px 0 0;"></div>
+              <small style="font-size:10px;color:#64748b;">${monthNames[i]}</small>
+            </div>`;
+          }).join("");
+          const sourceLabel = s.source === "trends" ? `Google Trends (query: "${s.query}")` : `Wikipedia pageviews · ${s.query}`;
+          html += `
+            <div class="catalyst-card" style="margin-bottom:14px;">
+              <h3>Seasonality · 5yr normalized (peak=100)</h3>
+              <div style="display:flex;align-items:flex-end;gap:3px;height:110px;padding:8px 0;">${bars}</div>
+              <div class="meta-grid">
+                <div class="meta"><span>Peak month</span><strong>${s.peakMonth ? monthNames[s.peakMonth-1] : "—"}</strong></div>
+                <div class="meta"><span>Trough month</span><strong>${s.troughMonth ? monthNames[s.troughMonth-1] : "—"}</strong></div>
+                <div class="meta"><span>YoY growth</span><strong>${s.yoyGrowthPct == null ? "—" : s.yoyGrowthPct+"%"}</strong></div>
+              </div>
+              <p class="catalyst-footnote">${sourceLabel} · geo=AE (GCC proxy)</p>
+            </div>`;
+        }
+
+        // Section 3: inventory mix (DataForSEO categorization)
+        if (cs && cs.inventoryMix) {
+          const im = cs.inventoryMix;
+          const mixEntries = Object.entries(im.mixPct).filter(([, v]) => v > 0);
+          const maxPct = Math.max(...mixEntries.map(([, v]) => v));
+          const rows = mixEntries.map(([bucket, pct]) => {
+            const label = bucket.replace(/_/g, " ");
+            return `<div class="lens-row">
+              <div class="lens-head">
+                <span style="text-transform:capitalize;">${label}</span>
+                <span>${pct}%</span>
+              </div>
+              <div class="bar"><span style="--width:${(pct/maxPct)*100}%"></span></div>
+            </div>`;
+          }).join("");
+          html += `
+            <div class="catalyst-card" style="margin-bottom:14px;">
+              <h3>Inventory-type demand mix · GCC</h3>
+              <div class="meta-grid" style="margin-bottom:10px;">
+                <div class="meta"><span>Total GCC search volume /mo</span><strong>${fmtNumber(im.totalMonthlyVolumeGCC)}</strong></div>
+                <div class="meta"><span>Dominant bucket</span><strong style="text-transform:capitalize;">${(im.dominantBucket||"").replace(/_/g," ")}</strong></div>
+              </div>
+              <div class="lens-grid">${rows}</div>
+              <p class="catalyst-footnote">DataForSEO keyword classification · 12-bucket taxonomy · Apr 2026 cut</p>
+            </div>`;
+        }
+
+        // Section 4: Existing TAC deep-dive (Spain only for now)
+        if (tac) {
+          const originRows = tac.topOrigins.slice(0, 6).map(o => `<li><span>${o.country}</span><span>${o.volume}</span></li>`).join("");
+          const cityRows = tac.topCities.slice(0, 6).map(c => `<li><span>${c.city}</span><span>${c.volume}</span></li>`).join("");
+          const catRows = tac.categories.map(c => `<li><span>${c.name}</span><span>${c.volume}</span></li>`).join("");
+          html += `
+            <div class="catalyst-card" style="margin-bottom:14px;">
+              <h3>Google TAC · Full-market context</h3>
+              <div class="meta-grid" style="margin-bottom:10px;">
+                <div class="meta"><span>Annual volume</span><strong>${tac.annualVolume}</strong></div>
+                <div class="meta"><span>Domestic / Intl</span><strong>${tac.domesticShare}% / ${tac.internationalShare}%</strong></div>
+                <div class="meta"><span>Peak</span><strong>${tac.peakSeason}</strong></div>
+                <div class="meta"><span>Shoulder</span><strong>${tac.shoulderSeason}</strong></div>
+              </div>
+              <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;">
+                <div><h4 style="font-size:11px;text-transform:uppercase;color:#64748b;margin:0 0 6px;">Top origins</h4><ul class="landmark-list">${originRows}</ul></div>
+                <div><h4 style="font-size:11px;text-transform:uppercase;color:#64748b;margin:0 0 6px;">Top cities</h4><ul class="landmark-list">${cityRows}</ul></div>
+                <div><h4 style="font-size:11px;text-transform:uppercase;color:#64748b;margin:0 0 6px;">Categories</h4><ul class="landmark-list">${catRows}</ul></div>
+              </div>
+              <p class="catalyst-footnote">${tac.source}</p>
+            </div>`;
+        }
+
+        // Section 5: Launch plan (Spain-specific for now — cities, bundles, whitespace, festivals)
+        if (lp) {
+          const cityOrder = (lp.launchCitiesOrder || []).map(c => `<li>${c}</li>`).join("");
+          const bundles = (lp.bundles || []).map(b => `<li><span><strong>${b.name}</strong> · ${b.sku}</span><small>${b.city} · ${b.target}</small></li>`).join("");
+          const whitespace = (lp.whitespace || []).map(w => `<li><span><strong>${w.play}</strong></span><small>${w.detail}</small></li>`).join("");
+          const festivals = (lp.festivals || []).map(f => `<li><span>${f.name}</span><span>${f.dates} · ${f.city}</span></li>`).join("");
+          html += `
+            <div class="catalyst-card" style="margin-bottom:14px;">
+              <h3>Launch plan · city sequencing + packaging</h3>
+              ${lp.keyInsight ? `<p style="margin:0 0 10px;font-style:italic;color:#475569;">${lp.keyInsight}</p>` : ""}
+              <h4 style="font-size:11px;text-transform:uppercase;color:#64748b;margin:10px 0 6px;">Launch order</h4>
+              <ol style="margin:0 0 10px 18px;font-size:13px;">${cityOrder}</ol>
+              ${bundles ? `<h4 style="font-size:11px;text-transform:uppercase;color:#64748b;margin:10px 0 6px;">Bundles</h4><ul class="landmark-list" style="flex-direction:column;">${bundles}</ul>` : ""}
+              ${whitespace ? `<h4 style="font-size:11px;text-transform:uppercase;color:#64748b;margin:10px 0 6px;">Whitespace</h4><ul class="landmark-list" style="flex-direction:column;">${whitespace}</ul>` : ""}
+              ${festivals ? `<h4 style="font-size:11px;text-transform:uppercase;color:#64748b;margin:10px 0 6px;">Festivals</h4><ul class="landmark-list">${festivals}</ul>` : ""}
+            </div>`;
+        }
+
+        info.panelLaunch.innerHTML = html || `
+          <div class="catalyst-card">
+            <h3>Launch inputs</h3>
+            <div class="catalyst-band">Minimal data available for this market</div>
+          </div>`;
+      }
+
       function renderRisksPanel(data) {
         const s = data.scoring;
         const pairs = [
@@ -3125,6 +3387,7 @@
         renderScoringPanel(data);
         renderSignalsPanel(data);
         renderEconomicsPanel(data);
+        renderLaunchPanel(data);
         renderRisksPanel(data);
         renderDeckRefs(data);
         activateTab("overview");
@@ -3843,9 +4106,39 @@
         }
       });
 
+      // Load gathered signals (Wikipedia + Google Trends + DataForSEO inventory mix).
+      // Non-blocking: map renders immediately; signals attach when fetch resolves.
+      function attachCountrySignals(payload) {
+        if (!payload || !payload.data) return;
+        Object.entries(payload.data).forEach(([name, entry]) => {
+          const aliases = {
+            "United Kingdom": ["UK"],
+            "Czech Republic": ["Czech"],
+          };
+          const candidates = [name, ...(aliases[name] || [])];
+          for (const c of candidates) {
+            if (coverageData[c]) {
+              coverageData[c].countrySignals = entry;
+              break;
+            }
+          }
+        });
+      }
+
       {
         countries = window.WORLD_GEOJSON.features;
         renderCountries();
+
+        fetch("data/country-signals.json", { cache: "no-store" })
+          .then(r => r.ok ? r.json() : null)
+          .then(payload => {
+            attachCountrySignals(payload);
+            // Re-render currently-open info card if it's open and is a country
+            if (isFocused && activeKey && coverageData[activeKey]) {
+              updateInfo(coverageData[activeKey], statusLabel(coverageData[activeKey]));
+            }
+          })
+          .catch(err => console.warn("country-signals.json not loaded:", err));
       }
     </script>
   </body>

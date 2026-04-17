@@ -1,0 +1,3153 @@
+{
+  "_source": "Wikipedia Pageviews API",
+  "_window": [
+    "20230301",
+    "20260331"
+  ],
+  "data": {
+    "Italy": {
+      "landmarks": [
+        {
+          "article": "Colosseum",
+          "displayName": "Colosseum",
+          "annualPageviews": 1797901,
+          "priorYearPageviews": 2367182,
+          "yoyGrowthPct": -24.0,
+          "seasonalityCurve": [
+            90.1,
+            74.9,
+            90.3,
+            97.4,
+            100.0,
+            93.6,
+            96.8,
+            88.2,
+            89.1,
+            88.5,
+            94.2,
+            81.0
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Pompeii",
+          "displayName": "Pompeii",
+          "annualPageviews": 1291471,
+          "priorYearPageviews": 1815972,
+          "yoyGrowthPct": -28.9,
+          "seasonalityCurve": [
+            91.8,
+            84.7,
+            95.3,
+            100.0,
+            94.9,
+            98.4,
+            93.4,
+            95.8,
+            89.5,
+            99.3,
+            88.9,
+            71.4
+          ],
+          "peakMonth": 4,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Leaning_Tower_of_Pisa",
+          "displayName": "Leaning Tower of Pisa",
+          "annualPageviews": 858644,
+          "priorYearPageviews": 1181273,
+          "yoyGrowthPct": -27.3,
+          "seasonalityCurve": [
+            69.0,
+            66.3,
+            95.1,
+            99.0,
+            95.6,
+            91.1,
+            82.7,
+            94.6,
+            86.3,
+            87.0,
+            77.9,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Uffizi",
+          "displayName": "Uffizi",
+          "annualPageviews": 270969,
+          "priorYearPageviews": 237442,
+          "yoyGrowthPct": 14.1,
+          "seasonalityCurve": [
+            76.1,
+            63.1,
+            78.3,
+            87.5,
+            93.1,
+            100.0,
+            76.4,
+            73.6,
+            78.6,
+            75.7,
+            71.8,
+            71.6
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Vatican_Museums",
+          "displayName": "Vatican Museums",
+          "annualPageviews": 185187,
+          "priorYearPageviews": 193406,
+          "yoyGrowthPct": -4.2,
+          "seasonalityCurve": [
+            83.3,
+            73.9,
+            84.8,
+            100.0,
+            97.9,
+            73.5,
+            69.3,
+            71.8,
+            76.0,
+            77.4,
+            76.2,
+            70.5
+          ],
+          "peakMonth": 4,
+          "troughMonth": 7,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 4404172,
+        "totalLandmarkPageviewsY0": 5795275,
+        "landmarkYoYGrowthPct": -24.0,
+        "topLandmark": "Colosseum",
+        "concentrationRatio": 40.8
+      }
+    },
+    "Spain": {
+      "landmarks": [
+        {
+          "article": "Sagrada_Fam\u00edlia",
+          "displayName": "Sagrada Fam\u00edlia",
+          "annualPageviews": 2220743,
+          "priorYearPageviews": 2043945,
+          "yoyGrowthPct": 8.6,
+          "seasonalityCurve": [
+            75.0,
+            82.8,
+            94.7,
+            100.0,
+            91.2,
+            86.6,
+            83.0,
+            82.3,
+            89.8,
+            94.0,
+            77.5,
+            73.2
+          ],
+          "peakMonth": 4,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Alhambra",
+          "displayName": "Alhambra",
+          "annualPageviews": 789457,
+          "priorYearPageviews": 1143354,
+          "yoyGrowthPct": -31.0,
+          "seasonalityCurve": [
+            75.9,
+            61.3,
+            77.1,
+            93.0,
+            100.0,
+            91.8,
+            90.8,
+            69.7,
+            74.9,
+            78.9,
+            68.9,
+            66.0
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Park_G\u00fcell",
+          "displayName": "Park G\u00fcell",
+          "annualPageviews": 213536,
+          "priorYearPageviews": 240537,
+          "yoyGrowthPct": -11.2,
+          "seasonalityCurve": [
+            70.7,
+            63.9,
+            82.4,
+            100.0,
+            91.2,
+            87.1,
+            82.9,
+            76.7,
+            84.0,
+            82.7,
+            66.5,
+            55.4
+          ],
+          "peakMonth": 4,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Prado_Museum",
+          "displayName": "Prado Museum",
+          "annualPageviews": 10108,
+          "priorYearPageviews": 10400,
+          "yoyGrowthPct": -2.8,
+          "seasonalityCurve": [
+            95.0,
+            89.6,
+            98.3,
+            100.0,
+            98.9,
+            92.1,
+            85.5,
+            94.4,
+            94.1,
+            90.8,
+            89.3,
+            95.7
+          ],
+          "peakMonth": 4,
+          "troughMonth": 7,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "La_Rambla",
+          "displayName": "La Rambla",
+          "annualPageviews": 2570,
+          "priorYearPageviews": 3127,
+          "yoyGrowthPct": -17.8,
+          "seasonalityCurve": [
+            72.0,
+            64.3,
+            78.4,
+            100.0,
+            73.1,
+            75.0,
+            84.4,
+            57.1,
+            61.6,
+            56.5,
+            54.8,
+            59.2
+          ],
+          "peakMonth": 4,
+          "troughMonth": 11,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 3236414,
+        "totalLandmarkPageviewsY0": 3441363,
+        "landmarkYoYGrowthPct": -6.0,
+        "topLandmark": "Sagrada Fam\u00edlia",
+        "concentrationRatio": 68.6
+      }
+    },
+    "Greece": {
+      "landmarks": [
+        {
+          "article": "Parthenon",
+          "displayName": "Parthenon",
+          "annualPageviews": 876944,
+          "priorYearPageviews": 1017041,
+          "yoyGrowthPct": -13.8,
+          "seasonalityCurve": [
+            83.3,
+            70.4,
+            85.5,
+            90.0,
+            100.0,
+            96.9,
+            86.2,
+            83.1,
+            98.7,
+            97.5,
+            81.8,
+            71.3
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Acropolis_of_Athens",
+          "displayName": "Acropolis of Athens",
+          "annualPageviews": 682407,
+          "priorYearPageviews": 859740,
+          "yoyGrowthPct": -20.6,
+          "seasonalityCurve": [
+            60.8,
+            54.1,
+            66.1,
+            78.6,
+            98.4,
+            100.0,
+            94.4,
+            79.9,
+            86.3,
+            79.6,
+            62.2,
+            51.7
+          ],
+          "peakMonth": 6,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Santorini",
+          "displayName": "Santorini",
+          "annualPageviews": 632590,
+          "priorYearPageviews": 875132,
+          "yoyGrowthPct": -27.7,
+          "seasonalityCurve": [
+            61.8,
+            100.0,
+            66.8,
+            79.3,
+            91.9,
+            92.9,
+            93.1,
+            88.8,
+            77.7,
+            66.4,
+            44.9,
+            56.3
+          ],
+          "peakMonth": 2,
+          "troughMonth": 11,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Delphi",
+          "displayName": "Delphi",
+          "annualPageviews": 421690,
+          "priorYearPageviews": 439504,
+          "yoyGrowthPct": -4.1,
+          "seasonalityCurve": [
+            94.8,
+            80.1,
+            92.1,
+            93.0,
+            90.6,
+            85.5,
+            82.6,
+            86.1,
+            100.0,
+            97.5,
+            90.1,
+            83.1
+          ],
+          "peakMonth": 9,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Meteora",
+          "displayName": "Meteora",
+          "annualPageviews": 298056,
+          "priorYearPageviews": 363837,
+          "yoyGrowthPct": -18.1,
+          "seasonalityCurve": [
+            60.9,
+            47.5,
+            60.2,
+            100.0,
+            84.8,
+            67.3,
+            68.1,
+            63.6,
+            66.6,
+            63.0,
+            50.8,
+            49.2
+          ],
+          "peakMonth": 4,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 2911687,
+        "totalLandmarkPageviewsY0": 3555254,
+        "landmarkYoYGrowthPct": -18.1,
+        "topLandmark": "Parthenon",
+        "concentrationRatio": 30.1
+      }
+    },
+    "Portugal": {
+      "landmarks": [
+        {
+          "article": "Bel\u00e9m_Tower",
+          "displayName": "Bel\u00e9m Tower",
+          "annualPageviews": 180545,
+          "priorYearPageviews": 239464,
+          "yoyGrowthPct": -24.6,
+          "seasonalityCurve": [
+            68.2,
+            68.1,
+            92.4,
+            96.3,
+            100.0,
+            85.7,
+            79.9,
+            78.1,
+            87.4,
+            89.2,
+            73.6,
+            60.4
+          ],
+          "peakMonth": 5,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Quinta_da_Regaleira",
+          "displayName": "Quinta da Regaleira",
+          "annualPageviews": 169486,
+          "priorYearPageviews": 190701,
+          "yoyGrowthPct": -11.1,
+          "seasonalityCurve": [
+            55.1,
+            52.7,
+            76.9,
+            83.6,
+            100.0,
+            92.2,
+            95.1,
+            80.3,
+            85.7,
+            86.8,
+            62.0,
+            52.6
+          ],
+          "peakMonth": 5,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Jer\u00f3nimos_Monastery",
+          "displayName": "Jer\u00f3nimos Monastery",
+          "annualPageviews": 157521,
+          "priorYearPageviews": 182506,
+          "yoyGrowthPct": -13.7,
+          "seasonalityCurve": [
+            69.6,
+            66.6,
+            90.6,
+            98.4,
+            100.0,
+            87.7,
+            86.2,
+            83.5,
+            91.3,
+            90.0,
+            72.5,
+            62.9
+          ],
+          "peakMonth": 5,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Pena_Palace",
+          "displayName": "Pena Palace",
+          "annualPageviews": 141990,
+          "priorYearPageviews": 154831,
+          "yoyGrowthPct": -8.3,
+          "seasonalityCurve": [
+            64.9,
+            55.9,
+            79.7,
+            92.9,
+            100.0,
+            94.4,
+            90.6,
+            78.6,
+            86.3,
+            89.0,
+            71.1,
+            61.4
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Ocean\u00e1rio_de_Lisboa",
+          "displayName": "Ocean\u00e1rio de Lisboa",
+          "annualPageviews": 2,
+          "priorYearPageviews": 0,
+          "yoyGrowthPct": null,
+          "seasonalityCurve": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            100.0,
+            100.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "peakMonth": 7,
+          "troughMonth": 7,
+          "monthsAvailable": 2
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 649544,
+        "totalLandmarkPageviewsY0": 767502,
+        "landmarkYoYGrowthPct": -15.4,
+        "topLandmark": "Bel\u00e9m Tower",
+        "concentrationRatio": 27.8
+      }
+    },
+    "Austria": {
+      "landmarks": [
+        {
+          "article": "Hallstatt",
+          "displayName": "Hallstatt",
+          "annualPageviews": 319867,
+          "priorYearPageviews": 239515,
+          "yoyGrowthPct": 33.5,
+          "seasonalityCurve": [
+            71.7,
+            50.9,
+            61.2,
+            65.7,
+            77.4,
+            100.0,
+            85.1,
+            84.5,
+            70.1,
+            65.9,
+            56.7,
+            84.6
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Sch\u00f6nbrunn_Palace",
+          "displayName": "Sch\u00f6nbrunn Palace",
+          "annualPageviews": 297913,
+          "priorYearPageviews": 337651,
+          "yoyGrowthPct": -11.8,
+          "seasonalityCurve": [
+            80.7,
+            63.2,
+            77.3,
+            90.2,
+            91.6,
+            85.3,
+            87.5,
+            93.5,
+            84.1,
+            84.3,
+            87.1,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Hofburg",
+          "displayName": "Hofburg",
+          "annualPageviews": 228422,
+          "priorYearPageviews": 218066,
+          "yoyGrowthPct": 4.7,
+          "seasonalityCurve": [
+            90.8,
+            63.5,
+            72.8,
+            83.4,
+            87.0,
+            79.9,
+            80.4,
+            82.3,
+            76.4,
+            74.1,
+            88.2,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Belvedere,_Vienna",
+          "displayName": "Belvedere, Vienna",
+          "annualPageviews": 168693,
+          "priorYearPageviews": 165972,
+          "yoyGrowthPct": 1.6,
+          "seasonalityCurve": [
+            75.9,
+            81.4,
+            83.3,
+            96.6,
+            96.0,
+            89.3,
+            88.5,
+            100.0,
+            84.0,
+            80.0,
+            77.6,
+            93.0
+          ],
+          "peakMonth": 8,
+          "troughMonth": 1,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Salzburg_Cathedral",
+          "displayName": "Salzburg Cathedral",
+          "annualPageviews": 48698,
+          "priorYearPageviews": 40702,
+          "yoyGrowthPct": 19.6,
+          "seasonalityCurve": [
+            54.2,
+            51.2,
+            48.8,
+            85.6,
+            100.0,
+            87.9,
+            62.4,
+            59.0,
+            67.1,
+            57.5,
+            49.6,
+            69.9
+          ],
+          "peakMonth": 5,
+          "troughMonth": 3,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 1063593,
+        "totalLandmarkPageviewsY0": 1001906,
+        "landmarkYoYGrowthPct": 6.2,
+        "topLandmark": "Hallstatt",
+        "concentrationRatio": 30.1
+      }
+    },
+    "Germany": {
+      "landmarks": [
+        {
+          "article": "Cologne_Cathedral",
+          "displayName": "Cologne Cathedral",
+          "annualPageviews": 1177075,
+          "priorYearPageviews": 1477768,
+          "yoyGrowthPct": -20.3,
+          "seasonalityCurve": [
+            69.9,
+            61.5,
+            67.2,
+            77.8,
+            68.7,
+            60.3,
+            60.5,
+            65.8,
+            83.1,
+            100.0,
+            85.8,
+            83.2
+          ],
+          "peakMonth": 10,
+          "troughMonth": 6,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Berlin_Wall",
+          "displayName": "Berlin Wall",
+          "annualPageviews": 1122327,
+          "priorYearPageviews": 1528183,
+          "yoyGrowthPct": -26.6,
+          "seasonalityCurve": [
+            83.6,
+            74.8,
+            93.1,
+            100.0,
+            98.7,
+            87.7,
+            82.9,
+            86.5,
+            82.6,
+            82.1,
+            90.3,
+            77.7
+          ],
+          "peakMonth": 4,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Neuschwanstein_Castle",
+          "displayName": "Neuschwanstein Castle",
+          "annualPageviews": 980834,
+          "priorYearPageviews": 894618,
+          "yoyGrowthPct": 9.6,
+          "seasonalityCurve": [
+            94.2,
+            79.5,
+            89.9,
+            80.3,
+            85.1,
+            96.9,
+            91.9,
+            87.6,
+            87.4,
+            84.4,
+            79.1,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 11,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Brandenburg_Gate",
+          "displayName": "Brandenburg Gate",
+          "annualPageviews": 485518,
+          "priorYearPageviews": 652697,
+          "yoyGrowthPct": -25.6,
+          "seasonalityCurve": [
+            67.9,
+            52.1,
+            59.6,
+            64.2,
+            64.6,
+            100.0,
+            69.5,
+            58.8,
+            67.0,
+            69.3,
+            52.4,
+            56.5
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Reichstag_building",
+          "displayName": "Reichstag building",
+          "annualPageviews": 424405,
+          "priorYearPageviews": 463316,
+          "yoyGrowthPct": -8.4,
+          "seasonalityCurve": [
+            81.0,
+            80.8,
+            84.5,
+            88.3,
+            97.9,
+            100.0,
+            81.9,
+            76.5,
+            82.0,
+            81.3,
+            77.0,
+            74.9
+          ],
+          "peakMonth": 6,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 4190159,
+        "totalLandmarkPageviewsY0": 5016582,
+        "landmarkYoYGrowthPct": -16.5,
+        "topLandmark": "Cologne Cathedral",
+        "concentrationRatio": 28.1
+      }
+    },
+    "Netherlands": {
+      "landmarks": [
+        {
+          "article": "Rijksmuseum",
+          "displayName": "Rijksmuseum",
+          "annualPageviews": 221449,
+          "priorYearPageviews": 197796,
+          "yoyGrowthPct": 12.0,
+          "seasonalityCurve": [
+            69.4,
+            61.2,
+            75.1,
+            85.3,
+            76.2,
+            100.0,
+            71.0,
+            68.2,
+            65.9,
+            67.1,
+            59.3,
+            57.4
+          ],
+          "peakMonth": 6,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Anne_Frank_House",
+          "displayName": "Anne Frank House",
+          "annualPageviews": 182655,
+          "priorYearPageviews": 226767,
+          "yoyGrowthPct": -19.5,
+          "seasonalityCurve": [
+            83.5,
+            64.5,
+            69.1,
+            75.6,
+            100.0,
+            72.5,
+            65.8,
+            62.6,
+            58.1,
+            55.8,
+            56.2,
+            56.3
+          ],
+          "peakMonth": 5,
+          "troughMonth": 10,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Van_Gogh_Museum",
+          "displayName": "Van Gogh Museum",
+          "annualPageviews": 147747,
+          "priorYearPageviews": 139004,
+          "yoyGrowthPct": 6.3,
+          "seasonalityCurve": [
+            67.1,
+            56.9,
+            65.6,
+            77.6,
+            69.9,
+            100.0,
+            63.1,
+            63.2,
+            72.0,
+            70.0,
+            62.0,
+            54.6
+          ],
+          "peakMonth": 6,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Keukenhof",
+          "displayName": "Keukenhof",
+          "annualPageviews": 108874,
+          "priorYearPageviews": 115926,
+          "yoyGrowthPct": -6.1,
+          "seasonalityCurve": [
+            26.5,
+            23.1,
+            46.1,
+            100.0,
+            45.2,
+            18.3,
+            14.1,
+            13.6,
+            12.9,
+            13.4,
+            13.9,
+            14.3
+          ],
+          "peakMonth": 4,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Zaanse_Schans",
+          "displayName": "Zaanse Schans",
+          "annualPageviews": 78768,
+          "priorYearPageviews": 81081,
+          "yoyGrowthPct": -2.9,
+          "seasonalityCurve": [
+            49.4,
+            44.3,
+            63.9,
+            100.0,
+            82.0,
+            77.6,
+            75.3,
+            74.0,
+            64.2,
+            59.9,
+            45.2,
+            42.6
+          ],
+          "peakMonth": 4,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 739493,
+        "totalLandmarkPageviewsY0": 760574,
+        "landmarkYoYGrowthPct": -2.8,
+        "topLandmark": "Rijksmuseum",
+        "concentrationRatio": 29.9
+      }
+    },
+    "Ireland": {
+      "landmarks": [
+        {
+          "article": "Trinity_College_Dublin",
+          "displayName": "Trinity College Dublin",
+          "annualPageviews": 375831,
+          "priorYearPageviews": 409865,
+          "yoyGrowthPct": -8.3,
+          "seasonalityCurve": [
+            100.0,
+            80.9,
+            92.4,
+            95.1,
+            86.6,
+            79.6,
+            80.5,
+            88.7,
+            98.3,
+            80.4,
+            81.2,
+            74.0
+          ],
+          "peakMonth": 1,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Cliffs_of_Moher",
+          "displayName": "Cliffs of Moher",
+          "annualPageviews": 266383,
+          "priorYearPageviews": 329563,
+          "yoyGrowthPct": -19.2,
+          "seasonalityCurve": [
+            65.9,
+            54.3,
+            100.0,
+            83.6,
+            92.9,
+            89.1,
+            89.6,
+            88.8,
+            80.5,
+            68.5,
+            53.7,
+            50.8
+          ],
+          "peakMonth": 3,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Guinness_Storehouse",
+          "displayName": "Guinness Storehouse",
+          "annualPageviews": 93509,
+          "priorYearPageviews": 44674,
+          "yoyGrowthPct": 109.3,
+          "seasonalityCurve": [
+            42.5,
+            34.4,
+            46.1,
+            40.9,
+            41.0,
+            38.3,
+            35.8,
+            37.1,
+            82.2,
+            100.0,
+            44.7,
+            37.7
+          ],
+          "peakMonth": 10,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Blarney_Castle",
+          "displayName": "Blarney Castle",
+          "annualPageviews": 82815,
+          "priorYearPageviews": 78832,
+          "yoyGrowthPct": 5.1,
+          "seasonalityCurve": [
+            65.3,
+            60.8,
+            86.8,
+            74.4,
+            85.1,
+            100.0,
+            80.6,
+            81.2,
+            77.2,
+            65.1,
+            56.9,
+            49.9
+          ],
+          "peakMonth": 6,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Ring_of_Kerry",
+          "displayName": "Ring of Kerry",
+          "annualPageviews": 62474,
+          "priorYearPageviews": 59731,
+          "yoyGrowthPct": 4.6,
+          "seasonalityCurve": [
+            54.5,
+            48.6,
+            71.5,
+            76.0,
+            95.0,
+            91.1,
+            100.0,
+            98.3,
+            85.6,
+            62.0,
+            40.8,
+            38.1
+          ],
+          "peakMonth": 7,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 881012,
+        "totalLandmarkPageviewsY0": 922665,
+        "landmarkYoYGrowthPct": -4.5,
+        "topLandmark": "Trinity College Dublin",
+        "concentrationRatio": 42.7
+      }
+    },
+    "France": {
+      "landmarks": [
+        {
+          "article": "Eiffel_Tower",
+          "displayName": "Eiffel Tower",
+          "annualPageviews": 2354909,
+          "priorYearPageviews": 2363069,
+          "yoyGrowthPct": -0.3,
+          "seasonalityCurve": [
+            85.4,
+            70.3,
+            100.0,
+            84.7,
+            80.2,
+            88.9,
+            88.5,
+            89.3,
+            74.6,
+            78.6,
+            73.5,
+            73.6
+          ],
+          "peakMonth": 3,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Louvre",
+          "displayName": "Louvre",
+          "annualPageviews": 1153113,
+          "priorYearPageviews": 964704,
+          "yoyGrowthPct": 19.5,
+          "seasonalityCurve": [
+            69.4,
+            56.3,
+            63.4,
+            67.8,
+            65.2,
+            80.2,
+            60.4,
+            64.7,
+            57.2,
+            100.0,
+            67.0,
+            57.3
+          ],
+          "peakMonth": 10,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Notre-Dame_de_Paris",
+          "displayName": "Notre-Dame de Paris",
+          "annualPageviews": 1096982,
+          "priorYearPageviews": 1642970,
+          "yoyGrowthPct": -33.2,
+          "seasonalityCurve": [
+            47.4,
+            37.7,
+            45.5,
+            61.1,
+            48.7,
+            52.1,
+            48.0,
+            43.6,
+            42.5,
+            42.4,
+            49.5,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Mont-Saint-Michel",
+          "displayName": "Mont-Saint-Michel",
+          "annualPageviews": 985789,
+          "priorYearPageviews": 1085530,
+          "yoyGrowthPct": -9.2,
+          "seasonalityCurve": [
+            66.9,
+            57.9,
+            76.4,
+            80.2,
+            89.2,
+            100.0,
+            93.9,
+            82.9,
+            74.6,
+            75.4,
+            64.6,
+            56.9
+          ],
+          "peakMonth": 6,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Palace_of_Versailles",
+          "displayName": "Palace of Versailles",
+          "annualPageviews": 870047,
+          "priorYearPageviews": 990452,
+          "yoyGrowthPct": -12.2,
+          "seasonalityCurve": [
+            85.2,
+            71.0,
+            88.1,
+            90.1,
+            91.9,
+            88.0,
+            96.4,
+            100.0,
+            82.8,
+            85.3,
+            75.0,
+            72.9
+          ],
+          "peakMonth": 8,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 6460840,
+        "totalLandmarkPageviewsY0": 7046725,
+        "landmarkYoYGrowthPct": -8.3,
+        "topLandmark": "Eiffel Tower",
+        "concentrationRatio": 36.4
+      }
+    },
+    "United Kingdom": {
+      "landmarks": [
+        {
+          "article": "Stonehenge",
+          "displayName": "Stonehenge",
+          "annualPageviews": 1434576,
+          "priorYearPageviews": 1851839,
+          "yoyGrowthPct": -22.5,
+          "seasonalityCurve": [
+            72.4,
+            57.9,
+            74.5,
+            70.2,
+            68.3,
+            100.0,
+            76.9,
+            82.0,
+            70.6,
+            67.1,
+            64.2,
+            73.0
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "British_Museum",
+          "displayName": "British Museum",
+          "annualPageviews": 1048806,
+          "priorYearPageviews": 588550,
+          "yoyGrowthPct": 78.2,
+          "seasonalityCurve": [
+            32.9,
+            30.6,
+            31.7,
+            30.3,
+            33.1,
+            100.0,
+            26.2,
+            28.8,
+            28.1,
+            32.0,
+            28.3,
+            25.2
+          ],
+          "peakMonth": 6,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Buckingham_Palace",
+          "displayName": "Buckingham Palace",
+          "annualPageviews": 943376,
+          "priorYearPageviews": 920054,
+          "yoyGrowthPct": 2.5,
+          "seasonalityCurve": [
+            56.0,
+            50.2,
+            58.2,
+            55.2,
+            100.0,
+            60.1,
+            53.2,
+            49.5,
+            54.4,
+            52.2,
+            52.9,
+            50.2
+          ],
+          "peakMonth": 5,
+          "troughMonth": 8,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Tower_of_London",
+          "displayName": "Tower of London",
+          "annualPageviews": 847333,
+          "priorYearPageviews": 876764,
+          "yoyGrowthPct": -3.4,
+          "seasonalityCurve": [
+            87.9,
+            78.9,
+            89.3,
+            92.3,
+            100.0,
+            91.5,
+            83.7,
+            84.5,
+            85.8,
+            85.2,
+            86.5,
+            82.6
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Edinburgh_Castle",
+          "displayName": "Edinburgh Castle",
+          "annualPageviews": 361733,
+          "priorYearPageviews": 320039,
+          "yoyGrowthPct": 13.0,
+          "seasonalityCurve": [
+            86.2,
+            69.6,
+            80.5,
+            84.8,
+            87.7,
+            100.0,
+            84.8,
+            89.3,
+            81.6,
+            84.1,
+            74.9,
+            75.0
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 4635824,
+        "totalLandmarkPageviewsY0": 4557246,
+        "landmarkYoYGrowthPct": 1.7,
+        "topLandmark": "Stonehenge",
+        "concentrationRatio": 30.9
+      }
+    },
+    "Switzerland": {
+      "landmarks": [
+        {
+          "article": "Matterhorn",
+          "displayName": "Matterhorn",
+          "annualPageviews": 702335,
+          "priorYearPageviews": 616229,
+          "yoyGrowthPct": 14.0,
+          "seasonalityCurve": [
+            100.0,
+            79.2,
+            75.5,
+            65.9,
+            67.1,
+            70.9,
+            91.0,
+            94.4,
+            76.2,
+            73.1,
+            66.3,
+            83.1
+          ],
+          "peakMonth": 1,
+          "troughMonth": 4,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Lake_Geneva",
+          "displayName": "Lake Geneva",
+          "annualPageviews": 207446,
+          "priorYearPageviews": 209484,
+          "yoyGrowthPct": -1.0,
+          "seasonalityCurve": [
+            74.8,
+            73.3,
+            73.9,
+            79.8,
+            85.2,
+            100.0,
+            95.3,
+            89.1,
+            97.2,
+            66.7,
+            59.7,
+            73.5
+          ],
+          "peakMonth": 6,
+          "troughMonth": 11,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Jungfraujoch",
+          "displayName": "Jungfraujoch",
+          "annualPageviews": 105387,
+          "priorYearPageviews": 126856,
+          "yoyGrowthPct": -16.9,
+          "seasonalityCurve": [
+            70.6,
+            55.0,
+            60.4,
+            79.4,
+            95.7,
+            100.0,
+            99.9,
+            94.5,
+            86.1,
+            70.9,
+            59.1,
+            67.8
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Ch\u00e2teau_de_Chillon",
+          "displayName": "Ch\u00e2teau de Chillon",
+          "annualPageviews": 5081,
+          "priorYearPageviews": 5910,
+          "yoyGrowthPct": -14.0,
+          "seasonalityCurve": [
+            100.0,
+            78.6,
+            83.1,
+            85.1,
+            86.8,
+            81.2,
+            87.8,
+            88.1,
+            82.1,
+            81.5,
+            73.8,
+            79.2
+          ],
+          "peakMonth": 1,
+          "troughMonth": 11,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Chapel_Bridge",
+          "displayName": "Chapel Bridge",
+          "annualPageviews": 3017,
+          "priorYearPageviews": 2795,
+          "yoyGrowthPct": 7.9,
+          "seasonalityCurve": [
+            87.4,
+            62.2,
+            89.7,
+            85.9,
+            98.4,
+            92.7,
+            100.0,
+            99.0,
+            84.4,
+            83.4,
+            70.5,
+            75.1
+          ],
+          "peakMonth": 7,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 1023266,
+        "totalLandmarkPageviewsY0": 961274,
+        "landmarkYoYGrowthPct": 6.4,
+        "topLandmark": "Matterhorn",
+        "concentrationRatio": 68.6
+      }
+    },
+    "Czech Republic": {
+      "landmarks": [
+        {
+          "article": "Prague_Castle",
+          "displayName": "Prague Castle",
+          "annualPageviews": 275968,
+          "priorYearPageviews": 266334,
+          "yoyGrowthPct": 3.6,
+          "seasonalityCurve": [
+            88.5,
+            77.8,
+            89.3,
+            93.1,
+            94.2,
+            88.2,
+            98.0,
+            96.3,
+            96.8,
+            96.5,
+            86.3,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Charles_Bridge",
+          "displayName": "Charles Bridge",
+          "annualPageviews": 197742,
+          "priorYearPageviews": 197527,
+          "yoyGrowthPct": 0.1,
+          "seasonalityCurve": [
+            69.9,
+            62.8,
+            75.0,
+            84.9,
+            84.7,
+            100.0,
+            85.3,
+            78.6,
+            81.5,
+            85.5,
+            71.8,
+            88.9
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "\u010cesk\u00fd_Krumlov",
+          "displayName": "\u010cesk\u00fd Krumlov",
+          "annualPageviews": 130727,
+          "priorYearPageviews": 122099,
+          "yoyGrowthPct": 7.1,
+          "seasonalityCurve": [
+            86.8,
+            71.9,
+            82.6,
+            91.0,
+            95.9,
+            95.1,
+            96.8,
+            100.0,
+            91.2,
+            87.0,
+            72.5,
+            82.3
+          ],
+          "peakMonth": 8,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Old_Town_Square",
+          "displayName": "Old Town Square",
+          "annualPageviews": 65443,
+          "priorYearPageviews": 59875,
+          "yoyGrowthPct": 9.3,
+          "seasonalityCurve": [
+            57.8,
+            52.8,
+            58.5,
+            68.7,
+            67.7,
+            100.0,
+            63.3,
+            68.7,
+            65.6,
+            67.3,
+            59.6,
+            64.2
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Astronomical_Clock",
+          "displayName": "Astronomical Clock",
+          "annualPageviews": 747,
+          "priorYearPageviews": 711,
+          "yoyGrowthPct": 5.1,
+          "seasonalityCurve": [
+            71.7,
+            86.8,
+            100.0,
+            60.7,
+            89.5,
+            67.1,
+            76.7,
+            72.6,
+            68.0,
+            74.9,
+            72.6,
+            77.6
+          ],
+          "peakMonth": 3,
+          "troughMonth": 4,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 670627,
+        "totalLandmarkPageviewsY0": 646546,
+        "landmarkYoYGrowthPct": 3.7,
+        "topLandmark": "Prague Castle",
+        "concentrationRatio": 41.2
+      }
+    },
+    "Poland": {
+      "landmarks": [
+        {
+          "article": "Auschwitz_concentration_camp",
+          "displayName": "Auschwitz concentration camp",
+          "annualPageviews": 1962810,
+          "priorYearPageviews": 2601176,
+          "yoyGrowthPct": -24.5,
+          "seasonalityCurve": [
+            100.0,
+            66.6,
+            64.4,
+            74.0,
+            81.6,
+            55.5,
+            62.6,
+            53.6,
+            50.7,
+            56.7,
+            53.5,
+            53.0
+          ],
+          "peakMonth": 1,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Wieliczka_Salt_Mine",
+          "displayName": "Wieliczka Salt Mine",
+          "annualPageviews": 214466,
+          "priorYearPageviews": 271189,
+          "yoyGrowthPct": -20.9,
+          "seasonalityCurve": [
+            72.4,
+            54.4,
+            57.4,
+            57.9,
+            100.0,
+            57.2,
+            60.7,
+            60.9,
+            59.2,
+            59.2,
+            54.8,
+            54.8
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Wawel_Castle",
+          "displayName": "Wawel Castle",
+          "annualPageviews": 130231,
+          "priorYearPageviews": 124699,
+          "yoyGrowthPct": 4.4,
+          "seasonalityCurve": [
+            80.4,
+            74.6,
+            86.7,
+            88.7,
+            93.4,
+            100.0,
+            92.1,
+            95.9,
+            87.0,
+            87.5,
+            80.1,
+            80.5
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Main_Square,_Krak\u00f3w",
+          "displayName": "Main Square, Krak\u00f3w",
+          "annualPageviews": 42514,
+          "priorYearPageviews": 43712,
+          "yoyGrowthPct": -2.7,
+          "seasonalityCurve": [
+            98.9,
+            79.8,
+            95.3,
+            99.5,
+            96.5,
+            89.7,
+            91.4,
+            89.5,
+            96.9,
+            100.0,
+            96.9,
+            90.5
+          ],
+          "peakMonth": 10,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Warsaw_Old_Town",
+          "displayName": "Warsaw Old Town",
+          "annualPageviews": 13203,
+          "priorYearPageviews": 14701,
+          "yoyGrowthPct": -10.2,
+          "seasonalityCurve": [
+            71.3,
+            69.4,
+            100.0,
+            84.4,
+            94.9,
+            78.1,
+            82.2,
+            95.0,
+            94.1,
+            77.0,
+            71.3,
+            74.2
+          ],
+          "peakMonth": 3,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 2363224,
+        "totalLandmarkPageviewsY0": 3055477,
+        "landmarkYoYGrowthPct": -22.7,
+        "topLandmark": "Auschwitz concentration camp",
+        "concentrationRatio": 83.1
+      }
+    },
+    "Hungary": {
+      "landmarks": [
+        {
+          "article": "Hungarian_Parliament_Building",
+          "displayName": "Hungarian Parliament Building",
+          "annualPageviews": 208563,
+          "priorYearPageviews": 185247,
+          "yoyGrowthPct": 12.6,
+          "seasonalityCurve": [
+            84.0,
+            78.1,
+            85.9,
+            93.0,
+            94.5,
+            99.2,
+            87.3,
+            90.0,
+            87.5,
+            90.1,
+            100.0,
+            87.8
+          ],
+          "peakMonth": 11,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Buda_Castle",
+          "displayName": "Buda Castle",
+          "annualPageviews": 153455,
+          "priorYearPageviews": 143975,
+          "yoyGrowthPct": 6.6,
+          "seasonalityCurve": [
+            73.4,
+            64.5,
+            79.5,
+            83.7,
+            89.2,
+            100.0,
+            83.4,
+            85.6,
+            77.0,
+            79.3,
+            67.6,
+            73.9
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Fisherman's_Bastion",
+          "displayName": "Fisherman's Bastion",
+          "annualPageviews": 81946,
+          "priorYearPageviews": 89805,
+          "yoyGrowthPct": -8.8,
+          "seasonalityCurve": [
+            86.3,
+            68.0,
+            81.1,
+            100.0,
+            99.8,
+            90.4,
+            98.6,
+            99.4,
+            88.3,
+            92.0,
+            84.0,
+            90.4
+          ],
+          "peakMonth": 4,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Sz\u00e9chenyi_thermal_bath",
+          "displayName": "Sz\u00e9chenyi thermal bath",
+          "annualPageviews": 47258,
+          "priorYearPageviews": 45140,
+          "yoyGrowthPct": 4.7,
+          "seasonalityCurve": [
+            81.1,
+            74.5,
+            88.0,
+            89.9,
+            88.9,
+            83.4,
+            85.4,
+            100.0,
+            93.8,
+            94.4,
+            86.5,
+            88.2
+          ],
+          "peakMonth": 8,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Heroes'_Square,_Budapest",
+          "displayName": "Heroes' Square, Budapest",
+          "annualPageviews": 158,
+          "priorYearPageviews": 50,
+          "yoyGrowthPct": 216.0,
+          "seasonalityCurve": [
+            30.8,
+            43.6,
+            80.8,
+            33.3,
+            25.6,
+            38.5,
+            30.8,
+            46.2,
+            92.3,
+            76.9,
+            61.5,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 5,
+          "monthsAvailable": 34
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 491380,
+        "totalLandmarkPageviewsY0": 464217,
+        "landmarkYoYGrowthPct": 5.9,
+        "topLandmark": "Hungarian Parliament Building",
+        "concentrationRatio": 42.4
+      }
+    },
+    "Turkey": {
+      "landmarks": [
+        {
+          "article": "Hagia_Sophia",
+          "displayName": "Hagia Sophia",
+          "annualPageviews": 1456399,
+          "priorYearPageviews": 1635165,
+          "yoyGrowthPct": -10.9,
+          "seasonalityCurve": [
+            90.0,
+            75.1,
+            93.0,
+            98.6,
+            100.0,
+            86.0,
+            80.7,
+            79.6,
+            89.6,
+            94.7,
+            88.5,
+            87.4
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Cappadocia",
+          "displayName": "Cappadocia",
+          "annualPageviews": 580377,
+          "priorYearPageviews": 709463,
+          "yoyGrowthPct": -18.2,
+          "seasonalityCurve": [
+            86.2,
+            65.1,
+            82.6,
+            100.0,
+            97.9,
+            91.2,
+            86.7,
+            86.8,
+            90.0,
+            91.7,
+            79.8,
+            73.1
+          ],
+          "peakMonth": 4,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Topkap\u0131_Palace",
+          "displayName": "Topkap\u0131 Palace",
+          "annualPageviews": 328459,
+          "priorYearPageviews": 330501,
+          "yoyGrowthPct": -0.6,
+          "seasonalityCurve": [
+            81.7,
+            70.8,
+            87.8,
+            98.7,
+            100.0,
+            85.2,
+            86.9,
+            84.4,
+            86.3,
+            91.9,
+            80.1,
+            77.2
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Pamukkale",
+          "displayName": "Pamukkale",
+          "annualPageviews": 239557,
+          "priorYearPageviews": 288724,
+          "yoyGrowthPct": -17.0,
+          "seasonalityCurve": [
+            80.4,
+            63.5,
+            73.0,
+            93.9,
+            100.0,
+            90.8,
+            96.2,
+            91.9,
+            88.3,
+            90.4,
+            72.5,
+            65.3
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Blue_Mosque",
+          "displayName": "Blue Mosque",
+          "annualPageviews": 6259,
+          "priorYearPageviews": 5403,
+          "yoyGrowthPct": 15.8,
+          "seasonalityCurve": [
+            100.0,
+            33.4,
+            68.7,
+            60.1,
+            54.7,
+            57.7,
+            52.8,
+            64.7,
+            40.0,
+            63.8,
+            84.4,
+            62.2
+          ],
+          "peakMonth": 1,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 2611051,
+        "totalLandmarkPageviewsY0": 2969256,
+        "landmarkYoYGrowthPct": -12.1,
+        "topLandmark": "Hagia Sophia",
+        "concentrationRatio": 55.8
+      }
+    },
+    "Egypt": {
+      "landmarks": [
+        {
+          "article": "Great_Pyramid_of_Giza",
+          "displayName": "Great Pyramid of Giza",
+          "annualPageviews": 1583678,
+          "priorYearPageviews": 1948654,
+          "yoyGrowthPct": -18.7,
+          "seasonalityCurve": [
+            79.1,
+            72.5,
+            100.0,
+            91.7,
+            85.3,
+            71.6,
+            70.3,
+            70.3,
+            73.4,
+            82.4,
+            81.2,
+            72.3
+          ],
+          "peakMonth": 3,
+          "troughMonth": 8,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Egyptian_Museum",
+          "displayName": "Egyptian Museum",
+          "annualPageviews": 802421,
+          "priorYearPageviews": 189468,
+          "yoyGrowthPct": 323.5,
+          "seasonalityCurve": [
+            100.0,
+            71.4,
+            56.7,
+            47.9,
+            49.9,
+            61.9,
+            28.5,
+            53.2,
+            60.1,
+            38.6,
+            39.0,
+            61.7
+          ],
+          "peakMonth": 1,
+          "troughMonth": 7,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Valley_of_the_Kings",
+          "displayName": "Valley of the Kings",
+          "annualPageviews": 318406,
+          "priorYearPageviews": 368130,
+          "yoyGrowthPct": -13.5,
+          "seasonalityCurve": [
+            96.7,
+            100.0,
+            95.6,
+            89.0,
+            82.5,
+            78.8,
+            74.5,
+            74.2,
+            80.9,
+            92.9,
+            96.7,
+            79.9
+          ],
+          "peakMonth": 2,
+          "troughMonth": 8,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Karnak",
+          "displayName": "Karnak",
+          "annualPageviews": 248349,
+          "priorYearPageviews": 251209,
+          "yoyGrowthPct": -1.1,
+          "seasonalityCurve": [
+            98.6,
+            90.3,
+            92.0,
+            90.4,
+            83.8,
+            70.3,
+            67.9,
+            65.8,
+            81.2,
+            94.5,
+            100.0,
+            93.8
+          ],
+          "peakMonth": 11,
+          "troughMonth": 8,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Abu_Simbel_temples",
+          "displayName": "Abu Simbel temples",
+          "annualPageviews": 24699,
+          "priorYearPageviews": 25248,
+          "yoyGrowthPct": -2.2,
+          "seasonalityCurve": [
+            94.9,
+            91.3,
+            94.5,
+            96.0,
+            100.0,
+            87.2,
+            89.6,
+            88.5,
+            93.5,
+            93.2,
+            92.2,
+            85.4
+          ],
+          "peakMonth": 5,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 2977553,
+        "totalLandmarkPageviewsY0": 2782709,
+        "landmarkYoYGrowthPct": 7.0,
+        "topLandmark": "Great Pyramid of Giza",
+        "concentrationRatio": 53.2
+      }
+    },
+    "Jordan": {
+      "landmarks": [
+        {
+          "article": "Petra",
+          "displayName": "Petra",
+          "annualPageviews": 1362527,
+          "priorYearPageviews": 1832346,
+          "yoyGrowthPct": -25.6,
+          "seasonalityCurve": [
+            83.8,
+            64.3,
+            99.3,
+            82.7,
+            82.1,
+            77.8,
+            75.2,
+            72.5,
+            79.0,
+            100.0,
+            70.6,
+            71.1
+          ],
+          "peakMonth": 10,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Dead_Sea",
+          "displayName": "Dead Sea",
+          "annualPageviews": 806703,
+          "priorYearPageviews": 943116,
+          "yoyGrowthPct": -14.5,
+          "seasonalityCurve": [
+            74.5,
+            69.5,
+            84.4,
+            76.7,
+            75.3,
+            72.9,
+            73.2,
+            71.8,
+            73.3,
+            100.0,
+            67.5,
+            64.3
+          ],
+          "peakMonth": 10,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Wadi_Rum",
+          "displayName": "Wadi Rum",
+          "annualPageviews": 157280,
+          "priorYearPageviews": 171732,
+          "yoyGrowthPct": -8.4,
+          "seasonalityCurve": [
+            76.6,
+            65.0,
+            100.0,
+            99.4,
+            83.1,
+            68.0,
+            73.2,
+            71.0,
+            74.0,
+            82.7,
+            69.4,
+            68.5
+          ],
+          "peakMonth": 3,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Jerash",
+          "displayName": "Jerash",
+          "annualPageviews": 99091,
+          "priorYearPageviews": 78132,
+          "yoyGrowthPct": 26.8,
+          "seasonalityCurve": [
+            93.1,
+            81.5,
+            91.7,
+            99.1,
+            100.0,
+            80.5,
+            67.4,
+            69.6,
+            80.2,
+            96.5,
+            82.7,
+            83.1
+          ],
+          "peakMonth": 5,
+          "troughMonth": 7,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Citadel_of_Amman",
+          "displayName": "Citadel of Amman",
+          "annualPageviews": 492,
+          "priorYearPageviews": 106,
+          "yoyGrowthPct": 364.2,
+          "seasonalityCurve": [
+            77.4,
+            72.0,
+            60.2,
+            34.4,
+            77.4,
+            32.3,
+            31.2,
+            32.3,
+            47.3,
+            49.5,
+            63.4,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 7,
+          "monthsAvailable": 35
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 2426093,
+        "totalLandmarkPageviewsY0": 3025432,
+        "landmarkYoYGrowthPct": -19.8,
+        "topLandmark": "Petra",
+        "concentrationRatio": 56.2
+      }
+    },
+    "Morocco": {
+      "landmarks": [
+        {
+          "article": "Chefchaouen",
+          "displayName": "Chefchaouen",
+          "annualPageviews": 186565,
+          "priorYearPageviews": 169568,
+          "yoyGrowthPct": 10.0,
+          "seasonalityCurve": [
+            100.0,
+            63.3,
+            71.9,
+            75.0,
+            76.2,
+            60.8,
+            60.8,
+            61.7,
+            62.8,
+            69.4,
+            70.3,
+            67.0
+          ],
+          "peakMonth": 1,
+          "troughMonth": 6,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Hassan_II_Mosque",
+          "displayName": "Hassan II Mosque",
+          "annualPageviews": 160398,
+          "priorYearPageviews": 151674,
+          "yoyGrowthPct": 5.8,
+          "seasonalityCurve": [
+            90.5,
+            82.5,
+            89.2,
+            100.0,
+            88.0,
+            79.3,
+            66.2,
+            63.7,
+            77.9,
+            98.8,
+            90.9,
+            89.8
+          ],
+          "peakMonth": 4,
+          "troughMonth": 8,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Jemaa_el-Fnaa",
+          "displayName": "Jemaa el-Fnaa",
+          "annualPageviews": 78509,
+          "priorYearPageviews": 80290,
+          "yoyGrowthPct": -2.2,
+          "seasonalityCurve": [
+            99.1,
+            79.2,
+            82.6,
+            95.2,
+            87.2,
+            77.1,
+            61.3,
+            63.6,
+            100.0,
+            85.0,
+            82.5,
+            85.4
+          ],
+          "peakMonth": 9,
+          "troughMonth": 7,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Bahia_Palace",
+          "displayName": "Bahia Palace",
+          "annualPageviews": 61981,
+          "priorYearPageviews": 58511,
+          "yoyGrowthPct": 5.9,
+          "seasonalityCurve": [
+            93.0,
+            88.1,
+            91.7,
+            100.0,
+            93.1,
+            75.4,
+            51.5,
+            55.5,
+            68.7,
+            90.6,
+            94.7,
+            82.8
+          ],
+          "peakMonth": 4,
+          "troughMonth": 7,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Ait_Benhaddou",
+          "displayName": "Ait Benhaddou",
+          "annualPageviews": 4060,
+          "priorYearPageviews": 3185,
+          "yoyGrowthPct": 27.5,
+          "seasonalityCurve": [
+            73.5,
+            62.0,
+            62.9,
+            64.9,
+            100.0,
+            65.3,
+            60.3,
+            76.9,
+            88.1,
+            71.6,
+            72.8,
+            92.4
+          ],
+          "peakMonth": 5,
+          "troughMonth": 7,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 491513,
+        "totalLandmarkPageviewsY0": 463228,
+        "landmarkYoYGrowthPct": 6.1,
+        "topLandmark": "Chefchaouen",
+        "concentrationRatio": 38.0
+      }
+    },
+    "Malaysia": {
+      "landmarks": [
+        {
+          "article": "Petronas_Towers",
+          "displayName": "Petronas Towers",
+          "annualPageviews": 714219,
+          "priorYearPageviews": 778877,
+          "yoyGrowthPct": -8.3,
+          "seasonalityCurve": [
+            97.3,
+            74.7,
+            80.6,
+            85.6,
+            83.8,
+            100.0,
+            78.5,
+            87.4,
+            96.1,
+            88.8,
+            82.5,
+            84.9
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Batu_Caves",
+          "displayName": "Batu Caves",
+          "annualPageviews": 314453,
+          "priorYearPageviews": 394191,
+          "yoyGrowthPct": -20.2,
+          "seasonalityCurve": [
+            100.0,
+            74.1,
+            69.2,
+            80.5,
+            69.9,
+            89.8,
+            70.0,
+            69.3,
+            61.7,
+            61.2,
+            64.8,
+            70.1
+          ],
+          "peakMonth": 1,
+          "troughMonth": 10,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Sunway_Lagoon",
+          "displayName": "Sunway Lagoon",
+          "annualPageviews": 51849,
+          "priorYearPageviews": 37825,
+          "yoyGrowthPct": 37.1,
+          "seasonalityCurve": [
+            27.1,
+            24.5,
+            37.9,
+            30.7,
+            31.2,
+            100.0,
+            28.9,
+            25.9,
+            24.7,
+            25.5,
+            27.0,
+            28.1
+          ],
+          "peakMonth": 6,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Langkawi_Sky_Bridge",
+          "displayName": "Langkawi Sky Bridge",
+          "annualPageviews": 27254,
+          "priorYearPageviews": 33453,
+          "yoyGrowthPct": -18.5,
+          "seasonalityCurve": [
+            89.0,
+            71.1,
+            80.2,
+            100.0,
+            90.4,
+            79.7,
+            72.1,
+            69.1,
+            71.6,
+            66.2,
+            69.0,
+            74.8
+          ],
+          "peakMonth": 4,
+          "troughMonth": 10,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "KL_Tower",
+          "displayName": "KL Tower",
+          "annualPageviews": 1452,
+          "priorYearPageviews": 1606,
+          "yoyGrowthPct": -9.6,
+          "seasonalityCurve": [
+            99.0,
+            82.1,
+            94.9,
+            83.8,
+            82.1,
+            72.7,
+            84.0,
+            81.1,
+            69.3,
+            97.5,
+            76.2,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 1109227,
+        "totalLandmarkPageviewsY0": 1245952,
+        "landmarkYoYGrowthPct": -11.0,
+        "topLandmark": "Petronas Towers",
+        "concentrationRatio": 64.4
+      }
+    },
+    "Singapore": {
+      "landmarks": [
+        {
+          "article": "Marina_Bay_Sands",
+          "displayName": "Marina Bay Sands",
+          "annualPageviews": 476723,
+          "priorYearPageviews": 507463,
+          "yoyGrowthPct": -6.1,
+          "seasonalityCurve": [
+            100.0,
+            73.1,
+            77.4,
+            81.3,
+            76.6,
+            84.5,
+            76.0,
+            92.1,
+            70.7,
+            73.3,
+            71.8,
+            69.9
+          ],
+          "peakMonth": 1,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Gardens_by_the_Bay",
+          "displayName": "Gardens by the Bay",
+          "annualPageviews": 230067,
+          "priorYearPageviews": 173384,
+          "yoyGrowthPct": 32.7,
+          "seasonalityCurve": [
+            43.7,
+            42.7,
+            48.7,
+            49.8,
+            43.0,
+            100.0,
+            36.0,
+            40.6,
+            42.5,
+            41.0,
+            39.6,
+            36.4
+          ],
+          "peakMonth": 6,
+          "troughMonth": 7,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Universal_Studios_Singapore",
+          "displayName": "Universal Studios Singapore",
+          "annualPageviews": 179205,
+          "priorYearPageviews": 176572,
+          "yoyGrowthPct": 1.5,
+          "seasonalityCurve": [
+            81.2,
+            67.9,
+            81.0,
+            100.0,
+            93.8,
+            84.7,
+            76.9,
+            74.4,
+            68.6,
+            71.1,
+            72.9,
+            75.6
+          ],
+          "peakMonth": 4,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Sentosa",
+          "displayName": "Sentosa",
+          "annualPageviews": 101229,
+          "priorYearPageviews": 102242,
+          "yoyGrowthPct": -1.0,
+          "seasonalityCurve": [
+            88.8,
+            67.3,
+            83.7,
+            100.0,
+            91.0,
+            81.2,
+            71.7,
+            76.7,
+            74.7,
+            74.5,
+            72.0,
+            70.4
+          ],
+          "peakMonth": 4,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Singapore_Zoo",
+          "displayName": "Singapore Zoo",
+          "annualPageviews": 81810,
+          "priorYearPageviews": 56551,
+          "yoyGrowthPct": 44.7,
+          "seasonalityCurve": [
+            47.0,
+            46.2,
+            47.9,
+            53.9,
+            49.1,
+            100.0,
+            42.9,
+            46.5,
+            40.4,
+            38.2,
+            39.7,
+            44.5
+          ],
+          "peakMonth": 6,
+          "troughMonth": 10,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 1069034,
+        "totalLandmarkPageviewsY0": 1016212,
+        "landmarkYoYGrowthPct": 5.2,
+        "topLandmark": "Marina Bay Sands",
+        "concentrationRatio": 44.6
+      }
+    },
+    "Japan": {
+      "landmarks": [
+        {
+          "article": "Tokyo_Skytree",
+          "displayName": "Tokyo Skytree",
+          "annualPageviews": 469224,
+          "priorYearPageviews": 515506,
+          "yoyGrowthPct": -9.0,
+          "seasonalityCurve": [
+            90.8,
+            86.2,
+            92.3,
+            100.0,
+            95.2,
+            83.2,
+            81.7,
+            82.4,
+            84.8,
+            88.9,
+            81.7,
+            80.3
+          ],
+          "peakMonth": 4,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Shibuya_Crossing",
+          "displayName": "Shibuya Crossing",
+          "annualPageviews": 298391,
+          "priorYearPageviews": 308268,
+          "yoyGrowthPct": -3.2,
+          "seasonalityCurve": [
+            68.7,
+            55.0,
+            68.5,
+            100.0,
+            73.2,
+            62.2,
+            58.7,
+            62.5,
+            57.4,
+            66.5,
+            59.2,
+            57.0
+          ],
+          "peakMonth": 4,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Tokyo_Disneyland",
+          "displayName": "Tokyo Disneyland",
+          "annualPageviews": 259831,
+          "priorYearPageviews": 259075,
+          "yoyGrowthPct": 0.3,
+          "seasonalityCurve": [
+            81.4,
+            64.1,
+            76.1,
+            91.6,
+            100.0,
+            83.0,
+            72.2,
+            67.7,
+            88.8,
+            67.5,
+            67.1,
+            70.3
+          ],
+          "peakMonth": 5,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Fushimi_Inari-taisha",
+          "displayName": "Fushimi Inari-taisha",
+          "annualPageviews": 243671,
+          "priorYearPageviews": 274397,
+          "yoyGrowthPct": -11.2,
+          "seasonalityCurve": [
+            69.1,
+            55.2,
+            85.1,
+            100.0,
+            80.4,
+            64.2,
+            56.3,
+            49.8,
+            55.3,
+            70.9,
+            72.9,
+            60.0
+          ],
+          "peakMonth": 4,
+          "troughMonth": 8,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Kinkaku-ji",
+          "displayName": "Kinkaku-ji",
+          "annualPageviews": 188214,
+          "priorYearPageviews": 208572,
+          "yoyGrowthPct": -9.8,
+          "seasonalityCurve": [
+            75.8,
+            63.3,
+            83.9,
+            100.0,
+            87.5,
+            67.8,
+            64.1,
+            65.8,
+            67.4,
+            82.3,
+            78.1,
+            64.1
+          ],
+          "peakMonth": 4,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 1459331,
+        "totalLandmarkPageviewsY0": 1565818,
+        "landmarkYoYGrowthPct": -6.8,
+        "topLandmark": "Tokyo Skytree",
+        "concentrationRatio": 32.2
+      }
+    },
+    "Thailand": {
+      "landmarks": [
+        {
+          "article": "Phi_Phi_Islands",
+          "displayName": "Phi Phi Islands",
+          "annualPageviews": 209009,
+          "priorYearPageviews": 232272,
+          "yoyGrowthPct": -10.0,
+          "seasonalityCurve": [
+            99.2,
+            68.5,
+            76.7,
+            79.7,
+            73.6,
+            64.5,
+            55.3,
+            58.9,
+            53.3,
+            58.7,
+            69.3,
+            100.0
+          ],
+          "peakMonth": 12,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Grand_Palace",
+          "displayName": "Grand Palace",
+          "annualPageviews": 203292,
+          "priorYearPageviews": 181040,
+          "yoyGrowthPct": 12.3,
+          "seasonalityCurve": [
+            77.1,
+            65.0,
+            62.4,
+            62.7,
+            88.1,
+            100.0,
+            50.7,
+            59.3,
+            48.4,
+            53.6,
+            57.8,
+            65.2
+          ],
+          "peakMonth": 6,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Wat_Arun",
+          "displayName": "Wat Arun",
+          "annualPageviews": 169794,
+          "priorYearPageviews": 226214,
+          "yoyGrowthPct": -24.9,
+          "seasonalityCurve": [
+            100.0,
+            77.8,
+            76.6,
+            73.0,
+            66.2,
+            63.8,
+            67.8,
+            64.9,
+            63.7,
+            69.5,
+            80.7,
+            85.2
+          ],
+          "peakMonth": 1,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Wat_Pho",
+          "displayName": "Wat Pho",
+          "annualPageviews": 154585,
+          "priorYearPageviews": 203309,
+          "yoyGrowthPct": -24.0,
+          "seasonalityCurve": [
+            93.9,
+            75.1,
+            76.6,
+            100.0,
+            61.8,
+            56.2,
+            59.8,
+            59.1,
+            53.4,
+            62.9,
+            76.8,
+            78.9
+          ],
+          "peakMonth": 4,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Chatuchak_Weekend_Market",
+          "displayName": "Chatuchak Weekend Market",
+          "annualPageviews": 61001,
+          "priorYearPageviews": 73702,
+          "yoyGrowthPct": -17.2,
+          "seasonalityCurve": [
+            94.7,
+            77.4,
+            92.6,
+            94.0,
+            90.3,
+            100.0,
+            77.5,
+            78.2,
+            72.6,
+            69.3,
+            81.3,
+            84.3
+          ],
+          "peakMonth": 6,
+          "troughMonth": 10,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 797681,
+        "totalLandmarkPageviewsY0": 916537,
+        "landmarkYoYGrowthPct": -13.0,
+        "topLandmark": "Phi Phi Islands",
+        "concentrationRatio": 26.2
+      }
+    },
+    "Indonesia": {
+      "landmarks": [
+        {
+          "article": "Borobudur",
+          "displayName": "Borobudur",
+          "annualPageviews": 377585,
+          "priorYearPageviews": 397187,
+          "yoyGrowthPct": -4.9,
+          "seasonalityCurve": [
+            100.0,
+            69.1,
+            73.7,
+            76.8,
+            80.9,
+            78.9,
+            73.8,
+            81.5,
+            77.3,
+            76.3,
+            76.6,
+            83.0
+          ],
+          "peakMonth": 1,
+          "troughMonth": 2,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Prambanan",
+          "displayName": "Prambanan",
+          "annualPageviews": 161321,
+          "priorYearPageviews": 139988,
+          "yoyGrowthPct": 15.2,
+          "seasonalityCurve": [
+            95.0,
+            89.3,
+            86.1,
+            94.0,
+            95.4,
+            90.4,
+            92.4,
+            100.0,
+            90.1,
+            91.0,
+            97.0,
+            91.7
+          ],
+          "peakMonth": 8,
+          "troughMonth": 3,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Komodo_National_Park",
+          "displayName": "Komodo National Park",
+          "annualPageviews": 92436,
+          "priorYearPageviews": 83077,
+          "yoyGrowthPct": 11.3,
+          "seasonalityCurve": [
+            95.0,
+            79.8,
+            90.7,
+            92.6,
+            100.0,
+            87.4,
+            80.7,
+            92.6,
+            83.0,
+            97.5,
+            80.2,
+            78.8
+          ],
+          "peakMonth": 5,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Tanah_Lot",
+          "displayName": "Tanah Lot",
+          "annualPageviews": 72437,
+          "priorYearPageviews": 85605,
+          "yoyGrowthPct": -15.4,
+          "seasonalityCurve": [
+            79.0,
+            61.7,
+            72.1,
+            100.0,
+            90.6,
+            90.0,
+            80.8,
+            78.9,
+            72.0,
+            66.2,
+            62.6,
+            61.4
+          ],
+          "peakMonth": 4,
+          "troughMonth": 12,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Uluwatu_Temple",
+          "displayName": "Uluwatu Temple",
+          "annualPageviews": 47474,
+          "priorYearPageviews": 59062,
+          "yoyGrowthPct": -19.6,
+          "seasonalityCurve": [
+            95.1,
+            76.6,
+            84.4,
+            98.4,
+            95.1,
+            91.8,
+            88.8,
+            100.0,
+            85.0,
+            78.0,
+            69.1,
+            72.7
+          ],
+          "peakMonth": 8,
+          "troughMonth": 11,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 751253,
+        "totalLandmarkPageviewsY0": 764919,
+        "landmarkYoYGrowthPct": -1.8,
+        "topLandmark": "Borobudur",
+        "concentrationRatio": 50.3
+      }
+    },
+    "Vietnam": {
+      "landmarks": [
+        {
+          "article": "H\u1ea1_Long_Bay",
+          "displayName": "H\u1ea1 Long Bay",
+          "annualPageviews": 255458,
+          "priorYearPageviews": 268346,
+          "yoyGrowthPct": -4.8,
+          "seasonalityCurve": [
+            100.0,
+            72.9,
+            83.5,
+            81.4,
+            70.2,
+            63.3,
+            80.3,
+            65.9,
+            62.7,
+            72.6,
+            71.7,
+            87.8
+          ],
+          "peakMonth": 1,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "H\u1ed9i_An",
+          "displayName": "H\u1ed9i An",
+          "annualPageviews": 203315,
+          "priorYearPageviews": 204038,
+          "yoyGrowthPct": -0.4,
+          "seasonalityCurve": [
+            100.0,
+            68.8,
+            74.8,
+            83.1,
+            64.9,
+            57.3,
+            58.5,
+            70.5,
+            55.1,
+            74.5,
+            76.5,
+            80.3
+          ],
+          "peakMonth": 1,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Imperial_City,_Hu\u1ebf",
+          "displayName": "Imperial City, Hu\u1ebf",
+          "annualPageviews": 13377,
+          "priorYearPageviews": 14040,
+          "yoyGrowthPct": -4.7,
+          "seasonalityCurve": [
+            100.0,
+            91.4,
+            95.1,
+            94.4,
+            99.2,
+            88.5,
+            90.4,
+            88.1,
+            85.5,
+            88.3,
+            88.5,
+            91.4
+          ],
+          "peakMonth": 1,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "My_Son",
+          "displayName": "My Son",
+          "annualPageviews": 4886,
+          "priorYearPageviews": 2643,
+          "yoyGrowthPct": 84.9,
+          "seasonalityCurve": [
+            74.5,
+            58.7,
+            53.0,
+            100.0,
+            96.3,
+            77.9,
+            73.9,
+            39.8,
+            36.7,
+            51.8,
+            43.4,
+            51.5
+          ],
+          "peakMonth": 4,
+          "troughMonth": 9,
+          "monthsAvailable": 37
+        },
+        {
+          "article": "Cu_Chi_tunnels",
+          "displayName": "Cu Chi tunnels",
+          "annualPageviews": 2761,
+          "priorYearPageviews": 1882,
+          "yoyGrowthPct": 46.7,
+          "seasonalityCurve": [
+            100.0,
+            60.2,
+            49.6,
+            47.5,
+            54.0,
+            49.8,
+            51.4,
+            57.6,
+            54.1,
+            52.0,
+            53.3,
+            54.7
+          ],
+          "peakMonth": 1,
+          "troughMonth": 4,
+          "monthsAvailable": 37
+        }
+      ],
+      "countryTotals": {
+        "totalLandmarkPageviewsY1": 479797,
+        "totalLandmarkPageviewsY0": 490949,
+        "landmarkYoYGrowthPct": -2.3,
+        "topLandmark": "H\u1ea1 Long Bay",
+        "concentrationRatio": 53.2
+      }
+    }
+  }
+}

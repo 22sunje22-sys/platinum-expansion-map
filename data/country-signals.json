@@ -1,0 +1,2064 @@
+{
+  "_schemaVersion": "1.0",
+  "_asOf": "2026-04-17",
+  "_sources": {
+    "wikipedia": [
+      "20230301",
+      "20260331"
+    ],
+    "google-trends": "today 5-y (geo=AE)",
+    "dataforseo": "PL_KeywordPlanner_24markets_GCC.csv (Apr 2026)"
+  },
+  "data": {
+    "Austria": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Hallstatt",
+            "annualPageviews": 319867,
+            "yoyGrowthPct": 33.5,
+            "peakMonth": 6
+          },
+          {
+            "name": "Sch\u00f6nbrunn Palace",
+            "annualPageviews": 297913,
+            "yoyGrowthPct": -11.8,
+            "peakMonth": 12
+          },
+          {
+            "name": "Hofburg",
+            "annualPageviews": 228422,
+            "yoyGrowthPct": 4.7,
+            "peakMonth": 12
+          },
+          {
+            "name": "Belvedere, Vienna",
+            "annualPageviews": 168693,
+            "yoyGrowthPct": 1.6,
+            "peakMonth": 8
+          },
+          {
+            "name": "Salzburg Cathedral",
+            "annualPageviews": 48698,
+            "yoyGrowthPct": 19.6,
+            "peakMonth": 5
+          }
+        ],
+        "totalY1": 1063593,
+        "yoyGrowthPct": 6.2,
+        "concentrationRatio": 30.1,
+        "topLandmark": "Hallstatt"
+      },
+      "seasonality": {
+        "peakMonth": 9,
+        "troughMonth": 3,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          2.3,
+          7.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          0.0,
+          0.0,
+          70.4
+        ],
+        "query": "austria tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 14770,
+        "topThree": [
+          "historical_sites",
+          "attractions",
+          "shows_entertainment"
+        ],
+        "mixPct": {
+          "historical_sites": 82.7,
+          "attractions": 8.4,
+          "shows_entertainment": 7.0,
+          "tours": 1.9
+        },
+        "dominantBucket": "historical_sites"
+      }
+    },
+    "Croatia": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "dataforseo"
+        ]
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 32750,
+        "topThree": [
+          "nature_parks",
+          "tours",
+          "attractions"
+        ],
+        "mixPct": {
+          "nature_parks": 94.3,
+          "tours": 3.5,
+          "attractions": 1.8,
+          "historical_sites": 0.4
+        },
+        "dominantBucket": "nature_parks"
+      }
+    },
+    "Czech Republic": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Prague Castle",
+            "annualPageviews": 275968,
+            "yoyGrowthPct": 3.6,
+            "peakMonth": 12
+          },
+          {
+            "name": "Charles Bridge",
+            "annualPageviews": 197742,
+            "yoyGrowthPct": 0.1,
+            "peakMonth": 6
+          },
+          {
+            "name": "\u010cesk\u00fd Krumlov",
+            "annualPageviews": 130727,
+            "yoyGrowthPct": 7.1,
+            "peakMonth": 8
+          },
+          {
+            "name": "Old Town Square",
+            "annualPageviews": 65443,
+            "yoyGrowthPct": 9.3,
+            "peakMonth": 6
+          },
+          {
+            "name": "Astronomical Clock",
+            "annualPageviews": 747,
+            "yoyGrowthPct": 5.1,
+            "peakMonth": 3
+          }
+        ],
+        "totalY1": 670627,
+        "yoyGrowthPct": 3.7,
+        "concentrationRatio": 41.2,
+        "topLandmark": "Prague Castle"
+      },
+      "seasonality": {
+        "peakMonth": 1,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          100.0,
+          0.0,
+          0.0,
+          74.2,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          95.0
+        ],
+        "query": "prague tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 11250,
+        "topThree": [
+          "historical_sites",
+          "tours",
+          "attractions"
+        ],
+        "mixPct": {
+          "historical_sites": 71.2,
+          "tours": 25.3,
+          "attractions": 3.5
+        },
+        "dominantBucket": "historical_sites"
+      }
+    },
+    "Egypt": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Great Pyramid of Giza",
+            "annualPageviews": 1583678,
+            "yoyGrowthPct": -18.7,
+            "peakMonth": 3
+          },
+          {
+            "name": "Egyptian Museum",
+            "annualPageviews": 802421,
+            "yoyGrowthPct": 323.5,
+            "peakMonth": 1
+          },
+          {
+            "name": "Valley of the Kings",
+            "annualPageviews": 318406,
+            "yoyGrowthPct": -13.5,
+            "peakMonth": 2
+          },
+          {
+            "name": "Karnak",
+            "annualPageviews": 248349,
+            "yoyGrowthPct": -1.1,
+            "peakMonth": 11
+          },
+          {
+            "name": "Abu Simbel temples",
+            "annualPageviews": 24699,
+            "yoyGrowthPct": -2.2,
+            "peakMonth": 5
+          }
+        ],
+        "totalY1": 2977553,
+        "yoyGrowthPct": 7.0,
+        "concentrationRatio": 53.2,
+        "topLandmark": "Great Pyramid of Giza"
+      },
+      "seasonality": {
+        "peakMonth": 1,
+        "troughMonth": 5,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          100.0,
+          0.0,
+          36.3,
+          30.0,
+          25.1,
+          47.4,
+          27.2,
+          0.0,
+          0.0,
+          80.1,
+          82.1,
+          34.7
+        ],
+        "query": "egypt tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 15620,
+        "topThree": [
+          "tours",
+          "attractions",
+          "museums"
+        ],
+        "mixPct": {
+          "tours": 52.0,
+          "attractions": 24.1,
+          "museums": 16.3,
+          "historical_sites": 5.4,
+          "religious_sites": 2.2
+        },
+        "dominantBucket": "tours"
+      }
+    },
+    "France": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Eiffel Tower",
+            "annualPageviews": 2354909,
+            "yoyGrowthPct": -0.3,
+            "peakMonth": 3
+          },
+          {
+            "name": "Louvre",
+            "annualPageviews": 1153113,
+            "yoyGrowthPct": 19.5,
+            "peakMonth": 10
+          },
+          {
+            "name": "Notre-Dame de Paris",
+            "annualPageviews": 1096982,
+            "yoyGrowthPct": -33.2,
+            "peakMonth": 12
+          },
+          {
+            "name": "Mont-Saint-Michel",
+            "annualPageviews": 985789,
+            "yoyGrowthPct": -9.2,
+            "peakMonth": 6
+          },
+          {
+            "name": "Palace of Versailles",
+            "annualPageviews": 870047,
+            "yoyGrowthPct": -12.2,
+            "peakMonth": 8
+          }
+        ],
+        "totalY1": 6460840,
+        "yoyGrowthPct": -8.3,
+        "concentrationRatio": 36.4,
+        "topLandmark": "Eiffel Tower"
+      },
+      "seasonality": {
+        "peakMonth": 7,
+        "troughMonth": 10,
+        "yoyGrowthPct": 93.8,
+        "source": "trends",
+        "curve": [
+          40.7,
+          60.9,
+          80.9,
+          69.7,
+          83.5,
+          68.9,
+          100.0,
+          35.1,
+          30.9,
+          12.7,
+          90.4,
+          54.6
+        ],
+        "query": "paris tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 122280,
+        "topThree": [
+          "museums",
+          "observation_decks",
+          "theme_parks"
+        ],
+        "mixPct": {
+          "museums": 34.1,
+          "observation_decks": 24.0,
+          "theme_parks": 19.6,
+          "historical_sites": 18.3,
+          "shows_entertainment": 3.0,
+          "attractions": 0.9,
+          "tours": 0.1
+        },
+        "dominantBucket": "museums"
+      }
+    },
+    "Germany": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Cologne Cathedral",
+            "annualPageviews": 1177075,
+            "yoyGrowthPct": -20.3,
+            "peakMonth": 10
+          },
+          {
+            "name": "Berlin Wall",
+            "annualPageviews": 1122327,
+            "yoyGrowthPct": -26.6,
+            "peakMonth": 4
+          },
+          {
+            "name": "Neuschwanstein Castle",
+            "annualPageviews": 980834,
+            "yoyGrowthPct": 9.6,
+            "peakMonth": 12
+          },
+          {
+            "name": "Brandenburg Gate",
+            "annualPageviews": 485518,
+            "yoyGrowthPct": -25.6,
+            "peakMonth": 6
+          },
+          {
+            "name": "Reichstag building",
+            "annualPageviews": 424405,
+            "yoyGrowthPct": -8.4,
+            "peakMonth": 6
+          }
+        ],
+        "totalY1": 4190159,
+        "yoyGrowthPct": -16.5,
+        "concentrationRatio": 28.1,
+        "topLandmark": "Cologne Cathedral"
+      },
+      "seasonality": {
+        "peakMonth": 1,
+        "troughMonth": 4,
+        "yoyGrowthPct": 1981.6,
+        "source": "trends",
+        "curve": [
+          100.0,
+          79.9,
+          68.3,
+          24.5,
+          0.0,
+          0.0,
+          0.0,
+          24.7,
+          27.0,
+          0.0,
+          70.3,
+          74.2
+        ],
+        "query": "germany tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 41500,
+        "topThree": [
+          "theme_parks",
+          "attractions",
+          "museums"
+        ],
+        "mixPct": {
+          "theme_parks": 43.9,
+          "attractions": 29.4,
+          "museums": 23.9,
+          "tours": 1.6,
+          "historical_sites": 1.2
+        },
+        "dominantBucket": "theme_parks"
+      }
+    },
+    "Greece": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Parthenon",
+            "annualPageviews": 876944,
+            "yoyGrowthPct": -13.8,
+            "peakMonth": 5
+          },
+          {
+            "name": "Acropolis of Athens",
+            "annualPageviews": 682407,
+            "yoyGrowthPct": -20.6,
+            "peakMonth": 6
+          },
+          {
+            "name": "Santorini",
+            "annualPageviews": 632590,
+            "yoyGrowthPct": -27.7,
+            "peakMonth": 2
+          },
+          {
+            "name": "Delphi",
+            "annualPageviews": 421690,
+            "yoyGrowthPct": -4.1,
+            "peakMonth": 9
+          },
+          {
+            "name": "Meteora",
+            "annualPageviews": 298056,
+            "yoyGrowthPct": -18.1,
+            "peakMonth": 4
+          }
+        ],
+        "totalY1": 2911687,
+        "yoyGrowthPct": -18.1,
+        "concentrationRatio": 30.1,
+        "topLandmark": "Parthenon"
+      },
+      "seasonality": {
+        "peakMonth": 4,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "query": "greece tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 26850,
+        "topThree": [
+          "historical_sites",
+          "attractions",
+          "tours"
+        ],
+        "mixPct": {
+          "historical_sites": 84.2,
+          "attractions": 8.3,
+          "tours": 5.3,
+          "nature_parks": 2.1
+        },
+        "dominantBucket": "historical_sites"
+      }
+    },
+    "Hungary": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Hungarian Parliament Building",
+            "annualPageviews": 208563,
+            "yoyGrowthPct": 12.6,
+            "peakMonth": 11
+          },
+          {
+            "name": "Buda Castle",
+            "annualPageviews": 153455,
+            "yoyGrowthPct": 6.6,
+            "peakMonth": 6
+          },
+          {
+            "name": "Fisherman's Bastion",
+            "annualPageviews": 81946,
+            "yoyGrowthPct": -8.8,
+            "peakMonth": 4
+          },
+          {
+            "name": "Sz\u00e9chenyi thermal bath",
+            "annualPageviews": 47258,
+            "yoyGrowthPct": 4.7,
+            "peakMonth": 8
+          },
+          {
+            "name": "Heroes' Square, Budapest",
+            "annualPageviews": 158,
+            "yoyGrowthPct": 216.0,
+            "peakMonth": 12
+          }
+        ],
+        "totalY1": 491380,
+        "yoyGrowthPct": 5.9,
+        "concentrationRatio": 42.4,
+        "topLandmark": "Hungarian Parliament Building"
+      },
+      "seasonality": {
+        "peakMonth": 8,
+        "troughMonth": 3,
+        "yoyGrowthPct": 9.9,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          91.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "query": "budapest tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 9080,
+        "topThree": [
+          "tours",
+          "attractions",
+          "historical_sites"
+        ],
+        "mixPct": {
+          "tours": 61.3,
+          "attractions": 23.7,
+          "historical_sites": 15.0
+        },
+        "dominantBucket": "tours"
+      }
+    },
+    "Indonesia": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Borobudur",
+            "annualPageviews": 377585,
+            "yoyGrowthPct": -4.9,
+            "peakMonth": 1
+          },
+          {
+            "name": "Prambanan",
+            "annualPageviews": 161321,
+            "yoyGrowthPct": 15.2,
+            "peakMonth": 8
+          },
+          {
+            "name": "Komodo National Park",
+            "annualPageviews": 92436,
+            "yoyGrowthPct": 11.3,
+            "peakMonth": 5
+          },
+          {
+            "name": "Tanah Lot",
+            "annualPageviews": 72437,
+            "yoyGrowthPct": -15.4,
+            "peakMonth": 4
+          },
+          {
+            "name": "Uluwatu Temple",
+            "annualPageviews": 47474,
+            "yoyGrowthPct": -19.6,
+            "peakMonth": 8
+          }
+        ],
+        "totalY1": 751253,
+        "yoyGrowthPct": -1.8,
+        "concentrationRatio": 50.3,
+        "topLandmark": "Borobudur"
+      },
+      "seasonality": {
+        "peakMonth": 10,
+        "troughMonth": 3,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          3.6,
+          44.4,
+          0.0,
+          0.0,
+          51.5,
+          0.0,
+          0.0,
+          100.0,
+          0.0,
+          0.0
+        ],
+        "query": "bali tickets"
+      }
+    },
+    "Ireland": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Trinity College Dublin",
+            "annualPageviews": 375831,
+            "yoyGrowthPct": -8.3,
+            "peakMonth": 1
+          },
+          {
+            "name": "Cliffs of Moher",
+            "annualPageviews": 266383,
+            "yoyGrowthPct": -19.2,
+            "peakMonth": 3
+          },
+          {
+            "name": "Guinness Storehouse",
+            "annualPageviews": 93509,
+            "yoyGrowthPct": 109.3,
+            "peakMonth": 10
+          },
+          {
+            "name": "Blarney Castle",
+            "annualPageviews": 82815,
+            "yoyGrowthPct": 5.1,
+            "peakMonth": 6
+          },
+          {
+            "name": "Ring of Kerry",
+            "annualPageviews": 62474,
+            "yoyGrowthPct": 4.6,
+            "peakMonth": 7
+          }
+        ],
+        "totalY1": 881012,
+        "yoyGrowthPct": -4.5,
+        "concentrationRatio": 42.7,
+        "topLandmark": "Trinity College Dublin"
+      },
+      "seasonality": {
+        "peakMonth": 2,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          100.0,
+          0.0,
+          18.3,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "query": "ireland tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 19140,
+        "topThree": [
+          "museums",
+          "attractions",
+          "nature_parks"
+        ],
+        "mixPct": {
+          "museums": 47.5,
+          "attractions": 25.9,
+          "nature_parks": 20.1,
+          "historical_sites": 4.7,
+          "tours": 1.8
+        },
+        "dominantBucket": "museums"
+      }
+    },
+    "Italy": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Colosseum",
+            "annualPageviews": 1797901,
+            "yoyGrowthPct": -24.0,
+            "peakMonth": 5
+          },
+          {
+            "name": "Pompeii",
+            "annualPageviews": 1291471,
+            "yoyGrowthPct": -28.9,
+            "peakMonth": 4
+          },
+          {
+            "name": "Leaning Tower of Pisa",
+            "annualPageviews": 858644,
+            "yoyGrowthPct": -27.3,
+            "peakMonth": 12
+          },
+          {
+            "name": "Uffizi",
+            "annualPageviews": 270969,
+            "yoyGrowthPct": 14.1,
+            "peakMonth": 6
+          },
+          {
+            "name": "Vatican Museums",
+            "annualPageviews": 185187,
+            "yoyGrowthPct": -4.2,
+            "peakMonth": 4
+          }
+        ],
+        "totalY1": 4404172,
+        "yoyGrowthPct": -24.0,
+        "concentrationRatio": 40.8,
+        "topLandmark": "Colosseum"
+      },
+      "seasonality": {
+        "peakMonth": 2,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          27.6,
+          100.0,
+          26.4,
+          21.6,
+          35.1,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          25.1,
+          0.0,
+          0.0
+        ],
+        "query": "italy tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 79120,
+        "topThree": [
+          "historical_sites",
+          "religious_sites",
+          "attractions"
+        ],
+        "mixPct": {
+          "historical_sites": 57.9,
+          "religious_sites": 18.9,
+          "attractions": 9.6,
+          "uncategorized": 8.5,
+          "museums": 4.6,
+          "tours": 0.5
+        },
+        "dominantBucket": "historical_sites"
+      }
+    },
+    "Japan": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Tokyo Skytree",
+            "annualPageviews": 469224,
+            "yoyGrowthPct": -9.0,
+            "peakMonth": 4
+          },
+          {
+            "name": "Shibuya Crossing",
+            "annualPageviews": 298391,
+            "yoyGrowthPct": -3.2,
+            "peakMonth": 4
+          },
+          {
+            "name": "Tokyo Disneyland",
+            "annualPageviews": 259831,
+            "yoyGrowthPct": 0.3,
+            "peakMonth": 5
+          },
+          {
+            "name": "Fushimi Inari-taisha",
+            "annualPageviews": 243671,
+            "yoyGrowthPct": -11.2,
+            "peakMonth": 4
+          },
+          {
+            "name": "Kinkaku-ji",
+            "annualPageviews": 188214,
+            "yoyGrowthPct": -9.8,
+            "peakMonth": 4
+          }
+        ],
+        "totalY1": 1459331,
+        "yoyGrowthPct": -6.8,
+        "concentrationRatio": 32.2,
+        "topLandmark": "Tokyo Skytree"
+      },
+      "seasonality": {
+        "peakMonth": 12,
+        "troughMonth": 3,
+        "yoyGrowthPct": 959.3,
+        "source": "trends",
+        "curve": [
+          70.2,
+          28.8,
+          0.8,
+          9.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          10.2,
+          11.2,
+          38.1,
+          100.0
+        ],
+        "query": "japan tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 56020,
+        "topThree": [
+          "observation_decks",
+          "theme_parks",
+          "attractions"
+        ],
+        "mixPct": {
+          "observation_decks": 49.4,
+          "theme_parks": 35.5,
+          "attractions": 4.2,
+          "museums": 2.9,
+          "religious_sites": 2.9,
+          "nature_parks": 2.9,
+          "tours": 2.2
+        },
+        "dominantBucket": "observation_decks"
+      }
+    },
+    "Jordan": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Petra",
+            "annualPageviews": 1362527,
+            "yoyGrowthPct": -25.6,
+            "peakMonth": 10
+          },
+          {
+            "name": "Dead Sea",
+            "annualPageviews": 806703,
+            "yoyGrowthPct": -14.5,
+            "peakMonth": 10
+          },
+          {
+            "name": "Wadi Rum",
+            "annualPageviews": 157280,
+            "yoyGrowthPct": -8.4,
+            "peakMonth": 3
+          },
+          {
+            "name": "Jerash",
+            "annualPageviews": 99091,
+            "yoyGrowthPct": 26.8,
+            "peakMonth": 5
+          },
+          {
+            "name": "Citadel of Amman",
+            "annualPageviews": 492,
+            "yoyGrowthPct": 364.2,
+            "peakMonth": 12
+          }
+        ],
+        "totalY1": 2426093,
+        "yoyGrowthPct": -19.8,
+        "concentrationRatio": 56.2,
+        "topLandmark": "Petra"
+      },
+      "seasonality": {
+        "peakMonth": 12,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          58.5,
+          41.1,
+          14.7,
+          39.6,
+          33.7,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0
+        ],
+        "query": "jordan tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 3050,
+        "topThree": [
+          "attractions",
+          "tours",
+          "historical_sites"
+        ],
+        "mixPct": {
+          "attractions": 36.7,
+          "tours": 33.1,
+          "historical_sites": 16.7,
+          "nature_parks": 13.4
+        },
+        "dominantBucket": "attractions"
+      }
+    },
+    "Malaysia": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Petronas Towers",
+            "annualPageviews": 714219,
+            "yoyGrowthPct": -8.3,
+            "peakMonth": 6
+          },
+          {
+            "name": "Batu Caves",
+            "annualPageviews": 314453,
+            "yoyGrowthPct": -20.2,
+            "peakMonth": 1
+          },
+          {
+            "name": "Sunway Lagoon",
+            "annualPageviews": 51849,
+            "yoyGrowthPct": 37.1,
+            "peakMonth": 6
+          },
+          {
+            "name": "Langkawi Sky Bridge",
+            "annualPageviews": 27254,
+            "yoyGrowthPct": -18.5,
+            "peakMonth": 4
+          },
+          {
+            "name": "KL Tower",
+            "annualPageviews": 1452,
+            "yoyGrowthPct": -9.6,
+            "peakMonth": 12
+          }
+        ],
+        "totalY1": 1109227,
+        "yoyGrowthPct": -11.0,
+        "concentrationRatio": 64.4,
+        "topLandmark": "Petronas Towers"
+      },
+      "seasonality": {
+        "peakMonth": 11,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          0.0,
+          97.9,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          0.0
+        ],
+        "query": "malaysia tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 54590,
+        "topThree": [
+          "theme_parks",
+          "observation_decks",
+          "uncategorized"
+        ],
+        "mixPct": {
+          "theme_parks": 49.9,
+          "observation_decks": 18.4,
+          "uncategorized": 15.1,
+          "attractions": 14.6,
+          "tours": 2.0
+        },
+        "dominantBucket": "theme_parks"
+      }
+    },
+    "Malta": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "dataforseo"
+        ]
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 7500,
+        "topThree": [
+          "attractions",
+          "tours",
+          "historical_sites"
+        ],
+        "mixPct": {
+          "attractions": 63.6,
+          "tours": 24.3,
+          "historical_sites": 12.1
+        },
+        "dominantBucket": "attractions"
+      }
+    },
+    "Morocco": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Chefchaouen",
+            "annualPageviews": 186565,
+            "yoyGrowthPct": 10.0,
+            "peakMonth": 1
+          },
+          {
+            "name": "Hassan II Mosque",
+            "annualPageviews": 160398,
+            "yoyGrowthPct": 5.8,
+            "peakMonth": 4
+          },
+          {
+            "name": "Jemaa el-Fnaa",
+            "annualPageviews": 78509,
+            "yoyGrowthPct": -2.2,
+            "peakMonth": 9
+          },
+          {
+            "name": "Bahia Palace",
+            "annualPageviews": 61981,
+            "yoyGrowthPct": 5.9,
+            "peakMonth": 4
+          },
+          {
+            "name": "Ait Benhaddou",
+            "annualPageviews": 4060,
+            "yoyGrowthPct": 27.5,
+            "peakMonth": 5
+          }
+        ],
+        "totalY1": 491513,
+        "yoyGrowthPct": 6.1,
+        "concentrationRatio": 38.0,
+        "topLandmark": "Chefchaouen"
+      },
+      "seasonality": {
+        "peakMonth": 12,
+        "troughMonth": 4,
+        "yoyGrowthPct": 266.7,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          0.0,
+          2.5,
+          0.0,
+          0.0,
+          0.0,
+          14.4,
+          0.0,
+          0.0,
+          20.4,
+          100.0
+        ],
+        "query": "morocco tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 11310,
+        "topThree": [
+          "tours",
+          "attractions",
+          "religious_sites"
+        ],
+        "mixPct": {
+          "tours": 67.0,
+          "attractions": 28.1,
+          "religious_sites": 4.4,
+          "nature_parks": 0.4
+        },
+        "dominantBucket": "tours"
+      }
+    },
+    "Netherlands": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Rijksmuseum",
+            "annualPageviews": 221449,
+            "yoyGrowthPct": 12.0,
+            "peakMonth": 6
+          },
+          {
+            "name": "Anne Frank House",
+            "annualPageviews": 182655,
+            "yoyGrowthPct": -19.5,
+            "peakMonth": 5
+          },
+          {
+            "name": "Van Gogh Museum",
+            "annualPageviews": 147747,
+            "yoyGrowthPct": 6.3,
+            "peakMonth": 6
+          },
+          {
+            "name": "Keukenhof",
+            "annualPageviews": 108874,
+            "yoyGrowthPct": -6.1,
+            "peakMonth": 4
+          },
+          {
+            "name": "Zaanse Schans",
+            "annualPageviews": 78768,
+            "yoyGrowthPct": -2.9,
+            "peakMonth": 4
+          }
+        ],
+        "totalY1": 739493,
+        "yoyGrowthPct": -2.8,
+        "concentrationRatio": 29.9,
+        "topLandmark": "Rijksmuseum"
+      },
+      "seasonality": {
+        "peakMonth": 6,
+        "troughMonth": 4,
+        "yoyGrowthPct": -38.2,
+        "source": "trends",
+        "curve": [
+          0.0,
+          42.4,
+          0.0,
+          16.1,
+          0.0,
+          100.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          41.7
+        ],
+        "query": "netherlands tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 56640,
+        "topThree": [
+          "museums",
+          "tours",
+          "nature_parks"
+        ],
+        "mixPct": {
+          "museums": 51.8,
+          "tours": 22.0,
+          "nature_parks": 21.5,
+          "attractions": 4.7
+        },
+        "dominantBucket": "museums"
+      }
+    },
+    "Poland": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Auschwitz concentration camp",
+            "annualPageviews": 1962810,
+            "yoyGrowthPct": -24.5,
+            "peakMonth": 1
+          },
+          {
+            "name": "Wieliczka Salt Mine",
+            "annualPageviews": 214466,
+            "yoyGrowthPct": -20.9,
+            "peakMonth": 5
+          },
+          {
+            "name": "Wawel Castle",
+            "annualPageviews": 130231,
+            "yoyGrowthPct": 4.4,
+            "peakMonth": 6
+          },
+          {
+            "name": "Main Square, Krak\u00f3w",
+            "annualPageviews": 42514,
+            "yoyGrowthPct": -2.7,
+            "peakMonth": 10
+          },
+          {
+            "name": "Warsaw Old Town",
+            "annualPageviews": 13203,
+            "yoyGrowthPct": -10.2,
+            "peakMonth": 3
+          }
+        ],
+        "totalY1": 2363224,
+        "yoyGrowthPct": -22.7,
+        "concentrationRatio": 83.1,
+        "topLandmark": "Auschwitz concentration camp"
+      },
+      "seasonality": {
+        "peakMonth": 2,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          46.5,
+          100.0,
+          0.0,
+          21.3,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          51.7,
+          0.0
+        ],
+        "query": "poland tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 11290,
+        "topThree": [
+          "historical_sites",
+          "attractions",
+          "tours"
+        ],
+        "mixPct": {
+          "historical_sites": 87.4,
+          "attractions": 10.2,
+          "tours": 2.4
+        },
+        "dominantBucket": "historical_sites"
+      }
+    },
+    "Portugal": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Bel\u00e9m Tower",
+            "annualPageviews": 180545,
+            "yoyGrowthPct": -24.6,
+            "peakMonth": 5
+          },
+          {
+            "name": "Quinta da Regaleira",
+            "annualPageviews": 169486,
+            "yoyGrowthPct": -11.1,
+            "peakMonth": 5
+          },
+          {
+            "name": "Jer\u00f3nimos Monastery",
+            "annualPageviews": 157521,
+            "yoyGrowthPct": -13.7,
+            "peakMonth": 5
+          },
+          {
+            "name": "Pena Palace",
+            "annualPageviews": 141990,
+            "yoyGrowthPct": -8.3,
+            "peakMonth": 5
+          },
+          {
+            "name": "Ocean\u00e1rio de Lisboa",
+            "annualPageviews": 2,
+            "yoyGrowthPct": null,
+            "peakMonth": 7
+          }
+        ],
+        "totalY1": 649544,
+        "yoyGrowthPct": -15.4,
+        "concentrationRatio": 27.8,
+        "topLandmark": "Bel\u00e9m Tower"
+      },
+      "seasonality": {
+        "peakMonth": 12,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          23.8,
+          0.0,
+          14.3,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          76.8,
+          100.0
+        ],
+        "query": "portugal tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 9430,
+        "topThree": [
+          "historical_sites",
+          "tours",
+          "attractions"
+        ],
+        "mixPct": {
+          "historical_sites": 61.9,
+          "tours": 13.5,
+          "attractions": 10.3,
+          "nature_parks": 7.8,
+          "zoos_aquariums": 6.5
+        },
+        "dominantBucket": "historical_sites"
+      }
+    },
+    "Singapore": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Marina Bay Sands",
+            "annualPageviews": 476723,
+            "yoyGrowthPct": -6.1,
+            "peakMonth": 1
+          },
+          {
+            "name": "Gardens by the Bay",
+            "annualPageviews": 230067,
+            "yoyGrowthPct": 32.7,
+            "peakMonth": 6
+          },
+          {
+            "name": "Universal Studios Singapore",
+            "annualPageviews": 179205,
+            "yoyGrowthPct": 1.5,
+            "peakMonth": 4
+          },
+          {
+            "name": "Sentosa",
+            "annualPageviews": 101229,
+            "yoyGrowthPct": -1.0,
+            "peakMonth": 4
+          },
+          {
+            "name": "Singapore Zoo",
+            "annualPageviews": 81810,
+            "yoyGrowthPct": 44.7,
+            "peakMonth": 6
+          }
+        ],
+        "totalY1": 1069034,
+        "yoyGrowthPct": 5.2,
+        "concentrationRatio": 44.6,
+        "topLandmark": "Marina Bay Sands"
+      },
+      "seasonality": {
+        "peakMonth": 6,
+        "troughMonth": 2,
+        "yoyGrowthPct": 878.9,
+        "source": "trends",
+        "curve": [
+          77.8,
+          32.7,
+          68.9,
+          47.8,
+          34.6,
+          100.0,
+          62.2,
+          42.1,
+          0.0,
+          0.0,
+          97.3,
+          40.9
+        ],
+        "query": "singapore tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 85440,
+        "topThree": [
+          "attractions",
+          "theme_parks",
+          "nature_parks"
+        ],
+        "mixPct": {
+          "attractions": 46.7,
+          "theme_parks": 27.5,
+          "nature_parks": 14.3,
+          "zoos_aquariums": 9.8,
+          "tours": 1.7
+        },
+        "dominantBucket": "attractions"
+      }
+    },
+    "SouthAfrica": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "dataforseo"
+        ]
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 20270,
+        "topThree": [
+          "attractions",
+          "zoos_aquariums",
+          "tours"
+        ],
+        "mixPct": {
+          "attractions": 86.8,
+          "zoos_aquariums": 8.3,
+          "tours": 4.9
+        },
+        "dominantBucket": "attractions"
+      }
+    },
+    "Spain": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Sagrada Fam\u00edlia",
+            "annualPageviews": 2220743,
+            "yoyGrowthPct": 8.6,
+            "peakMonth": 4
+          },
+          {
+            "name": "Alhambra",
+            "annualPageviews": 789457,
+            "yoyGrowthPct": -31.0,
+            "peakMonth": 5
+          },
+          {
+            "name": "Park G\u00fcell",
+            "annualPageviews": 213536,
+            "yoyGrowthPct": -11.2,
+            "peakMonth": 4
+          },
+          {
+            "name": "Prado Museum",
+            "annualPageviews": 10108,
+            "yoyGrowthPct": -2.8,
+            "peakMonth": 4
+          },
+          {
+            "name": "La Rambla",
+            "annualPageviews": 2570,
+            "yoyGrowthPct": -17.8,
+            "peakMonth": 4
+          }
+        ],
+        "totalY1": 3236414,
+        "yoyGrowthPct": -6.0,
+        "concentrationRatio": 68.6,
+        "topLandmark": "Sagrada Fam\u00edlia"
+      },
+      "seasonality": {
+        "peakMonth": 12,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          42.9,
+          0.0,
+          0.0,
+          9.9,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0
+        ],
+        "query": "spain attractions"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 89210,
+        "topThree": [
+          "religious_sites",
+          "attractions",
+          "historical_sites"
+        ],
+        "mixPct": {
+          "religious_sites": 37.5,
+          "attractions": 26.4,
+          "historical_sites": 20.7,
+          "tours": 8.1,
+          "shows_entertainment": 4.1,
+          "museums": 3.3
+        },
+        "dominantBucket": "religious_sites"
+      }
+    },
+    "Switzerland": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Matterhorn",
+            "annualPageviews": 702335,
+            "yoyGrowthPct": 14.0,
+            "peakMonth": 1
+          },
+          {
+            "name": "Lake Geneva",
+            "annualPageviews": 207446,
+            "yoyGrowthPct": -1.0,
+            "peakMonth": 6
+          },
+          {
+            "name": "Jungfraujoch",
+            "annualPageviews": 105387,
+            "yoyGrowthPct": -16.9,
+            "peakMonth": 6
+          },
+          {
+            "name": "Ch\u00e2teau de Chillon",
+            "annualPageviews": 5081,
+            "yoyGrowthPct": -14.0,
+            "peakMonth": 1
+          },
+          {
+            "name": "Chapel Bridge",
+            "annualPageviews": 3017,
+            "yoyGrowthPct": 7.9,
+            "peakMonth": 7
+          }
+        ],
+        "totalY1": 1023266,
+        "yoyGrowthPct": 6.4,
+        "concentrationRatio": 68.6,
+        "topLandmark": "Matterhorn"
+      },
+      "seasonality": {
+        "peakMonth": 12,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          0.0,
+          26.7,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          100.0
+        ],
+        "query": "switzerland tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 10370,
+        "topThree": [
+          "nature_parks",
+          "attractions",
+          "tours"
+        ],
+        "mixPct": {
+          "nature_parks": 66.6,
+          "attractions": 18.7,
+          "tours": 11.6,
+          "historical_sites": 3.1
+        },
+        "dominantBucket": "nature_parks"
+      }
+    },
+    "Thailand": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Phi Phi Islands",
+            "annualPageviews": 209009,
+            "yoyGrowthPct": -10.0,
+            "peakMonth": 12
+          },
+          {
+            "name": "Grand Palace",
+            "annualPageviews": 203292,
+            "yoyGrowthPct": 12.3,
+            "peakMonth": 6
+          },
+          {
+            "name": "Wat Arun",
+            "annualPageviews": 169794,
+            "yoyGrowthPct": -24.9,
+            "peakMonth": 1
+          },
+          {
+            "name": "Wat Pho",
+            "annualPageviews": 154585,
+            "yoyGrowthPct": -24.0,
+            "peakMonth": 4
+          },
+          {
+            "name": "Chatuchak Weekend Market",
+            "annualPageviews": 61001,
+            "yoyGrowthPct": -17.2,
+            "peakMonth": 6
+          }
+        ],
+        "totalY1": 797681,
+        "yoyGrowthPct": -13.0,
+        "concentrationRatio": 26.2,
+        "topLandmark": "Phi Phi Islands"
+      },
+      "seasonality": {
+        "peakMonth": 11,
+        "troughMonth": 3,
+        "yoyGrowthPct": 583.9,
+        "source": "trends",
+        "curve": [
+          28.4,
+          0.0,
+          18.6,
+          20.4,
+          0.0,
+          0.0,
+          0.0,
+          28.0,
+          0.0,
+          23.1,
+          100.0,
+          59.6
+        ],
+        "query": "thailand tickets"
+      }
+    },
+    "Turkey": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Hagia Sophia",
+            "annualPageviews": 1456399,
+            "yoyGrowthPct": -10.9,
+            "peakMonth": 5
+          },
+          {
+            "name": "Cappadocia",
+            "annualPageviews": 580377,
+            "yoyGrowthPct": -18.2,
+            "peakMonth": 4
+          },
+          {
+            "name": "Topkap\u0131 Palace",
+            "annualPageviews": 328459,
+            "yoyGrowthPct": -0.6,
+            "peakMonth": 5
+          },
+          {
+            "name": "Pamukkale",
+            "annualPageviews": 239557,
+            "yoyGrowthPct": -17.0,
+            "peakMonth": 5
+          },
+          {
+            "name": "Blue Mosque",
+            "annualPageviews": 6259,
+            "yoyGrowthPct": 15.8,
+            "peakMonth": 1
+          }
+        ],
+        "totalY1": 2611051,
+        "yoyGrowthPct": -12.1,
+        "concentrationRatio": 55.8,
+        "topLandmark": "Hagia Sophia"
+      },
+      "seasonality": {
+        "peakMonth": 4,
+        "troughMonth": 5,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          93.8,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "query": "istanbul tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 21030,
+        "topThree": [
+          "historical_sites",
+          "religious_sites",
+          "tours"
+        ],
+        "mixPct": {
+          "historical_sites": 61.6,
+          "religious_sites": 27.5,
+          "tours": 5.6,
+          "attractions": 3.3,
+          "nature_parks": 1.9
+        },
+        "dominantBucket": "historical_sites"
+      }
+    },
+    "United Kingdom": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends",
+          "dataforseo"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "Stonehenge",
+            "annualPageviews": 1434576,
+            "yoyGrowthPct": -22.5,
+            "peakMonth": 6
+          },
+          {
+            "name": "British Museum",
+            "annualPageviews": 1048806,
+            "yoyGrowthPct": 78.2,
+            "peakMonth": 6
+          },
+          {
+            "name": "Buckingham Palace",
+            "annualPageviews": 943376,
+            "yoyGrowthPct": 2.5,
+            "peakMonth": 5
+          },
+          {
+            "name": "Tower of London",
+            "annualPageviews": 847333,
+            "yoyGrowthPct": -3.4,
+            "peakMonth": 5
+          },
+          {
+            "name": "Edinburgh Castle",
+            "annualPageviews": 361733,
+            "yoyGrowthPct": 13.0,
+            "peakMonth": 6
+          }
+        ],
+        "totalY1": 4635824,
+        "yoyGrowthPct": 1.7,
+        "concentrationRatio": 30.9,
+        "topLandmark": "Stonehenge"
+      },
+      "seasonality": {
+        "peakMonth": 6,
+        "troughMonth": 1,
+        "yoyGrowthPct": 55.0,
+        "source": "trends",
+        "curve": [
+          47.8,
+          62.1,
+          74.4,
+          51.1,
+          55.2,
+          100.0,
+          67.3,
+          59.3,
+          65.8,
+          57.8,
+          86.8,
+          76.5
+        ],
+        "query": "london tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 184640,
+        "topThree": [
+          "observation_decks",
+          "historical_sites",
+          "attractions"
+        ],
+        "mixPct": {
+          "observation_decks": 33.0,
+          "historical_sites": 30.0,
+          "attractions": 18.0,
+          "museums": 18.0,
+          "tours": 1.1
+        },
+        "dominantBucket": "observation_decks"
+      }
+    },
+    "Vietnam": {
+      "meta": {
+        "asOf": "2026-04-17",
+        "sources": [
+          "wikipedia",
+          "google-trends"
+        ]
+      },
+      "landmarks": {
+        "top5": [
+          {
+            "name": "H\u1ea1 Long Bay",
+            "annualPageviews": 255458,
+            "yoyGrowthPct": -4.8,
+            "peakMonth": 1
+          },
+          {
+            "name": "H\u1ed9i An",
+            "annualPageviews": 203315,
+            "yoyGrowthPct": -0.4,
+            "peakMonth": 1
+          },
+          {
+            "name": "Imperial City, Hu\u1ebf",
+            "annualPageviews": 13377,
+            "yoyGrowthPct": -4.7,
+            "peakMonth": 1
+          },
+          {
+            "name": "My Son",
+            "annualPageviews": 4886,
+            "yoyGrowthPct": 84.9,
+            "peakMonth": 4
+          },
+          {
+            "name": "Cu Chi tunnels",
+            "annualPageviews": 2761,
+            "yoyGrowthPct": 46.7,
+            "peakMonth": 1
+          }
+        ],
+        "totalY1": 479797,
+        "yoyGrowthPct": -2.3,
+        "concentrationRatio": 53.2,
+        "topLandmark": "H\u1ea1 Long Bay"
+      },
+      "seasonality": {
+        "peakMonth": 4,
+        "troughMonth": 4,
+        "yoyGrowthPct": null,
+        "source": "trends",
+        "curve": [
+          0.0,
+          0.0,
+          0.0,
+          100.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "query": "vietnam tickets"
+      }
+    }
+  }
+}

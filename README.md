@@ -17,7 +17,9 @@ Static site. Vercel auto-detects — no build step, no framework.
 
 - `index.html` — the map (self-contained: styles, data, D3 logic)
 - `world-geojson.js` — simplified country geometries (sets `window.WORLD_GEOJSON`)
-- `docs/` — methodology, scorecard, phase plan, financial model, gaps ledger, glossary
+- `docs/` — methodology, scorecard, phase plan, financial model, gaps ledger, glossary, **data pipeline**
+- `scripts/` — Python auto-gather pipeline (Wikipedia + pytrends + DataForSEO classifier)
+- `data/` — gathered signals (`country-signals.json` consumed by `index.html`)
 
 ## Documentation
 
@@ -31,6 +33,7 @@ The map surfaces per-country data + citations. The docs folder surfaces the deci
 | [docs/phase-plan.md](docs/phase-plan.md) | Phase 1/2/3 sequencing + portfolio logic |
 | [docs/financial-model.md](docs/financial-model.md) | Y1 GMV envelope · Year-3 ARR framing |
 | [docs/pass2-signals.md](docs/pass2-signals.md) | DataForSEO keyword methodology · landmark audit |
+| [docs/data-pipeline.md](docs/data-pipeline.md) | v2.5 auto-gathered signals · Wikipedia + pytrends + inventory classifier |
 | [docs/operational-playbook.md](docs/operational-playbook.md) | Per-market contracting sequence |
 | [docs/data-sources.md](docs/data-sources.md) | TAC · Keyword Planner · CSVs |
 | [docs/gaps-ledger.md](docs/gaps-ledger.md) | 10 unresolved questions |

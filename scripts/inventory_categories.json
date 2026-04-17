@@ -1,0 +1,59 @@
+{
+  "_description": "Inventory category query templates per Murtaza framing. For each country, each bucket generates keyword queries; DataForSEO returns volumes; sum per bucket → inventory-mix vector.",
+  "_buckets": {
+    "museums": {
+      "templates": ["{country} museum tickets", "{city} museum tickets", "best museums {country}"],
+      "wikipedia_categories": ["Museums_in_", "Art_museums_and_galleries_in_"]
+    },
+    "attractions": {
+      "templates": ["{country} attractions tickets", "{landmark} tickets", "things to do in {city}"],
+      "wikipedia_categories": ["Tourist_attractions_in_", "Landmarks_in_"]
+    },
+    "theme_parks": {
+      "templates": ["{country} theme park tickets", "{city} theme park", "amusement park {country}"],
+      "wikipedia_categories": ["Amusement_parks_in_", "Theme_parks_in_"]
+    },
+    "water_parks": {
+      "templates": ["{country} water park", "{city} water park tickets", "aqua park {country}"],
+      "wikipedia_categories": ["Water_parks_in_"]
+    },
+    "tours": {
+      "templates": ["{city} tours", "{country} day trip", "{city} guided tour", "{country} excursion"],
+      "wikipedia_categories": []
+    },
+    "shows_entertainment": {
+      "templates": ["{city} show tickets", "{country} concert tickets", "{city} opera tickets", "{country} theatre tickets"],
+      "wikipedia_categories": ["Theatres_in_", "Concert_halls_in_"]
+    },
+    "observation_decks": {
+      "templates": ["{landmark} observation deck", "{city} viewpoint tickets", "{city} tower tickets"],
+      "wikipedia_categories": ["Observation_towers_in_"]
+    },
+    "religious_sites": {
+      "templates": ["{city} cathedral tickets", "{city} mosque visit", "{city} temple tickets"],
+      "wikipedia_categories": ["Churches_in_", "Mosques_in_", "Temples_in_"]
+    },
+    "zoos_aquariums": {
+      "templates": ["{city} zoo tickets", "{city} aquarium tickets", "{country} safari park"],
+      "wikipedia_categories": ["Zoos_in_", "Aquaria_in_"]
+    },
+    "historical_sites": {
+      "templates": ["{country} archaeological site", "{landmark} entry ticket", "{country} UNESCO site"],
+      "wikipedia_categories": ["Archaeological_sites_in_", "World_Heritage_Sites_in_"]
+    },
+    "nature_parks": {
+      "templates": ["{country} national park", "{country} nature reserve", "{city} botanical garden"],
+      "wikipedia_categories": ["National_parks_of_", "Botanical_gardens_in_"]
+    },
+    "experiences_activities": {
+      "templates": ["{city} cooking class", "{city} wine tour", "{country} hot air balloon", "{country} desert safari"],
+      "wikipedia_categories": []
+    }
+  },
+  "_score_formula": "bucket_score = sum(avg_monthly_search_volume for kw in templates.expanded) across 6-GCC geos · output normalized to sum=100%",
+  "_drives": [
+    "Supply 20 lens: does our contractable inventory match demand mix?",
+    "Launch tab: inventory mix pie chart per country",
+    "Scorecard v2.5: new sub-signal 'category-fit' (penalty if top-demand bucket is uncontractable)"
+  ]
+}

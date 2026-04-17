@@ -1,0 +1,973 @@
+{
+  "_source": "Derived from PL_KeywordPlanner_24markets_GCC.csv (DataForSEO, Apr 2026)",
+  "_method": "Regex-based keyword classification into 12 inventory buckets, then volume-weighted aggregation per country.",
+  "_caveat": "Coverage limited to existing 10 kw \u00d7 destination. Uncategorized bucket shows how much demand is generic ('country tickets'). For richer coverage, run new DataForSEO pull with inventory_categories.json templates.",
+  "data": {
+    "United Kingdom": {
+      "totalMonthlyVolumeGCC": 184640,
+      "inventoryMixPct": {
+        "observation_decks": 33.0,
+        "historical_sites": 30.0,
+        "attractions": 18.0,
+        "museums": 18.0,
+        "tours": 1.1
+      },
+      "dominantBucket": "observation_decks",
+      "topThreeBuckets": [
+        "observation_decks",
+        "historical_sites",
+        "attractions"
+      ],
+      "bucketSamples": {
+        "observation_decks": [
+          "london eye tickets (UAE 210/mo)",
+          "london eye tickets (KSA 140/mo)",
+          "london eye tickets (DEST 60500/mo)"
+        ],
+        "historical_sites": [
+          "tower of london tickets (UAE 90/mo)",
+          "stonehenge tickets (UAE 30/mo)",
+          "tower of london tickets (KSA 30/mo)"
+        ],
+        "attractions": [
+          "things to do in UK (UAE 90/mo)",
+          "UK attractions (UAE 30/mo)",
+          "UK tickets (UAE 20/mo)"
+        ],
+        "museums": [
+          "british museum tickets (UAE 70/mo)",
+          "british museum tickets (KSA 30/mo)",
+          "british museum tickets (DEST 33100/mo)"
+        ],
+        "tours": [
+          "UK tours (UAE 40/mo)",
+          "UK tours (KSA 10/mo)",
+          "UK tours (DEST 1900/mo)"
+        ]
+      }
+    },
+    "Turkey": {
+      "totalMonthlyVolumeGCC": 21030,
+      "inventoryMixPct": {
+        "historical_sites": 61.6,
+        "religious_sites": 27.5,
+        "tours": 5.6,
+        "attractions": 3.3,
+        "nature_parks": 1.9
+      },
+      "dominantBucket": "historical_sites",
+      "topThreeBuckets": [
+        "historical_sites",
+        "religious_sites",
+        "tours"
+      ],
+      "bucketSamples": {
+        "historical_sites": [
+          "cappadocia balloon ride (UAE 320/mo)",
+          "topkapi palace tickets (UAE 140/mo)",
+          "ephesus tickets (UAE 10/mo)"
+        ],
+        "religious_sites": [
+          "hagia sophia tickets (UAE 110/mo)",
+          "blue mosque tour (UAE 10/mo)",
+          "hagia sophia tickets (DEST 5400/mo)"
+        ],
+        "tours": [
+          "Turkey tours (UAE 140/mo)",
+          "Turkey tours (DEST 1000/mo)",
+          "Turkey tours (KSA 40/mo)"
+        ],
+        "attractions": [
+          "things to do in Turkey (UAE 170/mo)",
+          "Turkey attractions (UAE 40/mo)",
+          "Turkey tickets (UAE 70/mo)"
+        ],
+        "nature_parks": [
+          "pamukkale tours (UAE 10/mo)",
+          "pamukkale tours (DEST 390/mo)",
+          "pamukkale tours (KSA 10/mo)"
+        ]
+      }
+    },
+    "Spain": {
+      "totalMonthlyVolumeGCC": 89210,
+      "inventoryMixPct": {
+        "religious_sites": 37.5,
+        "attractions": 26.4,
+        "historical_sites": 20.7,
+        "tours": 8.1,
+        "shows_entertainment": 4.1,
+        "museums": 3.3
+      },
+      "dominantBucket": "religious_sites",
+      "topThreeBuckets": [
+        "religious_sites",
+        "attractions",
+        "historical_sites"
+      ],
+      "bucketSamples": {
+        "religious_sites": [
+          "sagrada familia tickets (KSA 90/mo)",
+          "sagrada familia tickets (DEST 33100/mo)",
+          "sagrada familia tickets (UAE 260/mo)"
+        ],
+        "attractions": [
+          "things to do in Spain (KSA 50/mo)",
+          "Spain attractions (KSA 50/mo)",
+          "Spain tickets (KSA 10/mo)"
+        ],
+        "historical_sites": [
+          "alhambra tickets (KSA 210/mo)",
+          "alhambra tickets (DEST 18100/mo)",
+          "alhambra tickets (UAE 140/mo)"
+        ],
+        "tours": [
+          "Spain tours (KSA 10/mo)",
+          "camp nou tour (KSA 30/mo)",
+          "Spain tours (DEST 480/mo)"
+        ],
+        "shows_entertainment": [
+          "flamenco show madrid (KSA 10/mo)",
+          "flamenco show madrid (DEST 3600/mo)",
+          "flamenco show madrid (UAE 30/mo)"
+        ],
+        "museums": [
+          "prado museum tickets (KSA 10/mo)",
+          "prado museum tickets (DEST 2900/mo)",
+          "prado museum tickets (UAE 10/mo)"
+        ]
+      }
+    },
+    "Portugal": {
+      "totalMonthlyVolumeGCC": 9430,
+      "inventoryMixPct": {
+        "historical_sites": 61.9,
+        "tours": 13.5,
+        "attractions": 10.3,
+        "nature_parks": 7.8,
+        "zoos_aquariums": 6.5
+      },
+      "dominantBucket": "historical_sites",
+      "topThreeBuckets": [
+        "historical_sites",
+        "tours",
+        "attractions"
+      ],
+      "bucketSamples": {
+        "historical_sites": [
+          "jeronimos monastery tickets (UAE 10/mo)",
+          "pena palace tickets (UAE 20/mo)",
+          "jeronimos monastery tickets (DEST 390/mo)"
+        ],
+        "tours": [
+          "Portugal tours (UAE 10/mo)",
+          "lisbon tram tour (UAE 10/mo)",
+          "porto wine tour (UAE 10/mo)"
+        ],
+        "attractions": [
+          "things to do in Portugal (UAE 110/mo)",
+          "Portugal attractions (UAE 30/mo)",
+          "Portugal tickets (UAE 10/mo)"
+        ],
+        "nature_parks": [
+          "sintra day trip (UAE 10/mo)",
+          "sintra day trip (DEST 720/mo)",
+          "sintra day trip (KSA 10/mo)"
+        ],
+        "zoos_aquariums": [
+          "oceanario lisboa tickets (UAE 10/mo)",
+          "oceanario lisboa tickets (DEST 590/mo)",
+          "oceanario lisboa tickets (KSA 10/mo)"
+        ]
+      }
+    },
+    "Austria": {
+      "totalMonthlyVolumeGCC": 14770,
+      "inventoryMixPct": {
+        "historical_sites": 82.7,
+        "attractions": 8.4,
+        "shows_entertainment": 7.0,
+        "tours": 1.9
+      },
+      "dominantBucket": "historical_sites",
+      "topThreeBuckets": [
+        "historical_sites",
+        "attractions",
+        "shows_entertainment"
+      ],
+      "bucketSamples": {
+        "historical_sites": [
+          "schonbrunn palace tickets (KSA 10/mo)",
+          "hofburg tickets (KSA 10/mo)",
+          "belvedere tickets (KSA 10/mo)"
+        ],
+        "attractions": [
+          "things to do in Austria (KSA 40/mo)",
+          "Austria attractions (KSA 30/mo)",
+          "Austria tickets (KSA 10/mo)"
+        ],
+        "shows_entertainment": [
+          "vienna opera tickets (KSA 10/mo)",
+          "vienna opera tickets (DEST 1000/mo)",
+          "vienna opera tickets (UAE 30/mo)"
+        ],
+        "tours": [
+          "Austria tours (KSA 10/mo)",
+          "salzburg day trip (KSA 10/mo)",
+          "Austria tours (DEST 90/mo)"
+        ]
+      }
+    },
+    "Italy": {
+      "totalMonthlyVolumeGCC": 79120,
+      "inventoryMixPct": {
+        "historical_sites": 57.9,
+        "religious_sites": 18.9,
+        "attractions": 9.6,
+        "uncategorized": 8.5,
+        "museums": 4.6,
+        "tours": 0.5
+      },
+      "dominantBucket": "historical_sites",
+      "topThreeBuckets": [
+        "historical_sites",
+        "religious_sites",
+        "attractions"
+      ],
+      "bucketSamples": {
+        "historical_sites": [
+          "colosseum tickets (UAE 390/mo)",
+          "pompeii tickets (UAE 20/mo)",
+          "colosseum tickets (KSA 170/mo)"
+        ],
+        "religious_sites": [
+          "vatican tickets (UAE 140/mo)",
+          "vatican tickets (KSA 50/mo)",
+          "vatican tickets (DEST 14800/mo)"
+        ],
+        "attractions": [
+          "things to do in Italy (UAE 140/mo)",
+          "Italy attractions (UAE 20/mo)",
+          "Italy tickets (UAE 30/mo)"
+        ],
+        "uncategorized": [
+          "venice gondola ride (UAE 90/mo)",
+          "venice gondola ride (KSA 30/mo)",
+          "venice gondola ride (DEST 6600/mo)"
+        ],
+        "museums": [
+          "uffizi tickets (UAE 10/mo)",
+          "uffizi tickets (KSA 10/mo)",
+          "uffizi tickets (DEST 3600/mo)"
+        ],
+        "tours": [
+          "Italy tours (UAE 50/mo)",
+          "Italy tours (KSA 20/mo)",
+          "Italy tours (DEST 320/mo)"
+        ]
+      }
+    },
+    "Germany": {
+      "totalMonthlyVolumeGCC": 41500,
+      "inventoryMixPct": {
+        "theme_parks": 43.9,
+        "attractions": 29.4,
+        "museums": 23.9,
+        "tours": 1.6,
+        "historical_sites": 1.2
+      },
+      "dominantBucket": "theme_parks",
+      "topThreeBuckets": [
+        "theme_parks",
+        "attractions",
+        "museums"
+      ],
+      "bucketSamples": {
+        "theme_parks": [
+          "europa park tickets (UAE 40/mo)",
+          "europa park tickets (KSA 70/mo)",
+          "europa park tickets (DEST 18100/mo)"
+        ],
+        "attractions": [
+          "things to do in Germany (UAE 110/mo)",
+          "Germany attractions (UAE 210/mo)",
+          "Germany tickets (UAE 10/mo)"
+        ],
+        "museums": [
+          "miniatur wunderland tickets (UAE 10/mo)",
+          "miniatur wunderland tickets (KSA 10/mo)",
+          "miniatur wunderland tickets (DEST 9900/mo)"
+        ],
+        "tours": [
+          "Germany tours (UAE 20/mo)",
+          "berlin wall tour (UAE 10/mo)",
+          "Germany tours (KSA 10/mo)"
+        ],
+        "historical_sites": [
+          "brandenburg gate tour (UAE 10/mo)",
+          "reichstag tour (UAE 10/mo)",
+          "brandenburg gate tour (KSA 10/mo)"
+        ]
+      }
+    },
+    "Greece": {
+      "totalMonthlyVolumeGCC": 26850,
+      "inventoryMixPct": {
+        "historical_sites": 84.2,
+        "attractions": 8.3,
+        "tours": 5.3,
+        "nature_parks": 2.1
+      },
+      "dominantBucket": "historical_sites",
+      "topThreeBuckets": [
+        "historical_sites",
+        "attractions",
+        "tours"
+      ],
+      "bucketSamples": {
+        "historical_sites": [
+          "acropolis tickets (UAE 140/mo)",
+          "delphi tour (UAE 10/mo)",
+          "acropolis tickets (KSA 40/mo)"
+        ],
+        "attractions": [
+          "things to do in Greece (UAE 170/mo)",
+          "Greece attractions (UAE 210/mo)",
+          "Greece tickets (UAE 30/mo)"
+        ],
+        "tours": [
+          "Greece tours (UAE 40/mo)",
+          "meteora tours (UAE 10/mo)",
+          "Greece tours (KSA 10/mo)"
+        ],
+        "nature_parks": [
+          "santorini day trip (UAE 10/mo)",
+          "mykonos tours (UAE 10/mo)",
+          "santorini day trip (KSA 10/mo)"
+        ]
+      }
+    },
+    "Ireland": {
+      "totalMonthlyVolumeGCC": 19140,
+      "inventoryMixPct": {
+        "museums": 47.5,
+        "attractions": 25.9,
+        "nature_parks": 20.1,
+        "historical_sites": 4.7,
+        "tours": 1.8
+      },
+      "dominantBucket": "museums",
+      "topThreeBuckets": [
+        "museums",
+        "attractions",
+        "nature_parks"
+      ],
+      "bucketSamples": {
+        "museums": [
+          "guinness storehouse tickets (UAE 20/mo)",
+          "book of kells tickets (UAE 10/mo)",
+          "titanic belfast tickets (UAE 10/mo)"
+        ],
+        "attractions": [
+          "things to do in Ireland (UAE 90/mo)",
+          "Ireland attractions (UAE 90/mo)",
+          "Ireland tickets (UAE 10/mo)"
+        ],
+        "nature_parks": [
+          "cliffs of moher tour (UAE 10/mo)",
+          "ring of kerry tour (UAE 10/mo)",
+          "cliffs of moher tour (DEST 1900/mo)"
+        ],
+        "historical_sites": [
+          "dublin castle tour (UAE 10/mo)",
+          "dublin castle tour (DEST 880/mo)",
+          "dublin castle tour (KSA 10/mo)"
+        ],
+        "tours": [
+          "Ireland tours (UAE 20/mo)",
+          "Ireland tours (DEST 320/mo)",
+          "Ireland tours (KSA 10/mo)"
+        ]
+      }
+    },
+    "Czech Republic": {
+      "totalMonthlyVolumeGCC": 11250,
+      "inventoryMixPct": {
+        "historical_sites": 71.2,
+        "tours": 25.3,
+        "attractions": 3.5
+      },
+      "dominantBucket": "historical_sites",
+      "topThreeBuckets": [
+        "historical_sites",
+        "tours",
+        "attractions"
+      ],
+      "bucketSamples": {
+        "historical_sites": [
+          "prague castle tickets (UAE 30/mo)",
+          "charles bridge tour (UAE 10/mo)",
+          "old town square prague (UAE 70/mo)"
+        ],
+        "tours": [
+          "Czech Republic tours (UAE 10/mo)",
+          "prague beer tour (UAE 10/mo)",
+          "prague river cruise (UAE 10/mo)"
+        ],
+        "attractions": [
+          "things to do in Czech Republic (UAE 50/mo)",
+          "Czech Republic attractions (UAE 50/mo)",
+          "Czech Republic tickets (UAE 10/mo)"
+        ]
+      }
+    },
+    "Hungary": {
+      "totalMonthlyVolumeGCC": 9080,
+      "inventoryMixPct": {
+        "tours": 61.3,
+        "attractions": 23.7,
+        "historical_sites": 15.0
+      },
+      "dominantBucket": "tours",
+      "topThreeBuckets": [
+        "tours",
+        "attractions",
+        "historical_sites"
+      ],
+      "bucketSamples": {
+        "tours": [
+          "Hungary tours (UAE 10/mo)",
+          "budapest river cruise (UAE 20/mo)",
+          "budapest ruin bar tour (UAE 10/mo)"
+        ],
+        "attractions": [
+          "things to do in Hungary (UAE 70/mo)",
+          "Hungary attractions (UAE 50/mo)",
+          "Hungary tickets (UAE 10/mo)"
+        ],
+        "historical_sites": [
+          "buda castle tour (UAE 10/mo)",
+          "hungarian parliament tour (UAE 10/mo)",
+          "buda castle tour (KSA 10/mo)"
+        ]
+      }
+    },
+    "Poland": {
+      "totalMonthlyVolumeGCC": 11290,
+      "inventoryMixPct": {
+        "historical_sites": 87.4,
+        "attractions": 10.2,
+        "tours": 2.4
+      },
+      "dominantBucket": "historical_sites",
+      "topThreeBuckets": [
+        "historical_sites",
+        "attractions",
+        "tours"
+      ],
+      "bucketSamples": {
+        "historical_sites": [
+          "wieliczka salt mine tickets (UAE 10/mo)",
+          "auschwitz tour (UAE 260/mo)",
+          "wawel castle tickets (UAE 10/mo)"
+        ],
+        "attractions": [
+          "things to do in Poland (UAE 110/mo)",
+          "Poland attractions (UAE 10/mo)",
+          "Poland tickets (UAE 20/mo)"
+        ],
+        "tours": [
+          "Poland tours (UAE 10/mo)",
+          "warsaw old town tour (UAE 10/mo)",
+          "krakow day trip (UAE 10/mo)"
+        ]
+      }
+    },
+    "Croatia": {
+      "totalMonthlyVolumeGCC": 32750,
+      "inventoryMixPct": {
+        "nature_parks": 94.3,
+        "tours": 3.5,
+        "attractions": 1.8,
+        "historical_sites": 0.4
+      },
+      "dominantBucket": "nature_parks",
+      "topThreeBuckets": [
+        "nature_parks",
+        "tours",
+        "attractions"
+      ],
+      "bucketSamples": {
+        "nature_parks": [
+          "plitvice lakes tickets (UAE 20/mo)",
+          "krka national park (UAE 110/mo)",
+          "plitvice lakes tickets (KSA 10/mo)"
+        ],
+        "tours": [
+          "Croatia tours (UAE 20/mo)",
+          "hvar day trip (UAE 10/mo)",
+          "game of thrones tour dubrovnik (UAE 10/mo)"
+        ],
+        "attractions": [
+          "things to do in Croatia (UAE 110/mo)",
+          "Croatia attractions (UAE 40/mo)",
+          "Croatia tickets (UAE 10/mo)"
+        ],
+        "historical_sites": [
+          "dubrovnik old town tour (UAE 10/mo)",
+          "dubrovnik old town tour (KSA 10/mo)",
+          "dubrovnik old town tour (DEST 30/mo)"
+        ]
+      }
+    },
+    "Japan": {
+      "totalMonthlyVolumeGCC": 56020,
+      "inventoryMixPct": {
+        "observation_decks": 49.4,
+        "theme_parks": 35.5,
+        "attractions": 4.2,
+        "museums": 2.9,
+        "religious_sites": 2.9,
+        "nature_parks": 2.9,
+        "tours": 2.2
+      },
+      "dominantBucket": "observation_decks",
+      "topThreeBuckets": [
+        "observation_decks",
+        "theme_parks",
+        "attractions"
+      ],
+      "bucketSamples": {
+        "observation_decks": [
+          "shibuya sky tickets (UAE 390/mo)",
+          "shibuya sky tickets (KSA 170/mo)",
+          "shibuya sky tickets (DEST 27100/mo)"
+        ],
+        "theme_parks": [
+          "universal studios japan tickets (UAE 320/mo)",
+          "tokyo disneyland tickets (UAE 140/mo)",
+          "universal studios japan tickets (KSA 170/mo)"
+        ],
+        "attractions": [
+          "things to do in Japan (UAE 260/mo)",
+          "Japan attractions (UAE 30/mo)",
+          "Japan tickets (UAE 170/mo)"
+        ],
+        "museums": [
+          "teamlab tickets (UAE 590/mo)",
+          "teamlab tickets (KSA 40/mo)",
+          "teamlab tickets (DEST 1000/mo)"
+        ],
+        "religious_sites": [
+          "kiyomizu dera tickets (UAE 10/mo)",
+          "kiyomizu dera tickets (KSA 10/mo)",
+          "kiyomizu dera tickets (DEST 1600/mo)"
+        ],
+        "nature_parks": [
+          "mount fuji tour (UAE 30/mo)",
+          "mount fuji tour (KSA 10/mo)",
+          "mount fuji tour (DEST 1600/mo)"
+        ],
+        "tours": [
+          "Japan tours (UAE 210/mo)",
+          "Japan tours (KSA 40/mo)",
+          "Japan tours (DEST 1000/mo)"
+        ]
+      }
+    },
+    "Singapore": {
+      "totalMonthlyVolumeGCC": 85440,
+      "inventoryMixPct": {
+        "attractions": 46.7,
+        "theme_parks": 27.5,
+        "nature_parks": 14.3,
+        "zoos_aquariums": 9.8,
+        "tours": 1.7
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "theme_parks",
+        "nature_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in Singapore (UAE 720/mo)",
+          "Singapore attractions (UAE 590/mo)",
+          "Singapore tickets (UAE 50/mo)"
+        ],
+        "theme_parks": [
+          "universal studios singapore tickets (UAE 390/mo)",
+          "sentosa tickets (UAE 30/mo)",
+          "universal studios singapore tickets (DEST 22200/mo)"
+        ],
+        "nature_parks": [
+          "gardens by the bay tickets (UAE 70/mo)",
+          "gardens by the bay tickets (DEST 12100/mo)",
+          "gardens by the bay tickets (KSA 10/mo)"
+        ],
+        "zoos_aquariums": [
+          "sea aquarium tickets (UAE 10/mo)",
+          "night safari tickets (UAE 40/mo)",
+          "sea aquarium tickets (DEST 2900/mo)"
+        ],
+        "tours": [
+          "Singapore tours (UAE 140/mo)",
+          "Singapore tours (DEST 1300/mo)",
+          "Singapore tours (KSA 20/mo)"
+        ]
+      }
+    },
+    "Malaysia": {
+      "totalMonthlyVolumeGCC": 54590,
+      "inventoryMixPct": {
+        "theme_parks": 49.9,
+        "observation_decks": 18.4,
+        "uncategorized": 15.1,
+        "attractions": 14.6,
+        "tours": 2.0
+      },
+      "dominantBucket": "theme_parks",
+      "topThreeBuckets": [
+        "theme_parks",
+        "observation_decks",
+        "uncategorized"
+      ],
+      "bucketSamples": {
+        "theme_parks": [
+          "sunway lagoon tickets (UAE 50/mo)",
+          "sunway lagoon tickets (KSA 110/mo)",
+          "sunway lagoon tickets (DEST 27100/mo)"
+        ],
+        "observation_decks": [
+          "petronas towers tickets (UAE 90/mo)",
+          "petronas towers tickets (KSA 40/mo)",
+          "petronas towers tickets (DEST 9900/mo)"
+        ],
+        "uncategorized": [
+          "langkawi cable car (UAE 70/mo)",
+          "langkawi cable car (KSA 50/mo)",
+          "langkawi cable car (DEST 8100/mo)"
+        ],
+        "attractions": [
+          "things to do in Malaysia (UAE 390/mo)",
+          "Malaysia attractions (UAE 210/mo)",
+          "Malaysia tickets (UAE 50/mo)"
+        ],
+        "tours": [
+          "Malaysia tours (UAE 90/mo)",
+          "batu caves tour (UAE 10/mo)",
+          "Malaysia tours (KSA 30/mo)"
+        ]
+      }
+    },
+    "Jordan": {
+      "totalMonthlyVolumeGCC": 3050,
+      "inventoryMixPct": {
+        "attractions": 36.7,
+        "tours": 33.1,
+        "historical_sites": 16.7,
+        "nature_parks": 13.4
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "historical_sites"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in Jordan (UAE 260/mo)",
+          "Jordan attractions (UAE 110/mo)",
+          "Jordan tickets (UAE 30/mo)"
+        ],
+        "tours": [
+          "Jordan tours (UAE 110/mo)",
+          "amman city tour (UAE 10/mo)",
+          "Jordan tours (KSA 50/mo)"
+        ],
+        "historical_sites": [
+          "petra tickets (UAE 40/mo)",
+          "jerash tickets (UAE 10/mo)",
+          "petra by night tickets (UAE 10/mo)"
+        ],
+        "nature_parks": [
+          "wadi rum tour (UAE 20/mo)",
+          "dead sea tour (UAE 10/mo)",
+          "wadi rum tour (KSA 10/mo)"
+        ]
+      }
+    },
+    "Egypt": {
+      "totalMonthlyVolumeGCC": 15620,
+      "inventoryMixPct": {
+        "tours": 52.0,
+        "attractions": 24.1,
+        "museums": 16.3,
+        "historical_sites": 5.4,
+        "religious_sites": 2.2
+      },
+      "dominantBucket": "tours",
+      "topThreeBuckets": [
+        "tours",
+        "attractions",
+        "museums"
+      ],
+      "bucketSamples": {
+        "tours": [
+          "Egypt tours (UAE 170/mo)",
+          "nile cruise (UAE 390/mo)",
+          "Egypt tours (KSA 50/mo)"
+        ],
+        "attractions": [
+          "things to do in Egypt (UAE 260/mo)",
+          "Egypt attractions (UAE 260/mo)",
+          "Egypt tickets (UAE 70/mo)"
+        ],
+        "museums": [
+          "grand egyptian museum tickets (UAE 110/mo)",
+          "grand egyptian museum tickets (KSA 40/mo)",
+          "grand egyptian museum tickets (DEST 2400/mo)"
+        ],
+        "historical_sites": [
+          "valley of the kings tickets (UAE 10/mo)",
+          "abu simbel tour (UAE 10/mo)",
+          "valley of the kings tickets (KSA 10/mo)"
+        ],
+        "religious_sites": [
+          "luxor temple tickets (UAE 10/mo)",
+          "luxor temple tickets (KSA 10/mo)",
+          "luxor temple tickets (DEST 320/mo)"
+        ]
+      }
+    },
+    "SouthAfrica": {
+      "totalMonthlyVolumeGCC": 20270,
+      "inventoryMixPct": {
+        "attractions": 86.8,
+        "zoos_aquariums": 8.3,
+        "tours": 4.9
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "zoos_aquariums",
+        "tours"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in South Africa (UAE 90/mo)",
+          "South Africa attractions (UAE 110/mo)",
+          "South Africa tickets (UAE 20/mo)"
+        ],
+        "zoos_aquariums": [
+          "kruger safari (UAE 70/mo)",
+          "kruger safari (KSA 20/mo)",
+          "kruger safari (DEST 1600/mo)"
+        ],
+        "tours": [
+          "South Africa tours (UAE 90/mo)",
+          "cape point tour (UAE 10/mo)",
+          "boulders beach tour (UAE 10/mo)"
+        ]
+      }
+    },
+    "France": {
+      "totalMonthlyVolumeGCC": 122280,
+      "inventoryMixPct": {
+        "museums": 34.1,
+        "observation_decks": 24.0,
+        "theme_parks": 19.6,
+        "historical_sites": 18.3,
+        "shows_entertainment": 3.0,
+        "attractions": 0.9,
+        "tours": 0.1
+      },
+      "dominantBucket": "museums",
+      "topThreeBuckets": [
+        "museums",
+        "observation_decks",
+        "theme_parks"
+      ],
+      "bucketSamples": {
+        "museums": [
+          "louvre tickets (DEST 40500/mo)",
+          "louvre tickets (KSA 140/mo)",
+          "louvre tickets (UAE 1000/mo)"
+        ],
+        "observation_decks": [
+          "eiffel tower tickets (DEST 22200/mo)",
+          "arc de triomphe tickets (DEST 6600/mo)",
+          "eiffel tower tickets (KSA 140/mo)"
+        ],
+        "theme_parks": [
+          "disneyland paris tickets (DEST 22200/mo)",
+          "disneyland paris tickets (KSA 720/mo)",
+          "disneyland paris tickets (UAE 1000/mo)"
+        ],
+        "historical_sites": [
+          "versailles tickets (DEST 22200/mo)",
+          "versailles tickets (KSA 70/mo)",
+          "versailles tickets (UAE 110/mo)"
+        ],
+        "shows_entertainment": [
+          "moulin rouge tickets (DEST 3600/mo)",
+          "moulin rouge tickets (KSA 20/mo)",
+          "moulin rouge tickets (UAE 50/mo)"
+        ],
+        "attractions": [
+          "things to do in France (DEST 320/mo)",
+          "France attractions (DEST 50/mo)",
+          "France tickets (DEST 590/mo)"
+        ],
+        "tours": [
+          "France tours (DEST 140/mo)",
+          "France tours (KSA 10/mo)",
+          "France tours (UAE 10/mo)"
+        ]
+      }
+    },
+    "Malta": {
+      "totalMonthlyVolumeGCC": 7500,
+      "inventoryMixPct": {
+        "attractions": 63.6,
+        "tours": 24.3,
+        "historical_sites": 12.1
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "historical_sites"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in Malta (DEST 3600/mo)",
+          "Malta attractions (DEST 320/mo)",
+          "Malta tickets (DEST 590/mo)"
+        ],
+        "tours": [
+          "Malta tours (DEST 720/mo)",
+          "blue grotto boat trip (DEST 210/mo)",
+          "valletta tour (DEST 590/mo)"
+        ],
+        "historical_sites": [
+          "mdina tour (DEST 110/mo)",
+          "hypogeum tickets (DEST 590/mo)",
+          "hagar qim tickets (DEST 170/mo)"
+        ]
+      }
+    },
+    "Morocco": {
+      "totalMonthlyVolumeGCC": 11310,
+      "inventoryMixPct": {
+        "tours": 67.0,
+        "attractions": 28.1,
+        "religious_sites": 4.4,
+        "nature_parks": 0.4
+      },
+      "dominantBucket": "tours",
+      "topThreeBuckets": [
+        "tours",
+        "attractions",
+        "religious_sites"
+      ],
+      "bucketSamples": {
+        "tours": [
+          "Morocco tours (DEST 6600/mo)",
+          "sahara desert tour (DEST 390/mo)",
+          "marrakech day trip (DEST 480/mo)"
+        ],
+        "attractions": [
+          "things to do in Morocco (DEST 390/mo)",
+          "Morocco attractions (DEST 170/mo)",
+          "Morocco tickets (DEST 140/mo)"
+        ],
+        "religious_sites": [
+          "hassan ii mosque tickets (DEST 480/mo)",
+          "hassan ii mosque tickets (KSA 10/mo)",
+          "hassan ii mosque tickets (UAE 10/mo)"
+        ],
+        "nature_parks": [
+          "chefchaouen day trip (DEST 30/mo)",
+          "chefchaouen day trip (KSA 10/mo)",
+          "chefchaouen day trip (UAE 10/mo)"
+        ]
+      }
+    },
+    "Netherlands": {
+      "totalMonthlyVolumeGCC": 56640,
+      "inventoryMixPct": {
+        "museums": 51.8,
+        "tours": 22.0,
+        "nature_parks": 21.5,
+        "attractions": 4.7
+      },
+      "dominantBucket": "museums",
+      "topThreeBuckets": [
+        "museums",
+        "tours",
+        "nature_parks"
+      ],
+      "bucketSamples": {
+        "museums": [
+          "anne frank tickets (DEST 880/mo)",
+          "rijksmuseum tickets (DEST 12100/mo)",
+          "van gogh museum tickets (DEST 14800/mo)"
+        ],
+        "tours": [
+          "Netherlands tours (DEST 260/mo)",
+          "amsterdam canal cruise (DEST 12100/mo)",
+          "Netherlands tours (KSA 10/mo)"
+        ],
+        "nature_parks": [
+          "keukenhof tickets (DEST 12100/mo)",
+          "keukenhof tickets (KSA 20/mo)",
+          "keukenhof tickets (UAE 40/mo)"
+        ],
+        "attractions": [
+          "things to do in Netherlands (DEST 1300/mo)",
+          "Netherlands attractions (DEST 880/mo)",
+          "Netherlands tickets (DEST 90/mo)"
+        ]
+      }
+    },
+    "Switzerland": {
+      "totalMonthlyVolumeGCC": 10370,
+      "inventoryMixPct": {
+        "nature_parks": 66.6,
+        "attractions": 18.7,
+        "tours": 11.6,
+        "historical_sites": 3.1
+      },
+      "dominantBucket": "nature_parks",
+      "topThreeBuckets": [
+        "nature_parks",
+        "attractions",
+        "tours"
+      ],
+      "bucketSamples": {
+        "nature_parks": [
+          "jungfraujoch tickets (DEST 5400/mo)",
+          "rhine falls tour (DEST 50/mo)",
+          "mount pilatus tickets (DEST 1300/mo)"
+        ],
+        "attractions": [
+          "things to do in Switzerland (DEST 880/mo)",
+          "Switzerland attractions (DEST 480/mo)",
+          "Switzerland tickets (DEST 30/mo)"
+        ],
+        "tours": [
+          "Switzerland tours (DEST 1000/mo)",
+          "swiss alps day trip (DEST 10/mo)",
+          "Switzerland tours (KSA 40/mo)"
+        ],
+        "historical_sites": [
+          "matterhorn tour (DEST 70/mo)",
+          "chillon castle tickets (DEST 210/mo)",
+          "matterhorn tour (KSA 10/mo)"
+        ]
+      }
+    }
+  }
+}
