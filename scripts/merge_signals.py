@@ -58,6 +58,24 @@ def main():
     landmarks = load("landmarks_pageviews.json") or {"data": {}}
     trends = load("seasonality.json") or {"data": {}}
     mix = load("inventory_mix.json") or {"data": {}}
+    mix_full = load("inventory_full.json") or {"data": {}}
+
+    # Fallback: for markets missing from existing landmark-based classifier,
+    # use the full templated DataForSEO pull. Prefer existing (stronger signal)
+    # because it's keyed on actual landmark queries rather than templates.
+    # Normalize labels so 'UK' → 'United Kingdom', 'Czech' → 'Czech Republic'.
+    LABEL_NORM = {"UK": "United Kingdom", "Czech": "Czech Republic"}
+    normalized_full = {}
+    for country, entry in mix_full["data"].items():
+        canonical = LABEL_NORM.get(country, country)
+        normalized_full[canonical] = entry
+
+    for country, entry in normalized_full.items():
+        existing_keys = set(mix["data"].keys())
+        if country in existing_keys:
+            continue
+        entry["_source"] = "dataforseo-full-templated"
+        mix["data"][country] = entry
 
     # Union of all country keys
     all_countries = set()

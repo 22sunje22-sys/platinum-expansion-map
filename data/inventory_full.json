@@ -1,0 +1,1442 @@
+{
+  "_source": "DataForSEO \u00b7 inventory_categories.json templates \u00b7 UAE + KSA",
+  "_method": "864 templated queries \u00d7 2 GCC origins \u00b7 live search_volume endpoint",
+  "_asOf": "2026-04-17",
+  "data": {
+    "Singapore": {
+      "totalMonthlyVolumeGCC": 2220,
+      "inventoryMixPct": {
+        "attractions": 41.0,
+        "nature_parks": 23.9,
+        "theme_parks": 10.4,
+        "tours": 9.5,
+        "water_parks": 5.9,
+        "zoos_aquariums": 4.1,
+        "shows_entertainment": 1.8,
+        "experiences_activities": 1.4,
+        "museums": 1.4,
+        "historical_sites": 0.9
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "nature_parks",
+        "theme_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "singapore attractions tickets (20/mo)",
+          "things to do in singapore (890/mo)"
+        ],
+        "nature_parks": [
+          "singapore botanical garden (500/mo)",
+          "singapore national park (20/mo)",
+          "singapore nature reserve (10/mo)"
+        ],
+        "theme_parks": [
+          "singapore theme park tickets (10/mo)",
+          "singapore theme park (110/mo)",
+          "amusement park singapore (110/mo)"
+        ],
+        "tours": [
+          "singapore guided tour (10/mo)",
+          "singapore day trip (20/mo)",
+          "singapore excursion (20/mo)",
+          "singapore tours (160/mo)"
+        ],
+        "water_parks": [
+          "singapore water park (80/mo)",
+          "aqua park singapore (50/mo)"
+        ],
+        "zoos_aquariums": [
+          "singapore safari park (20/mo)",
+          "singapore zoo tickets (60/mo)",
+          "singapore aquarium tickets (10/mo)"
+        ],
+        "shows_entertainment": [
+          "singapore theatre tickets (20/mo)",
+          "singapore concert tickets (20/mo)"
+        ],
+        "experiences_activities": [
+          "singapore cooking class (20/mo)",
+          "singapore hot air balloon (10/mo)"
+        ],
+        "museums": [
+          "singapore museum tickets (20/mo)",
+          "best museums singapore (10/mo)"
+        ],
+        "historical_sites": [
+          "singapore UNESCO site (20/mo)"
+        ]
+      }
+    },
+    "Germany": {
+      "totalMonthlyVolumeGCC": 710,
+      "inventoryMixPct": {
+        "attractions": 31.0,
+        "theme_parks": 18.3,
+        "water_parks": 14.1,
+        "tours": 7.0,
+        "zoos_aquariums": 7.0,
+        "museums": 5.6,
+        "shows_entertainment": 4.2,
+        "nature_parks": 4.2,
+        "experiences_activities": 4.2,
+        "religious_sites": 2.8,
+        "observation_decks": 1.4
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "theme_parks",
+        "water_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in berlin (220/mo)"
+        ],
+        "theme_parks": [
+          "amusement park germany (110/mo)",
+          "berlin theme park (20/mo)"
+        ],
+        "water_parks": [
+          "aqua park germany (50/mo)",
+          "germany water park (50/mo)"
+        ],
+        "tours": [
+          "germany day trip (10/mo)",
+          "berlin tours (20/mo)",
+          "berlin guided tour (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "berlin zoo tickets (20/mo)",
+          "berlin aquarium tickets (10/mo)",
+          "germany safari park (20/mo)"
+        ],
+        "museums": [
+          "best museums germany (20/mo)",
+          "berlin museum tickets (20/mo)"
+        ],
+        "shows_entertainment": [
+          "berlin opera tickets (20/mo)",
+          "germany concert tickets (10/mo)"
+        ],
+        "nature_parks": [
+          "berlin botanical garden (20/mo)",
+          "germany national park (10/mo)"
+        ],
+        "experiences_activities": [
+          "germany hot air balloon (20/mo)",
+          "berlin cooking class (10/mo)"
+        ],
+        "religious_sites": [
+          "berlin cathedral tickets (20/mo)"
+        ],
+        "observation_decks": [
+          "berlin tower tickets (10/mo)"
+        ]
+      }
+    },
+    "Italy": {
+      "totalMonthlyVolumeGCC": 710,
+      "inventoryMixPct": {
+        "attractions": 36.6,
+        "theme_parks": 14.1,
+        "tours": 12.7,
+        "museums": 8.5,
+        "water_parks": 8.5,
+        "zoos_aquariums": 5.6,
+        "shows_entertainment": 5.6,
+        "experiences_activities": 4.2,
+        "nature_parks": 4.2
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "theme_parks",
+        "tours"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in rome (260/mo)"
+        ],
+        "theme_parks": [
+          "amusement park italy (80/mo)",
+          "rome theme park (20/mo)"
+        ],
+        "tours": [
+          "rome tours (60/mo)",
+          "italy excursion (10/mo)",
+          "rome guided tour (10/mo)",
+          "italy day trip (10/mo)"
+        ],
+        "museums": [
+          "rome museum tickets (20/mo)",
+          "italy museum tickets (20/mo)",
+          "best museums italy (20/mo)"
+        ],
+        "water_parks": [
+          "italy water park (30/mo)",
+          "aqua park italy (30/mo)"
+        ],
+        "zoos_aquariums": [
+          "italy safari park (20/mo)",
+          "rome zoo tickets (20/mo)"
+        ],
+        "shows_entertainment": [
+          "italy concert tickets (20/mo)",
+          "rome opera tickets (20/mo)"
+        ],
+        "experiences_activities": [
+          "rome cooking class (10/mo)",
+          "italy hot air balloon (10/mo)",
+          "rome wine tour (10/mo)"
+        ],
+        "nature_parks": [
+          "rome botanical garden (20/mo)",
+          "italy national park (10/mo)"
+        ]
+      }
+    },
+    "Egypt": {
+      "totalMonthlyVolumeGCC": 1000,
+      "inventoryMixPct": {
+        "attractions": 49.0,
+        "water_parks": 14.0,
+        "tours": 9.0,
+        "museums": 8.0,
+        "experiences_activities": 6.0,
+        "nature_parks": 4.0,
+        "zoos_aquariums": 3.0,
+        "shows_entertainment": 3.0,
+        "theme_parks": 3.0,
+        "observation_decks": 1.0
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "water_parks",
+        "tours"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in cairo (490/mo)"
+        ],
+        "water_parks": [
+          "egypt water park (70/mo)",
+          "aqua park egypt (70/mo)"
+        ],
+        "tours": [
+          "egypt day trip (20/mo)",
+          "egypt excursion (20/mo)",
+          "cairo tours (40/mo)",
+          "cairo guided tour (10/mo)"
+        ],
+        "museums": [
+          "cairo museum tickets (60/mo)",
+          "egypt museum tickets (20/mo)"
+        ],
+        "experiences_activities": [
+          "cairo cooking class (20/mo)",
+          "egypt desert safari (20/mo)",
+          "egypt hot air balloon (20/mo)"
+        ],
+        "nature_parks": [
+          "cairo botanical garden (20/mo)",
+          "egypt national park (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "cairo zoo tickets (10/mo)",
+          "egypt safari park (20/mo)"
+        ],
+        "shows_entertainment": [
+          "cairo opera tickets (20/mo)",
+          "cairo show tickets (10/mo)"
+        ],
+        "theme_parks": [
+          "cairo theme park (20/mo)",
+          "amusement park egypt (10/mo)"
+        ],
+        "observation_decks": [
+          "cairo tower tickets (10/mo)"
+        ]
+      }
+    },
+    "France": {
+      "totalMonthlyVolumeGCC": 1140,
+      "inventoryMixPct": {
+        "attractions": 62.3,
+        "tours": 10.5,
+        "theme_parks": 4.4,
+        "shows_entertainment": 4.4,
+        "water_parks": 3.5,
+        "museums": 3.5,
+        "zoos_aquariums": 3.5,
+        "experiences_activities": 3.5,
+        "nature_parks": 2.6,
+        "observation_decks": 1.8
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "theme_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in paris (710/mo)"
+        ],
+        "tours": [
+          "france day trip (20/mo)",
+          "paris tours (70/mo)",
+          "paris guided tour (20/mo)",
+          "france excursion (10/mo)"
+        ],
+        "theme_parks": [
+          "amusement park france (30/mo)",
+          "paris theme park (20/mo)"
+        ],
+        "shows_entertainment": [
+          "paris show tickets (20/mo)",
+          "france concert tickets (10/mo)",
+          "paris opera tickets (20/mo)"
+        ],
+        "water_parks": [
+          "france water park (20/mo)",
+          "aqua park france (20/mo)"
+        ],
+        "museums": [
+          "best museums france (20/mo)",
+          "paris museum tickets (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "paris zoo tickets (20/mo)",
+          "france safari park (10/mo)",
+          "paris aquarium tickets (10/mo)"
+        ],
+        "experiences_activities": [
+          "france hot air balloon (20/mo)",
+          "paris wine tour (10/mo)",
+          "paris cooking class (10/mo)"
+        ],
+        "nature_parks": [
+          "paris botanical garden (20/mo)",
+          "france national park (10/mo)"
+        ],
+        "observation_decks": [
+          "paris tower tickets (20/mo)"
+        ]
+      }
+    },
+    "Switzerland": {
+      "totalMonthlyVolumeGCC": 640,
+      "inventoryMixPct": {
+        "attractions": 51.6,
+        "tours": 14.1,
+        "theme_parks": 7.8,
+        "experiences_activities": 6.2,
+        "nature_parks": 6.2,
+        "museums": 4.7,
+        "water_parks": 4.7,
+        "shows_entertainment": 3.1,
+        "zoos_aquariums": 1.6
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "theme_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in zurich (330/mo)"
+        ],
+        "tours": [
+          "zurich guided tour (20/mo)",
+          "zurich tours (40/mo)",
+          "switzerland day trip (20/mo)",
+          "switzerland excursion (10/mo)"
+        ],
+        "theme_parks": [
+          "amusement park switzerland (40/mo)",
+          "zurich theme park (10/mo)"
+        ],
+        "experiences_activities": [
+          "switzerland hot air balloon (20/mo)",
+          "zurich cooking class (20/mo)"
+        ],
+        "nature_parks": [
+          "zurich botanical garden (20/mo)",
+          "switzerland national park (20/mo)"
+        ],
+        "museums": [
+          "zurich museum tickets (10/mo)",
+          "best museums switzerland (20/mo)"
+        ],
+        "water_parks": [
+          "aqua park switzerland (20/mo)",
+          "switzerland water park (10/mo)"
+        ],
+        "shows_entertainment": [
+          "zurich opera tickets (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "zurich zoo tickets (10/mo)"
+        ]
+      }
+    },
+    "UK": {
+      "totalMonthlyVolumeGCC": 1590,
+      "inventoryMixPct": {
+        "attractions": 44.0,
+        "theme_parks": 14.5,
+        "observation_decks": 7.5,
+        "tours": 6.9,
+        "water_parks": 6.3,
+        "experiences_activities": 5.0,
+        "shows_entertainment": 5.0,
+        "zoos_aquariums": 4.4,
+        "nature_parks": 3.8,
+        "museums": 2.5
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "theme_parks",
+        "observation_decks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in london (690/mo)",
+          "uk attractions tickets (10/mo)"
+        ],
+        "theme_parks": [
+          "amusement park uk (90/mo)",
+          "london theme park (140/mo)"
+        ],
+        "observation_decks": [
+          "london tower tickets (120/mo)"
+        ],
+        "tours": [
+          "london tours (80/mo)",
+          "uk day trip (20/mo)",
+          "london guided tour (10/mo)"
+        ],
+        "water_parks": [
+          "uk water park (50/mo)",
+          "aqua park uk (50/mo)"
+        ],
+        "experiences_activities": [
+          "uk hot air balloon (20/mo)",
+          "london cooking class (40/mo)",
+          "london wine tour (20/mo)"
+        ],
+        "shows_entertainment": [
+          "uk theatre tickets (20/mo)",
+          "london opera tickets (20/mo)",
+          "uk concert tickets (20/mo)",
+          "london show tickets (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "london aquarium tickets (20/mo)",
+          "london zoo tickets (40/mo)",
+          "uk safari park (10/mo)"
+        ],
+        "nature_parks": [
+          "london botanical garden (20/mo)",
+          "uk nature reserve (20/mo)",
+          "uk national park (20/mo)"
+        ],
+        "museums": [
+          "london museum tickets (20/mo)",
+          "best museums uk (20/mo)"
+        ]
+      }
+    },
+    "Japan": {
+      "totalMonthlyVolumeGCC": 1050,
+      "inventoryMixPct": {
+        "attractions": 47.6,
+        "theme_parks": 19.0,
+        "tours": 9.5,
+        "zoos_aquariums": 3.8,
+        "nature_parks": 3.8,
+        "observation_decks": 2.9,
+        "museums": 2.9,
+        "historical_sites": 2.9,
+        "shows_entertainment": 2.9,
+        "experiences_activities": 2.9,
+        "water_parks": 1.9
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "theme_parks",
+        "tours"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in tokyo (500/mo)"
+        ],
+        "theme_parks": [
+          "tokyo theme park (80/mo)",
+          "amusement park japan (120/mo)"
+        ],
+        "tours": [
+          "tokyo guided tour (20/mo)",
+          "tokyo tours (50/mo)",
+          "japan day trip (20/mo)",
+          "japan excursion (10/mo)"
+        ],
+        "zoos_aquariums": [
+          "tokyo zoo tickets (10/mo)",
+          "japan safari park (20/mo)",
+          "tokyo aquarium tickets (10/mo)"
+        ],
+        "nature_parks": [
+          "tokyo botanical garden (20/mo)",
+          "japan national park (20/mo)"
+        ],
+        "observation_decks": [
+          "tokyo tower tickets (30/mo)"
+        ],
+        "museums": [
+          "best museums japan (20/mo)",
+          "tokyo museum tickets (10/mo)"
+        ],
+        "historical_sites": [
+          "japan UNESCO site (30/mo)"
+        ],
+        "shows_entertainment": [
+          "tokyo opera tickets (10/mo)",
+          "tokyo show tickets (10/mo)",
+          "japan concert tickets (10/mo)"
+        ],
+        "experiences_activities": [
+          "tokyo cooking class (20/mo)",
+          "japan hot air balloon (10/mo)"
+        ],
+        "water_parks": [
+          "japan water park (10/mo)",
+          "aqua park japan (10/mo)"
+        ]
+      }
+    },
+    "Morocco": {
+      "totalMonthlyVolumeGCC": 380,
+      "inventoryMixPct": {
+        "attractions": 39.5,
+        "tours": 18.4,
+        "experiences_activities": 13.2,
+        "water_parks": 10.5,
+        "nature_parks": 10.5,
+        "theme_parks": 7.9
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "experiences_activities"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in marrakech (150/mo)"
+        ],
+        "tours": [
+          "marrakech tours (20/mo)",
+          "morocco day trip (20/mo)",
+          "morocco excursion (20/mo)",
+          "marrakech guided tour (10/mo)"
+        ],
+        "experiences_activities": [
+          "marrakech cooking class (20/mo)",
+          "morocco hot air balloon (20/mo)",
+          "morocco desert safari (10/mo)"
+        ],
+        "water_parks": [
+          "morocco water park (20/mo)",
+          "aqua park morocco (20/mo)"
+        ],
+        "nature_parks": [
+          "morocco national park (20/mo)",
+          "marrakech botanical garden (20/mo)"
+        ],
+        "theme_parks": [
+          "marrakech theme park (10/mo)",
+          "amusement park morocco (20/mo)"
+        ]
+      }
+    },
+    "Thailand": {
+      "totalMonthlyVolumeGCC": 1590,
+      "inventoryMixPct": {
+        "attractions": 55.3,
+        "water_parks": 11.3,
+        "tours": 11.3,
+        "theme_parks": 9.4,
+        "zoos_aquariums": 3.8,
+        "nature_parks": 3.8,
+        "experiences_activities": 2.5,
+        "shows_entertainment": 1.3,
+        "religious_sites": 0.6,
+        "historical_sites": 0.6
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "water_parks",
+        "tours"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in bangkok (860/mo)",
+          "thailand attractions tickets (20/mo)"
+        ],
+        "water_parks": [
+          "aqua park thailand (90/mo)",
+          "thailand water park (90/mo)"
+        ],
+        "tours": [
+          "thailand excursion (20/mo)",
+          "bangkok tours (110/mo)",
+          "thailand day trip (20/mo)",
+          "bangkok guided tour (30/mo)"
+        ],
+        "theme_parks": [
+          "amusement park thailand (60/mo)",
+          "bangkok theme park (90/mo)"
+        ],
+        "zoos_aquariums": [
+          "bangkok zoo tickets (20/mo)",
+          "bangkok aquarium tickets (10/mo)",
+          "thailand safari park (30/mo)"
+        ],
+        "nature_parks": [
+          "bangkok botanical garden (20/mo)",
+          "thailand national park (40/mo)"
+        ],
+        "experiences_activities": [
+          "thailand hot air balloon (20/mo)",
+          "bangkok cooking class (20/mo)"
+        ],
+        "shows_entertainment": [
+          "thailand concert tickets (20/mo)"
+        ],
+        "religious_sites": [
+          "bangkok temple tickets (10/mo)"
+        ],
+        "historical_sites": [
+          "thailand UNESCO site (10/mo)"
+        ]
+      }
+    },
+    "Spain": {
+      "totalMonthlyVolumeGCC": 890,
+      "inventoryMixPct": {
+        "attractions": 48.3,
+        "tours": 10.1,
+        "theme_parks": 9.0,
+        "water_parks": 6.7,
+        "zoos_aquariums": 5.6,
+        "experiences_activities": 5.6,
+        "nature_parks": 4.5,
+        "museums": 4.5,
+        "shows_entertainment": 3.4,
+        "religious_sites": 2.2
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "theme_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in barcelona (430/mo)"
+        ],
+        "tours": [
+          "barcelona guided tour (20/mo)",
+          "spain excursion (20/mo)",
+          "spain day trip (10/mo)",
+          "barcelona tours (40/mo)"
+        ],
+        "theme_parks": [
+          "amusement park spain (50/mo)",
+          "barcelona theme park (30/mo)"
+        ],
+        "water_parks": [
+          "aqua park spain (30/mo)",
+          "spain water park (30/mo)"
+        ],
+        "zoos_aquariums": [
+          "barcelona zoo tickets (20/mo)",
+          "barcelona aquarium tickets (20/mo)",
+          "spain safari park (10/mo)"
+        ],
+        "experiences_activities": [
+          "spain hot air balloon (10/mo)",
+          "barcelona wine tour (20/mo)",
+          "barcelona cooking class (20/mo)"
+        ],
+        "nature_parks": [
+          "barcelona botanical garden (20/mo)",
+          "spain national park (20/mo)"
+        ],
+        "museums": [
+          "barcelona museum tickets (20/mo)",
+          "best museums spain (20/mo)"
+        ],
+        "shows_entertainment": [
+          "spain concert tickets (20/mo)",
+          "barcelona opera tickets (10/mo)"
+        ],
+        "religious_sites": [
+          "barcelona cathedral tickets (20/mo)"
+        ]
+      }
+    },
+    "Portugal": {
+      "totalMonthlyVolumeGCC": 690,
+      "inventoryMixPct": {
+        "attractions": 47.8,
+        "tours": 10.1,
+        "zoos_aquariums": 7.2,
+        "experiences_activities": 5.8,
+        "nature_parks": 5.8,
+        "water_parks": 5.8,
+        "museums": 4.3,
+        "theme_parks": 4.3,
+        "shows_entertainment": 4.3,
+        "religious_sites": 2.9,
+        "historical_sites": 1.4
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "zoos_aquariums"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in lisbon (330/mo)"
+        ],
+        "tours": [
+          "lisbon guided tour (20/mo)",
+          "portugal day trip (20/mo)",
+          "portugal excursion (10/mo)",
+          "lisbon tours (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "portugal safari park (20/mo)",
+          "lisbon zoo tickets (20/mo)",
+          "lisbon aquarium tickets (10/mo)"
+        ],
+        "experiences_activities": [
+          "lisbon cooking class (20/mo)",
+          "portugal hot air balloon (10/mo)",
+          "lisbon wine tour (10/mo)"
+        ],
+        "nature_parks": [
+          "lisbon botanical garden (20/mo)",
+          "portugal nature reserve (10/mo)",
+          "portugal national park (10/mo)"
+        ],
+        "water_parks": [
+          "aqua park portugal (20/mo)",
+          "portugal water park (20/mo)"
+        ],
+        "museums": [
+          "best museums portugal (20/mo)",
+          "lisbon museum tickets (10/mo)"
+        ],
+        "theme_parks": [
+          "lisbon theme park (20/mo)",
+          "amusement park portugal (10/mo)"
+        ],
+        "shows_entertainment": [
+          "portugal concert tickets (10/mo)",
+          "lisbon opera tickets (20/mo)"
+        ],
+        "religious_sites": [
+          "lisbon cathedral tickets (20/mo)"
+        ],
+        "historical_sites": [
+          "portugal UNESCO site (10/mo)"
+        ]
+      }
+    },
+    "Austria": {
+      "totalMonthlyVolumeGCC": 840,
+      "inventoryMixPct": {
+        "attractions": 51.2,
+        "tours": 10.7,
+        "theme_parks": 8.3,
+        "experiences_activities": 6.0,
+        "shows_entertainment": 4.8,
+        "nature_parks": 4.8,
+        "water_parks": 4.8,
+        "museums": 4.8,
+        "zoos_aquariums": 4.8
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "theme_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in vienna (430/mo)"
+        ],
+        "tours": [
+          "vienna guided tour (20/mo)",
+          "vienna tours (40/mo)",
+          "austria excursion (20/mo)",
+          "austria day trip (10/mo)"
+        ],
+        "theme_parks": [
+          "vienna theme park (40/mo)",
+          "amusement park austria (30/mo)"
+        ],
+        "experiences_activities": [
+          "austria hot air balloon (10/mo)",
+          "vienna cooking class (20/mo)",
+          "vienna wine tour (20/mo)"
+        ],
+        "shows_entertainment": [
+          "vienna opera tickets (40/mo)"
+        ],
+        "nature_parks": [
+          "austria national park (20/mo)",
+          "vienna botanical garden (20/mo)"
+        ],
+        "water_parks": [
+          "aqua park austria (20/mo)",
+          "austria water park (20/mo)"
+        ],
+        "museums": [
+          "vienna museum tickets (20/mo)",
+          "best museums austria (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "austria safari park (10/mo)",
+          "vienna aquarium tickets (10/mo)",
+          "vienna zoo tickets (20/mo)"
+        ]
+      }
+    },
+    "Netherlands": {
+      "totalMonthlyVolumeGCC": 960,
+      "inventoryMixPct": {
+        "attractions": 55.2,
+        "theme_parks": 11.5,
+        "tours": 9.4,
+        "nature_parks": 6.2,
+        "experiences_activities": 4.2,
+        "zoos_aquariums": 4.2,
+        "shows_entertainment": 4.2,
+        "museums": 3.1,
+        "water_parks": 2.1
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "theme_parks",
+        "tours"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in amsterdam (530/mo)"
+        ],
+        "theme_parks": [
+          "amusement park netherlands (80/mo)",
+          "amsterdam theme park (30/mo)"
+        ],
+        "tours": [
+          "amsterdam guided tour (20/mo)",
+          "amsterdam tours (50/mo)",
+          "netherlands day trip (20/mo)"
+        ],
+        "nature_parks": [
+          "amsterdam botanical garden (20/mo)",
+          "netherlands national park (20/mo)",
+          "netherlands nature reserve (20/mo)"
+        ],
+        "experiences_activities": [
+          "amsterdam cooking class (20/mo)",
+          "netherlands hot air balloon (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "netherlands safari park (20/mo)",
+          "amsterdam zoo tickets (20/mo)"
+        ],
+        "shows_entertainment": [
+          "amsterdam opera tickets (10/mo)",
+          "amsterdam show tickets (10/mo)",
+          "netherlands concert tickets (20/mo)"
+        ],
+        "museums": [
+          "amsterdam museum tickets (20/mo)",
+          "best museums netherlands (10/mo)"
+        ],
+        "water_parks": [
+          "netherlands water park (10/mo)",
+          "aqua park netherlands (10/mo)"
+        ]
+      }
+    },
+    "Malaysia": {
+      "totalMonthlyVolumeGCC": 1180,
+      "inventoryMixPct": {
+        "attractions": 46.6,
+        "water_parks": 15.3,
+        "theme_parks": 14.4,
+        "tours": 6.8,
+        "nature_parks": 5.1,
+        "observation_decks": 5.1,
+        "zoos_aquariums": 2.5,
+        "experiences_activities": 2.5,
+        "shows_entertainment": 1.7
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "water_parks",
+        "theme_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "malaysia attractions tickets (20/mo)",
+          "things to do in kuala lumpur (530/mo)"
+        ],
+        "water_parks": [
+          "malaysia water park (90/mo)",
+          "aqua park malaysia (90/mo)"
+        ],
+        "theme_parks": [
+          "amusement park malaysia (100/mo)",
+          "kuala lumpur theme park (70/mo)"
+        ],
+        "tours": [
+          "kuala lumpur tours (30/mo)",
+          "malaysia excursion (20/mo)",
+          "malaysia day trip (20/mo)",
+          "kuala lumpur guided tour (10/mo)"
+        ],
+        "nature_parks": [
+          "malaysia national park (20/mo)",
+          "kuala lumpur botanical garden (20/mo)",
+          "malaysia nature reserve (20/mo)"
+        ],
+        "observation_decks": [
+          "kuala lumpur tower tickets (60/mo)"
+        ],
+        "zoos_aquariums": [
+          "kuala lumpur aquarium tickets (20/mo)",
+          "malaysia safari park (10/mo)"
+        ],
+        "experiences_activities": [
+          "malaysia hot air balloon (20/mo)",
+          "kuala lumpur cooking class (10/mo)"
+        ],
+        "shows_entertainment": [
+          "malaysia concert tickets (20/mo)"
+        ]
+      }
+    },
+    "Vietnam": {
+      "totalMonthlyVolumeGCC": 1060,
+      "inventoryMixPct": {
+        "attractions": 64.2,
+        "theme_parks": 10.4,
+        "tours": 7.5,
+        "zoos_aquariums": 3.8,
+        "nature_parks": 3.8,
+        "water_parks": 3.8,
+        "experiences_activities": 3.8,
+        "historical_sites": 1.9,
+        "shows_entertainment": 0.9
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "theme_parks",
+        "tours"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in hanoi (680/mo)"
+        ],
+        "theme_parks": [
+          "amusement park vietnam (90/mo)",
+          "hanoi theme park (20/mo)"
+        ],
+        "tours": [
+          "hanoi tours (30/mo)",
+          "vietnam excursion (10/mo)",
+          "vietnam day trip (20/mo)",
+          "hanoi guided tour (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "hanoi zoo tickets (20/mo)",
+          "vietnam safari park (20/mo)"
+        ],
+        "nature_parks": [
+          "vietnam national park (20/mo)",
+          "hanoi botanical garden (20/mo)"
+        ],
+        "water_parks": [
+          "aqua park vietnam (20/mo)",
+          "vietnam water park (20/mo)"
+        ],
+        "experiences_activities": [
+          "hanoi cooking class (20/mo)",
+          "vietnam hot air balloon (20/mo)"
+        ],
+        "historical_sites": [
+          "vietnam UNESCO site (20/mo)"
+        ],
+        "shows_entertainment": [
+          "hanoi opera tickets (10/mo)"
+        ]
+      }
+    },
+    "Turkey": {
+      "totalMonthlyVolumeGCC": 1790,
+      "inventoryMixPct": {
+        "attractions": 41.3,
+        "experiences_activities": 28.5,
+        "theme_parks": 9.5,
+        "tours": 8.9,
+        "nature_parks": 2.2,
+        "shows_entertainment": 2.2,
+        "zoos_aquariums": 2.2,
+        "water_parks": 2.2,
+        "historical_sites": 1.7,
+        "museums": 1.1
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "experiences_activities",
+        "theme_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in istanbul (740/mo)"
+        ],
+        "experiences_activities": [
+          "istanbul wine tour (20/mo)",
+          "istanbul cooking class (10/mo)",
+          "turkey hot air balloon (480/mo)"
+        ],
+        "theme_parks": [
+          "amusement park turkey (50/mo)",
+          "istanbul theme park (120/mo)"
+        ],
+        "tours": [
+          "istanbul guided tour (30/mo)",
+          "istanbul tours (100/mo)",
+          "turkey day trip (20/mo)",
+          "turkey excursion (10/mo)"
+        ],
+        "nature_parks": [
+          "istanbul botanical garden (20/mo)",
+          "turkey national park (20/mo)"
+        ],
+        "shows_entertainment": [
+          "turkey concert tickets (20/mo)",
+          "istanbul opera tickets (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "istanbul zoo tickets (20/mo)",
+          "istanbul aquarium tickets (20/mo)"
+        ],
+        "water_parks": [
+          "aqua park turkey (20/mo)",
+          "turkey water park (20/mo)"
+        ],
+        "historical_sites": [
+          "turkey archaeological site (20/mo)",
+          "turkey UNESCO site (10/mo)"
+        ],
+        "museums": [
+          "istanbul museum tickets (20/mo)"
+        ]
+      }
+    },
+    "Czech Republic": {
+      "totalMonthlyVolumeGCC": 770,
+      "inventoryMixPct": {
+        "attractions": 64.9,
+        "tours": 7.8,
+        "water_parks": 5.2,
+        "nature_parks": 5.2,
+        "experiences_activities": 3.9,
+        "zoos_aquariums": 2.6,
+        "theme_parks": 2.6,
+        "museums": 2.6,
+        "observation_decks": 2.6,
+        "religious_sites": 1.3,
+        "shows_entertainment": 1.3
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "water_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in prague (500/mo)"
+        ],
+        "tours": [
+          "prague tours (40/mo)",
+          "prague guided tour (20/mo)"
+        ],
+        "water_parks": [
+          "czech republic water park (20/mo)",
+          "aqua park czech republic (20/mo)"
+        ],
+        "nature_parks": [
+          "prague botanical garden (20/mo)",
+          "czech republic national park (20/mo)"
+        ],
+        "experiences_activities": [
+          "prague wine tour (20/mo)",
+          "prague cooking class (10/mo)"
+        ],
+        "zoos_aquariums": [
+          "prague zoo tickets (20/mo)"
+        ],
+        "theme_parks": [
+          "amusement park czech republic (10/mo)",
+          "prague theme park (10/mo)"
+        ],
+        "museums": [
+          "prague museum tickets (20/mo)"
+        ],
+        "observation_decks": [
+          "prague tower tickets (20/mo)"
+        ],
+        "religious_sites": [
+          "prague cathedral tickets (10/mo)"
+        ],
+        "shows_entertainment": [
+          "prague opera tickets (10/mo)"
+        ]
+      }
+    },
+    "Indonesia": {
+      "totalMonthlyVolumeGCC": 1120,
+      "inventoryMixPct": {
+        "attractions": 65.2,
+        "tours": 17.0,
+        "nature_parks": 7.1,
+        "zoos_aquariums": 4.5,
+        "experiences_activities": 2.7,
+        "water_parks": 1.8,
+        "theme_parks": 1.8
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "nature_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in bali (730/mo)"
+        ],
+        "tours": [
+          "bali tours (170/mo)",
+          "bali guided tour (20/mo)"
+        ],
+        "nature_parks": [
+          "bali botanical garden (60/mo)",
+          "indonesia national park (20/mo)"
+        ],
+        "zoos_aquariums": [
+          "bali aquarium tickets (10/mo)",
+          "indonesia safari park (20/mo)",
+          "bali zoo tickets (20/mo)"
+        ],
+        "experiences_activities": [
+          "indonesia hot air balloon (10/mo)",
+          "bali cooking class (20/mo)"
+        ],
+        "water_parks": [
+          "indonesia water park (20/mo)"
+        ],
+        "theme_parks": [
+          "bali theme park (10/mo)",
+          "amusement park indonesia (10/mo)"
+        ]
+      }
+    },
+    "Ireland": {
+      "totalMonthlyVolumeGCC": 400,
+      "inventoryMixPct": {
+        "attractions": 32.5,
+        "tours": 17.5,
+        "experiences_activities": 10.0,
+        "nature_parks": 10.0,
+        "theme_parks": 10.0,
+        "shows_entertainment": 7.5,
+        "water_parks": 7.5,
+        "zoos_aquariums": 5.0
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "experiences_activities"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in dublin (130/mo)"
+        ],
+        "tours": [
+          "dublin tours (20/mo)",
+          "ireland excursion (20/mo)",
+          "ireland day trip (20/mo)",
+          "dublin guided tour (10/mo)"
+        ],
+        "experiences_activities": [
+          "dublin cooking class (20/mo)",
+          "ireland hot air balloon (20/mo)"
+        ],
+        "nature_parks": [
+          "ireland national park (20/mo)",
+          "dublin botanical garden (20/mo)"
+        ],
+        "theme_parks": [
+          "amusement park ireland (20/mo)",
+          "dublin theme park (20/mo)"
+        ],
+        "shows_entertainment": [
+          "ireland concert tickets (20/mo)",
+          "dublin opera tickets (10/mo)"
+        ],
+        "water_parks": [
+          "aqua park ireland (20/mo)",
+          "ireland water park (10/mo)"
+        ],
+        "zoos_aquariums": [
+          "ireland safari park (10/mo)",
+          "dublin zoo tickets (10/mo)"
+        ]
+      }
+    },
+    "Hungary": {
+      "totalMonthlyVolumeGCC": 740,
+      "inventoryMixPct": {
+        "attractions": 67.6,
+        "experiences_activities": 6.8,
+        "water_parks": 5.4,
+        "nature_parks": 5.4,
+        "tours": 4.1,
+        "shows_entertainment": 4.1,
+        "theme_parks": 4.1,
+        "zoos_aquariums": 2.7
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "experiences_activities",
+        "water_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in budapest (500/mo)"
+        ],
+        "experiences_activities": [
+          "budapest wine tour (20/mo)",
+          "budapest cooking class (20/mo)",
+          "hungary hot air balloon (10/mo)"
+        ],
+        "water_parks": [
+          "aqua park hungary (20/mo)",
+          "hungary water park (20/mo)"
+        ],
+        "nature_parks": [
+          "hungary national park (20/mo)",
+          "budapest botanical garden (20/mo)"
+        ],
+        "tours": [
+          "budapest tours (20/mo)",
+          "budapest guided tour (10/mo)"
+        ],
+        "shows_entertainment": [
+          "budapest opera tickets (30/mo)"
+        ],
+        "theme_parks": [
+          "budapest theme park (20/mo)",
+          "amusement park hungary (10/mo)"
+        ],
+        "zoos_aquariums": [
+          "budapest zoo tickets (20/mo)"
+        ]
+      }
+    },
+    "Jordan": {
+      "totalMonthlyVolumeGCC": 430,
+      "inventoryMixPct": {
+        "attractions": 48.8,
+        "tours": 11.6,
+        "water_parks": 9.3,
+        "experiences_activities": 9.3,
+        "nature_parks": 9.3,
+        "historical_sites": 4.7,
+        "theme_parks": 4.7,
+        "religious_sites": 2.3
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "water_parks"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in amman (210/mo)"
+        ],
+        "tours": [
+          "jordan excursion (20/mo)",
+          "amman tours (20/mo)",
+          "jordan day trip (10/mo)"
+        ],
+        "water_parks": [
+          "jordan water park (20/mo)",
+          "aqua park jordan (20/mo)"
+        ],
+        "experiences_activities": [
+          "amman cooking class (20/mo)",
+          "jordan hot air balloon (20/mo)"
+        ],
+        "nature_parks": [
+          "jordan national park (20/mo)",
+          "jordan nature reserve (20/mo)"
+        ],
+        "historical_sites": [
+          "jordan archaeological site (20/mo)"
+        ],
+        "theme_parks": [
+          "amusement park jordan (20/mo)"
+        ],
+        "religious_sites": [
+          "amman mosque visit (10/mo)"
+        ]
+      }
+    },
+    "Poland": {
+      "totalMonthlyVolumeGCC": 470,
+      "inventoryMixPct": {
+        "theme_parks": 38.3,
+        "attractions": 23.4,
+        "tours": 8.5,
+        "nature_parks": 8.5,
+        "water_parks": 8.5,
+        "experiences_activities": 6.4,
+        "religious_sites": 2.1,
+        "zoos_aquariums": 2.1,
+        "shows_entertainment": 2.1
+      },
+      "dominantBucket": "theme_parks",
+      "topThreeBuckets": [
+        "theme_parks",
+        "attractions",
+        "tours"
+      ],
+      "bucketSamples": {
+        "theme_parks": [
+          "krakow theme park (30/mo)",
+          "amusement park poland (150/mo)"
+        ],
+        "attractions": [
+          "things to do in krakow (110/mo)"
+        ],
+        "tours": [
+          "krakow guided tour (20/mo)",
+          "krakow tours (20/mo)"
+        ],
+        "nature_parks": [
+          "krakow botanical garden (20/mo)",
+          "poland national park (20/mo)"
+        ],
+        "water_parks": [
+          "aqua park poland (20/mo)",
+          "poland water park (20/mo)"
+        ],
+        "experiences_activities": [
+          "poland hot air balloon (20/mo)",
+          "krakow cooking class (10/mo)"
+        ],
+        "religious_sites": [
+          "krakow cathedral tickets (10/mo)"
+        ],
+        "zoos_aquariums": [
+          "krakow zoo tickets (10/mo)"
+        ],
+        "shows_entertainment": [
+          "krakow opera tickets (10/mo)"
+        ]
+      }
+    },
+    "Greece": {
+      "totalMonthlyVolumeGCC": 730,
+      "inventoryMixPct": {
+        "attractions": 58.9,
+        "tours": 9.6,
+        "experiences_activities": 6.8,
+        "water_parks": 5.5,
+        "theme_parks": 5.5,
+        "museums": 5.5,
+        "shows_entertainment": 4.1,
+        "nature_parks": 4.1
+      },
+      "dominantBucket": "attractions",
+      "topThreeBuckets": [
+        "attractions",
+        "tours",
+        "experiences_activities"
+      ],
+      "bucketSamples": {
+        "attractions": [
+          "things to do in athens (430/mo)"
+        ],
+        "tours": [
+          "athens tours (40/mo)",
+          "greece excursion (20/mo)",
+          "athens guided tour (10/mo)"
+        ],
+        "experiences_activities": [
+          "greece hot air balloon (20/mo)",
+          "athens wine tour (20/mo)",
+          "athens cooking class (10/mo)"
+        ],
+        "water_parks": [
+          "aqua park greece (20/mo)",
+          "greece water park (20/mo)"
+        ],
+        "theme_parks": [
+          "amusement park greece (20/mo)",
+          "athens theme park (20/mo)"
+        ],
+        "museums": [
+          "greece museum tickets (10/mo)",
+          "athens museum tickets (20/mo)",
+          "best museums greece (10/mo)"
+        ],
+        "shows_entertainment": [
+          "greece concert tickets (10/mo)",
+          "athens opera tickets (20/mo)"
+        ],
+        "nature_parks": [
+          "greece national park (20/mo)",
+          "athens botanical garden (10/mo)"
+        ]
+      }
+    }
+  }
+}

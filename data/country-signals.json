@@ -629,7 +629,8 @@
         "asOf": "2026-04-17",
         "sources": [
           "wikipedia",
-          "google-trends"
+          "google-trends",
+          "dataforseo"
         ]
       },
       "landmarks": {
@@ -690,6 +691,24 @@
           0.0
         ],
         "query": "bali tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 1120,
+        "topThree": [
+          "attractions",
+          "tours",
+          "nature_parks"
+        ],
+        "mixPct": {
+          "attractions": 65.2,
+          "tours": 17.0,
+          "nature_parks": 7.1,
+          "zoos_aquariums": 4.5,
+          "experiences_activities": 2.7,
+          "water_parks": 1.8,
+          "theme_parks": 1.8
+        },
+        "dominantBucket": "attractions"
       }
     },
     "Ireland": {
@@ -1759,7 +1778,8 @@
         "asOf": "2026-04-17",
         "sources": [
           "wikipedia",
-          "google-trends"
+          "google-trends",
+          "dataforseo"
         ]
       },
       "landmarks": {
@@ -1820,6 +1840,27 @@
           59.6
         ],
         "query": "thailand tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 1590,
+        "topThree": [
+          "attractions",
+          "water_parks",
+          "tours"
+        ],
+        "mixPct": {
+          "attractions": 55.3,
+          "water_parks": 11.3,
+          "tours": 11.3,
+          "theme_parks": 9.4,
+          "zoos_aquariums": 3.8,
+          "nature_parks": 3.8,
+          "experiences_activities": 2.5,
+          "shows_entertainment": 1.3,
+          "religious_sites": 0.6,
+          "historical_sites": 0.6
+        },
+        "dominantBucket": "attractions"
       }
     },
     "Turkey": {
@@ -1997,7 +2038,8 @@
         "asOf": "2026-04-17",
         "sources": [
           "wikipedia",
-          "google-trends"
+          "google-trends",
+          "dataforseo"
         ]
       },
       "landmarks": {
@@ -2058,6 +2100,26 @@
           0.0
         ],
         "query": "vietnam tickets"
+      },
+      "inventoryMix": {
+        "totalMonthlyVolumeGCC": 1060,
+        "topThree": [
+          "attractions",
+          "theme_parks",
+          "tours"
+        ],
+        "mixPct": {
+          "attractions": 64.2,
+          "theme_parks": 10.4,
+          "tours": 7.5,
+          "zoos_aquariums": 3.8,
+          "nature_parks": 3.8,
+          "water_parks": 3.8,
+          "experiences_activities": 3.8,
+          "historical_sites": 1.9,
+          "shows_entertainment": 0.9
+        },
+        "dominantBucket": "attractions"
       }
     }
   }
