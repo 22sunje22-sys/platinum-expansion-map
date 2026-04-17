@@ -497,10 +497,236 @@
         transform: translateY(16px);
       }
 
+      .scrim {
+        position: fixed;
+        inset: 0;
+        background: rgba(4, 6, 9, 0.68);
+        backdrop-filter: blur(4px);
+        z-index: 7;
+        opacity: 1;
+        transition: opacity 200ms ease;
+        pointer-events: auto;
+      }
+
+      .scrim.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+
       .info-body {
         padding: 18px;
         max-height: calc(100vh - 154px);
         overflow: auto;
+      }
+
+      .tab-nav {
+        display: flex;
+        gap: 4px;
+        margin-top: 14px;
+        padding: 4px;
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+        border-radius: 12px;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .tab-nav::-webkit-scrollbar {
+        display: none;
+      }
+
+      .tab-btn {
+        appearance: none;
+        border: 0;
+        background: transparent;
+        color: var(--muted);
+        font: inherit;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        padding: 7px 11px;
+        border-radius: 8px;
+        cursor: pointer;
+        white-space: nowrap;
+        transition: background 140ms ease, color 140ms ease;
+      }
+
+      .tab-btn:hover {
+        color: var(--text);
+      }
+
+      .tab-btn.is-active {
+        background: rgba(146, 232, 255, 0.12);
+        color: var(--text);
+      }
+
+      .tab-panel {
+        display: none;
+        margin-top: 14px;
+      }
+
+      .tab-panel.is-active {
+        display: block;
+      }
+
+      .score-breakdown {
+        display: grid;
+        gap: 8px;
+        margin-top: 10px;
+      }
+
+      .score-row {
+        display: grid;
+        grid-template-columns: 110px 1fr 58px;
+        gap: 10px;
+        align-items: center;
+        font-size: 12px;
+      }
+
+      .score-row .score-label {
+        color: var(--muted);
+      }
+
+      .score-row .score-val {
+        text-align: right;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .score-bar {
+        height: 6px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.06);
+        overflow: hidden;
+      }
+
+      .score-bar > span {
+        display: block;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(146, 232, 255, 0.7), rgba(146, 232, 255, 0.35));
+        width: var(--width, 0%);
+      }
+
+      .catalyst-card {
+        margin-top: 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--panel-strong);
+        padding: 12px;
+      }
+
+      .catalyst-card h3 {
+        margin: 0 0 6px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(246, 249, 252, 0.54);
+      }
+
+      .catalyst-band {
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--text);
+      }
+
+      .catalyst-factors {
+        margin: 8px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 6px;
+      }
+
+      .catalyst-factors li {
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.45;
+      }
+
+      .catalyst-factors li::before {
+        content: "→";
+        margin-right: 6px;
+        color: var(--open);
+      }
+
+      .composite-pill {
+        display: inline-flex;
+        align-items: baseline;
+        gap: 6px;
+        margin-top: 10px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: rgba(146, 232, 255, 0.1);
+        border: 1px solid rgba(146, 232, 255, 0.25);
+      }
+
+      .composite-pill strong {
+        font-size: 18px;
+        color: var(--text);
+      }
+
+      .composite-pill span {
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .landmark-list {
+        margin: 8px 0 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 4px;
+      }
+
+      .landmark-list li {
+        display: flex;
+        justify-content: space-between;
+        gap: 10px;
+        font-size: 12px;
+        color: var(--text);
+      }
+
+      .landmark-list li span:last-child {
+        color: var(--muted);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .gmv-block {
+        margin-top: 14px;
+        padding: 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(146, 232, 255, 0.18);
+        background: rgba(146, 232, 255, 0.04);
+      }
+
+      .gmv-range {
+        font-size: 20px;
+        font-weight: 800;
+        color: var(--text);
+        letter-spacing: -0.02em;
+      }
+
+      .gmv-range small {
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        letter-spacing: 0.08em;
+      }
+
+      .gmv-formula {
+        margin-top: 8px;
+        font-size: 12px;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .empty-panel {
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.5;
+        padding: 12px 0;
       }
 
       .eyebrow {
@@ -971,6 +1197,8 @@
           </div>
         </div>
 
+        <div class="scrim is-hidden" id="scrim" aria-hidden="true"></div>
+
         <aside class="info-card is-hidden" id="info-card" aria-live="polite">
           <div class="info-body">
             <div class="eyebrow" id="info-status">Good to open</div>
@@ -996,25 +1224,53 @@
               <span class="chip" id="info-timing"></span>
             </div>
 
-            <div class="meta-grid" id="info-stats"></div>
-
-            <div class="lens-grid" id="lens-grid"></div>
-
-            <div class="detail-grid">
-              <div class="detail">
-                <h3>Why This Market</h3>
-                <p id="info-why"></p>
-              </div>
-              <div class="detail">
-                <h3>Recommended Path</h3>
-                <p id="info-recommendation"></p>
-              </div>
+            <div class="tab-nav" id="tab-nav" role="tablist">
+              <button type="button" class="tab-btn is-active" data-tab="overview">Overview</button>
+              <button type="button" class="tab-btn" data-tab="scoring">Scoring</button>
+              <button type="button" class="tab-btn" data-tab="signals">Signals</button>
+              <button type="button" class="tab-btn" data-tab="economics">Economics</button>
+              <button type="button" class="tab-btn" data-tab="risks">Risks</button>
+              <button type="button" class="tab-btn" data-tab="evidence">Evidence</button>
             </div>
 
-            <div class="facts">
-              <h3>Deck Evidence</h3>
-              <ul class="facts-list" id="info-facts"></ul>
-            </div>
+            <section class="tab-panel is-active" data-panel="overview">
+              <div class="meta-grid" id="info-stats"></div>
+              <div class="lens-grid" id="lens-grid"></div>
+              <div class="detail-grid">
+                <div class="detail">
+                  <h3>Why This Market</h3>
+                  <p id="info-why"></p>
+                </div>
+                <div class="detail">
+                  <h3>Recommended Path</h3>
+                  <p id="info-recommendation"></p>
+                </div>
+              </div>
+            </section>
+
+            <section class="tab-panel" data-panel="scoring">
+              <div id="panel-scoring"></div>
+            </section>
+
+            <section class="tab-panel" data-panel="signals">
+              <div id="panel-signals"></div>
+            </section>
+
+            <section class="tab-panel" data-panel="economics">
+              <div id="panel-economics"></div>
+            </section>
+
+            <section class="tab-panel" data-panel="risks">
+              <div id="panel-risks"></div>
+            </section>
+
+            <section class="tab-panel" data-panel="evidence">
+              <div class="facts">
+                <h3>Deck Evidence</h3>
+                <ul class="facts-list" id="info-facts"></ul>
+              </div>
+            </section>
+
             <div class="card-footnote" id="info-footnote"></div>
           </div>
         </aside>
@@ -2039,6 +2295,40 @@
         if (coverageData[name]) Object.assign(coverageData[name], details);
       });
 
+      // v2.1 composite scorecard + Pass2 keyword signals per deck market.
+      // base /100 = demand /30 + supply /20 + moat /20 + econ /20 + strategic /10
+      // composite = base + catalystScore /10 (overlay)
+      const extendedData = {
+        "Morocco": {"signals":{"fullGccVol":1290,"uaeKsaVol":790,"extraGccVol":500,"extraGccPct":38.8,"wwVol":35340,"gccBias":0.04,"landmarksPassing":6,"landmarksTotal":10,"weightedCpcGcc":0.43,"topLandmarks":"hassan ii mosque tickets=60 | sahara desert tour=60 | marrakech day trip=60 | majorelle garden tickets=60 | chefchaouen day trip=50"},"scoring":{"base":56,"demand":15,"supply":11,"moat":7,"econ":16,"strategic":7,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Open market but French-SEO dependency"],"composite":59,"dq":null,"flags":1}},
+        "Spain": {"signals":{"fullGccVol":2430,"uaeKsaVol":1600,"extraGccVol":830,"extraGccPct":34.2,"wwVol":189840,"gccBias":0.01,"landmarksPassing":10,"landmarksTotal":10,"weightedCpcGcc":2.81,"topLandmarks":"sagrada familia tickets=470 | alhambra tickets=460 | park guell tickets=160 | camp nou tour=120 | flamenco show madrid=90"},"scoring":{"base":55,"demand":22,"supply":19,"moat":3,"econ":3,"strategic":8,"catalystScore":10,"catalystBand":"mega-event + air + campaign","catalystFactors":["Ryder Cup 2027 @ Camiral (CAT) as premium anchor","Saudia MAD/BCN frequency bump","Turespaña halal-tourism push 2026"],"composite":65,"dq":null,"flags":0,"y1Gmv":{"low":100,"high":300,"conv":"0.5-1.0%","basket":"$38","launch":"Q1'27 · 12mo · 0.4× (ETIAS drag)"}}},
+        "South Africa": {"signals":{"fullGccVol":1100,"uaeKsaVol":660,"extraGccVol":440,"extraGccPct":40.0,"wwVol":37130,"gccBias":0.03,"landmarksPassing":6,"landmarksTotal":10,"weightedCpcGcc":0.73,"topLandmarks":"kruger safari=130 | table mountain tickets=80 | robben island tickets=70 | garden route tour=60 | gold reef city tickets=60"},"scoring":{"base":50,"demand":15,"supply":11,"moat":7,"econ":13,"strategic":4,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Long-haul niche"],"composite":53,"dq":null,"flags":1}},
+        "Greece": {"signals":{"fullGccVol":1570,"uaeKsaVol":950,"extraGccVol":620,"extraGccPct":39.5,"wwVol":106630,"gccBias":0.01,"landmarksPassing":8,"landmarksTotal":10,"weightedCpcGcc":0.51,"topLandmarks":"acropolis tickets=250 | acropolis museum tickets=70 | santorini day trip=60 | ancient agora tickets=60 | knossos tickets=60"},"scoring":{"base":58,"demand":19,"supply":14,"moat":3,"econ":16,"strategic":6,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Emirates DXB-ATH capacity; state gate still closed"],"composite":61,"dq":null,"flags":1}},
+        "Netherlands": {"signals":{"fullGccVol":1470,"uaeKsaVol":890,"extraGccVol":580,"extraGccPct":39.5,"wwVol":63610,"gccBias":0.02,"landmarksPassing":9,"landmarksTotal":10,"weightedCpcGcc":1.08,"topLandmarks":"van gogh museum tickets=230 | amsterdam canal cruise=140 | keukenhof tickets=110 | rijksmuseum tickets=90 | heineken experience tickets=60"},"scoring":{"base":52,"demand":15,"supply":17,"moat":7,"econ":10,"strategic":3,"catalystScore":0,"catalystBand":"absent/negative","catalystFactors":["Tiqets home + iDEAL friction"],"composite":52,"dq":null,"flags":2}},
+        "Croatia": {"signals":{"fullGccVol":850,"uaeKsaVol":510,"extraGccVol":340,"extraGccPct":40.0,"wwVol":81690,"gccBias":0.01,"landmarksPassing":4,"landmarksTotal":10,"weightedCpcGcc":0.04,"topLandmarks":"krka national park=200 | plitvice lakes tickets=70 | game of thrones tour dubrovnik=50 | dubrovnik city walls tickets=50 | hvar day trip=30"},"scoring":{"base":45,"demand":12,"supply":6,"moat":3,"econ":19,"strategic":5,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Thin tour-led supply"],"composite":48,"dq":null,"flags":0}},
+        "France": {"signals":{"fullGccVol":5490,"uaeKsaVol":3990,"extraGccVol":1500,"extraGccPct":27.3,"wwVol":520750,"gccBias":0.01,"landmarksPassing":10,"landmarksTotal":10,"weightedCpcGcc":2.28,"topLandmarks":"disneyland paris tickets=2400 | louvre tickets=1280 | eiffel tower tickets=740 | versailles tickets=240 | moulin rouge tickets=110"},"scoring":{"base":64,"demand":28,"supply":19,"moat":3,"econ":6,"strategic":8,"catalystScore":5,"catalystBand":"macro tailwind","catalystFactors":["ETC 2026 post-Olympics residual tourism lift"],"composite":69,"dq":null,"flags":0}},
+        "Turkey": {"signals":{"fullGccVol":2290,"uaeKsaVol":1620,"extraGccVol":670,"extraGccPct":29.3,"wwVol":66730,"gccBias":0.03,"landmarksPassing":9,"landmarksTotal":10,"weightedCpcGcc":1.09,"topLandmarks":"cappadocia balloon ride=530 | topkapi palace tickets=270 | hagia sophia tickets=210 | basilica cistern tickets=140 | galata tower tickets=110"},"scoring":{"base":56,"demand":22,"supply":17,"moat":7,"econ":10,"strategic":0,"catalystScore":0,"catalystBand":"absent/negative","catalystFactors":["4 flags hard stop"],"composite":56,"dq":"regulatory · PSP/FX/MoTA/pre-book","flags":4}},
+        "Jordan": {"signals":{"fullGccVol":1380,"uaeKsaVol":920,"extraGccVol":460,"extraGccPct":33.3,"wwVol":12760,"gccBias":0.11,"landmarksPassing":5,"landmarksTotal":10,"weightedCpcGcc":0.39,"topLandmarks":"petra tickets=110 | wadi rum tour=70 | dead sea tour=60 | amman city tour=60 | petra by night tickets=60"},"scoring":{"base":64,"demand":15,"supply":8,"moat":16,"econ":16,"strategic":9,"catalystScore":10,"catalystBand":"mega-event + air + campaign","catalystFactors":["Saudia BAH→AMM 5xweekly + RJ expansion","Jordan Pass B2B API commercial launch","JTB halal-family campaign 2026"],"composite":74,"dq":null,"flags":1,"y1Gmv":{"low":150,"high":350,"conv":"1.5-2.0%","basket":"$55","launch":"Q2'27 · 9mo · 0.5× (API anchor)"}}},
+        "United Kingdom": {"signals":{"fullGccVol":1850,"uaeKsaVol":1210,"extraGccVol":640,"extraGccPct":34.6,"wwVol":403960,"gccBias":0.0,"landmarksPassing":10,"landmarksTotal":10,"weightedCpcGcc":1.09,"topLandmarks":"london eye tickets=450 | buckingham palace tickets=200 | tower of london tickets=160 | british museum tickets=150 | windsor castle tickets=100"},"scoring":{"base":51,"demand":19,"supply":19,"moat":3,"econ":10,"strategic":0,"catalystScore":5,"catalystBand":"macro tailwind","catalystFactors":["ETA visa-waiver expansion + continued baseline growth"],"composite":56,"dq":"existing presence (baseline)","flags":0}},
+        "Hungary": {"signals":{"fullGccVol":740,"uaeKsaVol":350,"extraGccVol":390,"extraGccPct":52.7,"wwVol":15940,"gccBias":0.05,"landmarksPassing":6,"landmarksTotal":10,"weightedCpcGcc":0.34,"topLandmarks":"szechenyi baths tickets=70 | budapest river cruise=70 | hungarian parliament tour=60 | buda castle tour=50 | gellert baths tickets=50"},"scoring":{"base":56,"demand":12,"supply":11,"moat":12,"econ":16,"strategic":5,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Budapest-only niche"],"composite":59,"dq":null,"flags":0}},
+        "Ireland": {"signals":{"fullGccVol":970,"uaeKsaVol":460,"extraGccVol":510,"extraGccPct":52.6,"wwVol":100000,"gccBias":0.01,"landmarksPassing":9,"landmarksTotal":10,"weightedCpcGcc":0.43,"topLandmarks":"cliffs of moher tour=60 | guinness storehouse tickets=60 | book of kells tickets=60 | titanic belfast tickets=60 | kilmainham gaol tickets=60"},"scoring":{"base":53,"demand":12,"supply":17,"moat":3,"econ":16,"strategic":5,"catalystScore":5,"catalystBand":"macro tailwind","catalystFactors":["Etihad DUB capacity doubling 2026-27 + Ryder Cup spillover"],"composite":58,"dq":null,"flags":0}},
+        "Austria": {"signals":{"fullGccVol":1130,"uaeKsaVol":630,"extraGccVol":500,"extraGccPct":44.2,"wwVol":23540,"gccBias":0.05,"landmarksPassing":8,"landmarksTotal":10,"weightedCpcGcc":0.45,"topLandmarks":"schonbrunn palace tickets=100 | vienna opera tickets=80 | hofburg tickets=70 | belvedere tickets=70 | salzburg day trip=60"},"scoring":{"base":65,"demand":15,"supply":14,"moat":12,"econ":16,"strategic":8,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Recurring Khaleeji Vienna season; no net-new catalyst"],"composite":68,"dq":null,"flags":0,"y1Gmv":{"low":100,"high":250,"conv":"1.0-1.5%","basket":"$28","launch":"Q1'27 · 12mo · 0.4×"}}},
+        "Japan": {"signals":{"fullGccVol":3920,"uaeKsaVol":2990,"extraGccVol":930,"extraGccPct":23.7,"wwVol":235340,"gccBias":0.02,"landmarksPassing":10,"landmarksTotal":10,"weightedCpcGcc":1.23,"topLandmarks":"shibuya sky tickets=730 | teamlab tickets=670 | universal studios japan tickets=650 | tokyo disneyland tickets=230 | disneysea tickets=200"},"scoring":{"base":66,"demand":25,"supply":19,"moat":7,"econ":10,"strategic":5,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["JPY volatility; direct-lock inventory"],"composite":69,"dq":null,"flags":2}},
+        "Switzerland": {"signals":{"fullGccVol":1680,"uaeKsaVol":1060,"extraGccVol":620,"extraGccPct":36.9,"wwVol":36950,"gccBias":0.05,"landmarksPassing":7,"landmarksTotal":10,"weightedCpcGcc":0.55,"topLandmarks":"jungfraujoch tickets=170 | titlis tickets=110 | chillon castle tickets=60 | rhine falls tour=60 | mount pilatus tickets=60"},"scoring":{"base":65,"demand":19,"supply":11,"moat":12,"econ":16,"strategic":7,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Premium niche; no near-term shift"],"composite":68,"dq":null,"flags":0,"y1Gmv":{"low":50,"high":150,"conv":"0.5%","basket":"$72","launch":"Q3'27 · 6mo · 0.4× (affiliate)"}}},
+        "Portugal": {"signals":{"fullGccVol":830,"uaeKsaVol":430,"extraGccVol":400,"extraGccPct":48.2,"wwVol":55050,"gccBias":0.02,"landmarksPassing":5,"landmarksTotal":10,"weightedCpcGcc":0.37,"topLandmarks":"pena palace tickets=70 | sintra day trip=60 | porto wine tour=60 | quinta da regaleira tickets=60 | oceanario lisboa tickets=50"},"scoring":{"base":49,"demand":12,"supply":8,"moat":7,"econ":16,"strategic":6,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Golden Visa phase-out not GCC-positive"],"composite":52,"dq":null,"flags":0}},
+        "Singapore": {"signals":{"fullGccVol":3860,"uaeKsaVol":2720,"extraGccVol":1140,"extraGccPct":29.5,"wwVol":27170,"gccBias":0.14,"landmarksPassing":10,"landmarksTotal":10,"weightedCpcGcc":0.48,"topLandmarks":"universal studios singapore tickets=740 | gardens by the bay tickets=120 | singapore zoo tickets=100 | night safari tickets=90 | sentosa tickets=80"},"scoring":{"base":83,"demand":25,"supply":19,"moat":16,"econ":16,"strategic":7,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Stable demand base; no directional lift"],"composite":86,"dq":null,"flags":0,"y1Gmv":{"low":400,"high":700,"conv":"1.2-1.5%","basket":"$36","launch":"Q4'26 · 3mo Y1 coverage · 0.5× ramp"}}},
+        "Germany": {"signals":{"fullGccVol":1260,"uaeKsaVol":730,"extraGccVol":530,"extraGccPct":42.1,"wwVol":28640,"gccBias":0.04,"landmarksPassing":6,"landmarksTotal":10,"weightedCpcGcc":0.2,"topLandmarks":"europa park tickets=180 | neuschwanstein tickets=60 | miniatur wunderland tickets=60 | cologne cathedral tickets=60 | bmw museum tickets=60"},"scoring":{"base":58,"demand":15,"supply":11,"moat":7,"econ":19,"strategic":6,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["GYG home; no shift"],"composite":61,"dq":null,"flags":0}},
+        "Egypt": {"signals":{"fullGccVol":2770,"uaeKsaVol":1950,"extraGccVol":820,"extraGccPct":29.6,"wwVol":68350,"gccBias":0.04,"landmarksPassing":8,"landmarksTotal":10,"weightedCpcGcc":1.64,"topLandmarks":"nile cruise=800 | grand egyptian museum tickets=200 | pyramids tickets=80 | luxor temple tickets=60 | valley of the kings tickets=60"},"scoring":{"base":57,"demand":22,"supply":14,"moat":7,"econ":10,"strategic":4,"catalystScore":0,"catalystBand":"absent/negative","catalystFactors":["MoTA monopoly + EGP volatility"],"composite":57,"dq":null,"flags":3}},
+        "Poland": {"signals":{"fullGccVol":1140,"uaeKsaVol":700,"extraGccVol":440,"extraGccPct":38.6,"wwVol":100040,"gccBias":0.01,"landmarksPassing":4,"landmarksTotal":10,"weightedCpcGcc":1.15,"topLandmarks":"auschwitz tour=400 | wieliczka salt mine tickets=60 | wawel castle tickets=60 | krakow day trip=60 | warsaw old town tour=40"},"scoring":{"base":39,"demand":15,"supply":6,"moat":3,"econ":10,"strategic":5,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Auschwitz SOV only"],"composite":42,"dq":null,"flags":1}},
+        "Malaysia": {"signals":{"fullGccVol":2490,"uaeKsaVol":1610,"extraGccVol":880,"extraGccPct":35.3,"wwVol":12060,"gccBias":0.21,"landmarksPassing":10,"landmarksTotal":10,"weightedCpcGcc":0.53,"topLandmarks":"sunway lagoon tickets=280 | petronas towers tickets=200 | langkawi cable car=160 | kl tower tickets=100 | aquaria klcc tickets=80"},"scoring":{"base":85,"demand":22,"supply":19,"moat":19,"econ":16,"strategic":9,"catalystScore":10,"catalystBand":"mega-event + air + campaign","catalystFactors":["Visit Malaysia 2026 government campaign targets 2M Arab tourists","VFS Global MY–GCC partnership (visa friction cut)","Malaysia Airlines KL–RUH/JED 4xweekly resumption"],"composite":95,"dq":null,"flags":0,"y1Gmv":{"low":400,"high":800,"conv":"1.5-2.0%","basket":"$32","launch":"Q3'26 · 6mo Y1 coverage · 0.5× ramp"}}},
+        "Czech Republic": {"signals":{"fullGccVol":850,"uaeKsaVol":440,"extraGccVol":410,"extraGccPct":48.2,"wwVol":21840,"gccBias":0.04,"landmarksPassing":6,"landmarksTotal":10,"weightedCpcGcc":0.11,"topLandmarks":"old town square prague=140 | prague castle tickets=80 | prague river cruise=60 | national museum prague tickets=60 | st vitus cathedral tickets=60"},"scoring":{"base":54,"demand":12,"supply":11,"moat":7,"econ":19,"strategic":5,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Prague city-break only"],"composite":57,"dq":null,"flags":0}},
+        "Malta": {"signals":{"fullGccVol":840,"uaeKsaVol":470,"extraGccVol":370,"extraGccPct":44.0,"wwVol":64590,"gccBias":0.01,"landmarksPassing":2,"landmarksTotal":10,"weightedCpcGcc":0.29,"topLandmarks":"hypogeum tickets=60 | popeye village tickets=50 | blue grotto boat trip=40 | valletta tour=40 | st johns co cathedral tickets=40"},"scoring":{"base":40,"demand":12,"supply":2,"moat":3,"econ":19,"strategic":4,"catalystScore":3,"catalystBand":"flat default","catalystFactors":["Micro-market, UNESCO cap"],"composite":43,"dq":null,"flags":0}},
+        "Italy": {"signals":{"fullGccVol":2260,"uaeKsaVol":1500,"extraGccVol":760,"extraGccPct":33.6,"wwVol":295330,"gccBias":0.01,"landmarksPassing":10,"landmarksTotal":10,"weightedCpcGcc":2.61,"topLandmarks":"colosseum tickets=740 | vatican tickets=250 | venice gondola ride=170 | duomo milan tickets=130 | borghese gallery tickets=90"},"scoring":{"base":55,"demand":22,"supply":19,"moat":3,"econ":3,"strategic":8,"catalystScore":10,"catalystBand":"mega-event + air + campaign","catalystFactors":["Milano-Cortina 2026 Winter Olympics halo (tourism board spillover)","Gulf Air BAH→MXP/FCO resumption May'26","Vatican Jubilee 2025 tail still active"],"composite":65,"dq":null,"flags":1,"y1Gmv":{"low":200,"high":500,"conv":"0.5-1.0%","basket":"$42","launch":"Q2'26 soft Apr, scale May · 9mo · 0.5×"}}},
+      };
+
+      Object.entries(extendedData).forEach(([name, ext]) => {
+        if (coverageData[name]) Object.assign(coverageData[name], ext);
+      });
+
       const continentByName = {
         "Saudi Arabia": "GCC",
         "United Arab Emirates": "GCC",
@@ -2199,7 +2489,24 @@
         recommendation: document.getElementById("info-recommendation"),
         facts: document.getElementById("info-facts"),
         footnote: document.getElementById("info-footnote"),
+        panelScoring: document.getElementById("panel-scoring"),
+        panelSignals: document.getElementById("panel-signals"),
+        panelEconomics: document.getElementById("panel-economics"),
+        panelRisks: document.getElementById("panel-risks"),
       };
+      const scrim = document.getElementById("scrim");
+      const tabNav = document.getElementById("tab-nav");
+      const tabButtons = Array.from(tabNav.querySelectorAll(".tab-btn"));
+      const tabPanels = Array.from(document.querySelectorAll(".tab-panel"));
+
+      function activateTab(name) {
+        tabButtons.forEach((btn) => btn.classList.toggle("is-active", btn.dataset.tab === name));
+        tabPanels.forEach((panel) => panel.classList.toggle("is-active", panel.dataset.panel === name));
+      }
+
+      tabButtons.forEach((btn) => {
+        btn.addEventListener("click", () => activateTab(btn.dataset.tab));
+      });
 
       let currentScope = "coverage";
       let currentFilter = "all";
@@ -2228,11 +2535,29 @@
         hasInteracted = true;
         onboardingVisible = false;
         onboarding.hidden = true;
+        if (cardHidden) scrim.classList.add("is-hidden");
       }
 
       function showOnboardingIfNeeded() {
         onboarding.hidden = !onboardingVisible;
+        if (onboardingVisible) {
+          scrim.classList.remove("is-hidden");
+        } else if (cardHidden) {
+          scrim.classList.add("is-hidden");
+        }
       }
+
+      scrim.addEventListener("click", () => {
+        if (onboardingVisible) {
+          dismissOnboarding();
+          return;
+        }
+        if (!cardHidden) {
+          cardHidden = true;
+          applyCardVisibility();
+          updateToolbarHint();
+        }
+      });
 
       function triggerMapMotion() {
         if (!hasInteracted) return;
@@ -2305,6 +2630,122 @@
         });
       }
 
+      function fmtNumber(n) {
+        if (n === undefined || n === null) return "—";
+        if (typeof n !== "number") return String(n);
+        return n.toLocaleString("en-US");
+      }
+
+      function renderScoringPanel(data) {
+        const s = data.scoring;
+        if (!s) {
+          info.panelScoring.innerHTML = `<p class="empty-panel">No v2.1 scorecard for this market (GCC baseline or outside the 24-country shortlist).</p>`;
+          return;
+        }
+        const rows = [
+          ["Demand", s.demand, 30],
+          ["Supply", s.supply, 20],
+          ["Moat (GCC bias)", s.moat, 20],
+          ["Economics", s.econ, 20],
+          ["Strategic fit", s.strategic, 10],
+        ];
+        const rowsHtml = rows.map(([label, val, max]) => `
+          <div class="score-row">
+            <span class="score-label">${label}</span>
+            <div class="score-bar"><span style="--width:${(val/max)*100}%"></span></div>
+            <span class="score-val">${val}/${max}</span>
+          </div>
+        `).join("");
+        const factorsHtml = (s.catalystFactors || []).map((f) => `<li>${f}</li>`).join("") || `<li>—</li>`;
+        info.panelScoring.innerHTML = `
+          <div class="composite-pill"><strong>${s.composite}/110</strong><span>Composite</span></div>
+          <div class="score-breakdown">
+            ${rowsHtml}
+            <div class="score-row" style="border-top: 1px solid rgba(255,255,255,0.06); padding-top: 8px;">
+              <span class="score-label"><strong style="color: var(--text);">Base /100</strong></span>
+              <div></div>
+              <span class="score-val">${s.base}/100</span>
+            </div>
+          </div>
+          <div class="catalyst-card">
+            <h3>Catalyst overlay · +${s.catalystScore}/10</h3>
+            <div class="catalyst-band">${s.catalystBand || "—"}</div>
+            <ul class="catalyst-factors">${factorsHtml}</ul>
+          </div>
+        `;
+      }
+
+      function renderSignalsPanel(data) {
+        const g = data.signals;
+        if (!g) {
+          info.panelSignals.innerHTML = `<p class="empty-panel">No Pass 2 keyword signals for this market.</p>`;
+          return;
+        }
+        const landmarks = (g.topLandmarks || "").split(" | ").filter(Boolean).map((pair) => {
+          const eq = pair.lastIndexOf("=");
+          if (eq === -1) return `<li><span>${pair}</span><span></span></li>`;
+          return `<li><span>${pair.slice(0, eq)}</span><span>${pair.slice(eq+1)}/mo</span></li>`;
+        }).join("");
+        info.panelSignals.innerHTML = `
+          <div class="meta-grid">
+            <div class="meta"><span>Full GCC volume /mo</span><strong>${fmtNumber(g.fullGccVol)}</strong></div>
+            <div class="meta"><span>UAE + KSA share</span><strong>${fmtNumber(g.uaeKsaVol)}</strong></div>
+            <div class="meta"><span>Extra GCC volume</span><strong>${fmtNumber(g.extraGccVol)} (${g.extraGccPct}%)</strong></div>
+            <div class="meta"><span>Worldwide volume</span><strong>${fmtNumber(g.wwVol)}</strong></div>
+            <div class="meta"><span>GCC bias ratio</span><strong>${(g.gccBias*100).toFixed(1)}%</strong></div>
+            <div class="meta"><span>Landmarks passing</span><strong>${g.landmarksPassing}/${g.landmarksTotal}</strong></div>
+          </div>
+          <div class="catalyst-card">
+            <h3>Top landmarks (monthly search volume)</h3>
+            <ul class="landmark-list">${landmarks}</ul>
+          </div>
+        `;
+      }
+
+      function renderEconomicsPanel(data) {
+        const gmv = data.scoring && data.scoring.y1Gmv;
+        const cpc = data.signals && data.signals.weightedCpcGcc;
+        const pairs = [
+          ["Avg basket", data.basket],
+          ["Top ticket", data.topTicket],
+          ["Deck CPC range", data.cpc],
+          ["Weighted CPC (GCC)", cpc !== undefined ? `$${cpc.toFixed(2)}` : null],
+          ["Contractable share", data.contractable],
+          ["Onboarding", data.onboarding],
+        ].filter(([, v]) => Boolean(v));
+        const pairsHtml = pairs.map(([l, v]) => `<div class="meta"><span>${l}</span><strong>${v}</strong></div>`).join("");
+        const gmvHtml = gmv ? `
+          <div class="gmv-block">
+            <div class="gmv-range">$${gmv.low}K – $${gmv.high}K <small>Y1 GCC GMV</small></div>
+            <div class="gmv-formula">
+              Conversion ${gmv.conv} · Basket ${gmv.basket}<br>
+              Launch: ${gmv.launch}
+            </div>
+          </div>
+        ` : `<p class="empty-panel" style="margin-top: 14px;">Y1 GMV envelope not modeled (not in Phase 1–2 shortlist).</p>`;
+        info.panelEconomics.innerHTML = `
+          <div class="meta-grid">${pairsHtml || '<div class="meta"><span>Economics</span><strong>—</strong></div>'}</div>
+          ${gmvHtml}
+        `;
+      }
+
+      function renderRisksPanel(data) {
+        const s = data.scoring;
+        const pairs = [
+          ["Risk", data.risk],
+          ["Reg profile", data.regProfile],
+          ["Note", data.note],
+          ["Moat signal", data.moatSignal],
+          ["GCC signal", data.gccSignal],
+        ].filter(([, v]) => Boolean(v));
+        if (s) {
+          pairs.push(["Turkey flags", `${s.flags}/4`]);
+          if (s.dq) pairs.push(["DQ filter", s.dq]);
+        }
+        const html = pairs.map(([l, v]) => `<div class="meta"><span>${l}</span><strong>${v}</strong></div>`).join("");
+        info.panelRisks.innerHTML = `<div class="meta-grid">${html || '<div class="meta"><span>Risks</span><strong>—</strong></div>'}</div>`;
+      }
+
       function updateInfo(data, statusLabel) {
         info.status.textContent = statusLabel;
         info.status.style.color = statusColors[data.status] || statusColors.open;
@@ -2336,10 +2777,17 @@
           `;
           lensGrid.appendChild(row);
         });
+
+        renderScoringPanel(data);
+        renderSignalsPanel(data);
+        renderEconomicsPanel(data);
+        renderRisksPanel(data);
+        activateTab("overview");
       }
 
       function applyCardVisibility() {
         infoCard.classList.toggle("is-hidden", cardHidden);
+        scrim.classList.toggle("is-hidden", cardHidden);
         cardOverview.disabled = !isFocused;
       }
 
