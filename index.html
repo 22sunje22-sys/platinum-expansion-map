@@ -1,0 +1,3059 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Platinumlist · Global Expansion Map · v4 · April 2026</title>
+    <meta name="description" content="Interactive world map for the Platinumlist Global Expansion v4 shortlist (April 2026) — 24 markets across GCC, MENAT, Europe and Asia, scored on demand, supply, regulatability, economics, GCC affinity and moat." />
+    <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+    <script src="./world-geojson.js"></script>
+    <style>
+      :root {
+        --bg: #040506;
+        --bg-soft: #0a0d10;
+        --panel: rgba(11, 15, 19, 0.9);
+        --panel-strong: rgba(18, 22, 27, 0.96);
+        --line: rgba(255, 255, 255, 0.09);
+        --land: #1d1f21;
+        --border: #4b4f54;
+        --text: #f6f9fc;
+        --muted: rgba(246, 249, 252, 0.68);
+        --open: #57e7ff;
+        --green: #45ff73;
+        --yellow: #ffd400;
+        --red: #ff5252;
+        --violet: #be8dff;
+        --shadow: 0 20px 52px rgba(0, 0, 0, 0.34);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background:
+          radial-gradient(circle at top, rgba(146, 232, 255, 0.045), transparent 28%),
+          linear-gradient(180deg, #050607 0%, #020304 100%);
+        color: var(--text);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      .shell {
+        min-height: 100vh;
+      }
+
+      .map-card {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+      }
+
+      .toolbar-stack {
+        position: absolute;
+        top: 14px;
+        left: 50%;
+        z-index: 10;
+        display: grid;
+        gap: 8px;
+        width: min(1180px, calc(100% - 24px));
+        pointer-events: none;
+        transform: translateX(-50%);
+      }
+
+      .toolbar-row {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .toolbar {
+        display: inline-flex;
+        gap: 4px;
+        padding: 6px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(8, 11, 14, 0.76);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow);
+        pointer-events: auto;
+      }
+
+      .filters,
+      .continents,
+      .country-tools {
+        display: inline-flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 6px;
+        padding: 6px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        background: rgba(8, 11, 14, 0.76);
+        backdrop-filter: blur(10px);
+        box-shadow: var(--shadow);
+        pointer-events: auto;
+      }
+
+      .toolbar button,
+      .filters button,
+      .continents button,
+      .country-tools button,
+      .country-tools select {
+        appearance: none;
+        border: 0;
+        padding: 10px 14px;
+        border-radius: 14px;
+        background: transparent;
+        color: var(--text);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition:
+          background 160ms ease,
+          color 160ms ease,
+          border-color 160ms ease,
+          opacity 160ms ease;
+      }
+
+      .toolbar button:disabled,
+      .filters button:disabled,
+      .continents button:disabled,
+      .country-tools button:disabled,
+      .country-tools select:disabled {
+        opacity: 0.34;
+        cursor: default;
+      }
+
+      .toolbar button[aria-pressed="true"],
+      .filters button[aria-pressed="true"],
+      .continents button[aria-pressed="true"] {
+        background: rgba(162, 169, 193, 0.22);
+      }
+
+      .toolbar button:hover,
+      .filters button:hover,
+      .continents button:hover,
+      .country-tools button:hover,
+      .card-btn:hover,
+      .onboarding-actions button:hover {
+        background: rgba(255, 255, 255, 0.07);
+        color: var(--text);
+      }
+
+      .country-tools {
+        align-items: center;
+        justify-content: space-between;
+        min-width: min(520px, 100%);
+      }
+
+      .country-tools label {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 0 0 0 10px;
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 600;
+        flex: 1 1 240px;
+      }
+
+      .country-tools select {
+        min-width: 220px;
+        width: 100%;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.035);
+        color: var(--text);
+        padding: 10px 14px;
+      }
+
+      .country-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .toolbar-hint {
+        justify-self: center;
+        max-width: min(880px, 100%);
+        padding: 10px 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(8, 11, 14, 0.56);
+        backdrop-filter: blur(10px);
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+        text-align: center;
+      }
+
+      .stage {
+        position: relative;
+        min-height: 100vh;
+        padding: 116px 28px 28px;
+      }
+
+      .map-wrap {
+        position: relative;
+        width: min(1600px, 100%);
+        margin: 0 auto;
+      }
+
+      .empty-state {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        z-index: 8;
+        min-width: 320px;
+        max-width: 420px;
+        padding: 18px 20px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(10, 12, 15, 0.84);
+        backdrop-filter: blur(14px);
+        box-shadow: var(--shadow);
+        text-align: center;
+        transform: translate(-50%, -50%);
+      }
+
+      .empty-state[hidden] {
+        display: none;
+      }
+
+      .empty-state strong {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      .empty-state p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      .mobile-gate {
+        display: none;
+      }
+
+      svg {
+        display: block;
+        width: 100%;
+        height: auto;
+        cursor: grab;
+        touch-action: none;
+      }
+
+      svg.is-dragging {
+        cursor: grabbing;
+      }
+
+      svg.is-refocusing {
+        animation: refocusPulse 360ms cubic-bezier(0.22, 1, 0.36, 1);
+      }
+
+      @keyframes refocusPulse {
+        0% {
+          opacity: 0.82;
+          transform: scale(0.985);
+          filter: saturate(0.96);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+          filter: saturate(1);
+        }
+      }
+
+      .onboarding {
+        position: absolute;
+        left: 50%;
+        top: 180px;
+        z-index: 8;
+        width: min(440px, calc(100% - 40px));
+        transform: translateX(-50%);
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease;
+      }
+
+      .onboarding[hidden] {
+        display: none;
+      }
+
+      .onboarding-card {
+        padding: 18px 18px 16px;
+        border-radius: 20px;
+        border: 1px solid rgba(146, 232, 255, 0.18);
+        background: rgba(7, 10, 13, 0.92);
+        backdrop-filter: blur(16px);
+        box-shadow: var(--shadow);
+      }
+
+      .onboarding-kicker {
+        color: var(--open);
+        font-size: 11px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .onboarding-card h3 {
+        margin: 10px 0 8px;
+        font-size: 28px;
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+      }
+
+      .onboarding-card p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .onboarding-steps {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .onboarding-step {
+        display: grid;
+        grid-template-columns: 28px minmax(0, 1fr);
+        gap: 10px;
+        align-items: start;
+      }
+
+      .onboarding-step strong {
+        display: grid;
+        place-items: center;
+        width: 28px;
+        height: 28px;
+        border-radius: 999px;
+        background: rgba(146, 232, 255, 0.08);
+        color: var(--open);
+        font-size: 12px;
+      }
+
+      .onboarding-step span {
+        color: var(--text);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .onboarding-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 16px;
+      }
+
+      .onboarding-actions button {
+        appearance: none;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--text);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 10px 12px;
+        border-radius: 12px;
+        cursor: pointer;
+      }
+
+      .onboarding-actions button:first-child {
+        background: rgba(146, 232, 255, 0.1);
+        border-color: rgba(146, 232, 255, 0.22);
+      }
+
+      .onboarding-tip {
+        margin-top: 10px;
+        color: rgba(246, 249, 252, 0.58);
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .country {
+        stroke: var(--border);
+        stroke-width: 0.7;
+        vector-effect: non-scaling-stroke;
+        transition:
+          fill 180ms ease,
+          stroke 180ms ease,
+          opacity 180ms ease;
+      }
+
+      .country.has-data {
+        cursor: pointer;
+      }
+
+      .country.has-data:hover {
+        stroke: rgba(255, 255, 255, 0.72);
+        stroke-width: 1.15;
+        filter: brightness(1.06) drop-shadow(0 0 10px rgba(255, 255, 255, 0.08));
+      }
+
+      .country.is-active {
+        stroke: rgba(255, 255, 255, 0.95);
+        stroke-width: 1.5;
+        filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.2));
+      }
+
+      .office-pin {
+        fill: var(--open);
+        stroke: rgba(255, 255, 255, 0.95);
+        stroke-width: 1.2;
+        cursor: pointer;
+      }
+
+      .office-label {
+        fill: var(--text);
+        font-size: 11px;
+        font-weight: 700;
+        paint-order: stroke;
+        stroke: rgba(4, 5, 6, 0.9);
+        stroke-width: 4px;
+        stroke-linejoin: round;
+      }
+
+      .fallback-pin {
+        stroke: rgba(255, 255, 255, 0.9);
+        stroke-width: 1.1;
+        cursor: pointer;
+      }
+
+      .market-label text {
+        fill: var(--text);
+        font-size: 11px;
+        font-weight: 700;
+        pointer-events: all;
+      }
+
+      .market-label rect {
+        fill: rgba(10, 12, 15, 0.92);
+        stroke: rgba(255, 255, 255, 0.08);
+        stroke-width: 1;
+        rx: 9;
+        pointer-events: all;
+        transition:
+          fill 160ms ease,
+          stroke 160ms ease;
+      }
+
+      .market-label .status-dot {
+        stroke: rgba(255, 255, 255, 0.15);
+        stroke-width: 1;
+        pointer-events: all;
+      }
+
+      .market-label .label-line {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.16);
+        stroke-width: 1;
+        pointer-events: none;
+      }
+
+      .tap-target {
+        fill: transparent;
+        cursor: pointer;
+      }
+
+      .market-label:hover rect {
+        fill: rgba(15, 18, 22, 0.98);
+        stroke: rgba(146, 232, 255, 0.18);
+      }
+
+      .info-card {
+        position: fixed;
+        right: 28px;
+        top: 126px;
+        bottom: 28px;
+        z-index: 9;
+        width: min(420px, calc(100% - 56px));
+        border-radius: 22px;
+        border: 1px solid rgba(146, 232, 255, 0.16);
+        background: var(--panel);
+        backdrop-filter: blur(18px);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+        transition:
+          opacity 180ms ease,
+          transform 180ms ease;
+      }
+
+      .info-card.is-hidden {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(16px);
+      }
+
+      .info-body {
+        padding: 18px;
+        max-height: calc(100vh - 154px);
+        overflow: auto;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--open);
+      }
+
+      .eyebrow::before {
+        content: "";
+        width: 8px;
+        height: 8px;
+        border-radius: 999px;
+        background: currentColor;
+        box-shadow: 0 0 14px currentColor;
+      }
+
+      .headline {
+        display: flex;
+        justify-content: space-between;
+        gap: 16px;
+        align-items: start;
+        margin-top: 10px;
+      }
+
+      .headline h2 {
+        margin: 0;
+        font-size: 30px;
+        line-height: 0.95;
+        letter-spacing: -0.04em;
+      }
+
+      .headline-actions {
+        display: inline-flex;
+        gap: 8px;
+        align-items: center;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .card-btn {
+        appearance: none;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.035);
+        color: var(--muted);
+        font: inherit;
+        font-size: 12px;
+        font-weight: 700;
+        padding: 8px 10px;
+        border-radius: 12px;
+        cursor: pointer;
+        transition:
+          background 160ms ease,
+          color 160ms ease,
+          border-color 160ms ease;
+      }
+
+      .card-btn.is-strong {
+        color: var(--text);
+        background: rgba(146, 232, 255, 0.08);
+        border-color: rgba(146, 232, 255, 0.22);
+      }
+
+      .score {
+        min-width: 84px;
+        padding: 10px 12px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.035);
+        text-align: right;
+      }
+
+      .score strong {
+        display: block;
+        font-size: 28px;
+        line-height: 1;
+      }
+
+      .score span {
+        display: block;
+        margin-top: 3px;
+        font-size: 10px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .summary {
+        margin: 10px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      .chips {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        min-height: 29px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(255, 255, 255, 0.035);
+        font-size: 11px;
+        font-weight: 700;
+      }
+
+      .meta-grid,
+      .detail-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+        margin-top: 14px;
+      }
+
+      .facts {
+        margin-top: 14px;
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--panel-strong);
+        padding: 12px;
+      }
+
+      .facts h3 {
+        margin: 0 0 8px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(246, 249, 252, 0.54);
+      }
+
+      .facts p {
+        margin: 0;
+        color: var(--text);
+        font-size: 13px;
+        line-height: 1.5;
+        white-space: pre-line;
+      }
+
+      .facts-list {
+        display: grid;
+        gap: 8px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .facts-list li {
+        color: var(--text);
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .facts-list li::before {
+        content: "•";
+        margin-right: 8px;
+        color: var(--open);
+      }
+
+      .card-footnote {
+        margin-top: 12px;
+        color: rgba(246, 249, 252, 0.58);
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      .meta,
+      .detail {
+        border-radius: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: var(--panel-strong);
+        padding: 12px;
+      }
+
+      .meta span,
+      .detail h3 {
+        display: block;
+        margin: 0 0 6px;
+        font-size: 10px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: rgba(246, 249, 252, 0.54);
+      }
+
+      .meta strong {
+        font-size: 14px;
+      }
+
+      .detail h3 {
+        margin-bottom: 8px;
+      }
+
+      .detail p {
+        margin: 0;
+        font-size: 13px;
+        line-height: 1.45;
+      }
+
+      .lens-grid {
+        display: grid;
+        gap: 10px;
+        margin-top: 16px;
+      }
+
+      .lens-row {
+        display: grid;
+        gap: 6px;
+      }
+
+      .lens-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        font-size: 12px;
+      }
+
+      .lens-head span:last-child {
+        color: var(--muted);
+      }
+
+      .bar {
+        height: 7px;
+        border-radius: 999px;
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.07);
+      }
+
+      .bar > span {
+        display: block;
+        height: 100%;
+        width: var(--width, 0%);
+        border-radius: inherit;
+        background: linear-gradient(90deg, rgba(105, 221, 255, 0.74), rgba(146, 232, 255, 1));
+      }
+
+      .legend {
+        position: absolute;
+        left: 28px;
+        bottom: 28px;
+        z-index: 9;
+        display: grid;
+        gap: 8px;
+        padding: 12px 14px;
+        border-radius: 18px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(10, 12, 15, 0.54);
+        backdrop-filter: blur(14px);
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      .legend-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .legend strong {
+        color: var(--text);
+      }
+
+      .dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 8px;
+        border-radius: 999px;
+        vertical-align: middle;
+      }
+
+      .dot.open { background: var(--open); box-shadow: 0 0 14px rgba(146, 232, 255, 0.72); }
+      .dot.green { background: var(--green); box-shadow: 0 0 14px rgba(123, 255, 180, 0.68); }
+      .dot.yellow { background: var(--yellow); box-shadow: 0 0 14px rgba(255, 214, 109, 0.56); }
+      .dot.red { background: var(--red); box-shadow: 0 0 14px rgba(255, 126, 126, 0.6); }
+      .dot.violet { background: var(--violet); box-shadow: 0 0 14px rgba(214, 190, 255, 0.56); }
+
+      .tooltip {
+        position: fixed;
+        z-index: 11;
+        pointer-events: none;
+        opacity: 0;
+        transform: translate(-50%, calc(-100% - 12px));
+        padding: 8px 10px;
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        background: rgba(10, 12, 15, 0.94);
+        color: var(--text);
+        font-size: 12px;
+        box-shadow: var(--shadow);
+        transition: opacity 120ms ease;
+        white-space: nowrap;
+      }
+
+      @media (max-width: 980px) {
+        .toolbar-stack {
+          width: calc(100% - 20px);
+        }
+
+        .toolbar-row,
+        .toolbar,
+        .filters,
+        .continents,
+        .country-tools {
+          justify-content: center;
+        }
+
+        .country-tools {
+          min-width: 0;
+        }
+
+        .stage {
+          min-height: auto;
+          padding: 156px 0 0;
+        }
+
+        .legend,
+        .info-card {
+          position: static;
+          width: auto;
+          margin: 0;
+          border-left: 0;
+          border-right: 0;
+          border-bottom: 0;
+          border-radius: 0;
+        }
+
+        .info-card.is-hidden {
+          display: none;
+        }
+
+        .info-body {
+          max-height: none;
+          overflow: visible;
+        }
+
+        .map-wrap {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .toolbar-stack,
+        .stage,
+        .legend,
+        .info-card {
+          display: none;
+        }
+
+        .mobile-gate {
+          min-height: 100vh;
+          display: grid;
+          place-items: center;
+          padding: 24px;
+        }
+
+        .mobile-gate-card {
+          width: min(460px, 100%);
+          padding: 24px;
+          border-radius: 22px;
+          border: 1px solid rgba(255, 255, 255, 0.08);
+          background: rgba(10, 12, 15, 0.86);
+          box-shadow: var(--shadow);
+          text-align: center;
+        }
+
+        .mobile-gate-card h2 {
+          margin: 0 0 10px;
+          font-size: 24px;
+          line-height: 1.05;
+        }
+
+        .mobile-gate-card p {
+          margin: 0;
+          color: var(--muted);
+          font-size: 14px;
+          line-height: 1.6;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="shell">
+      <section class="map-card">
+        <div class="toolbar-stack">
+          <div class="toolbar-row">
+            <div class="toolbar" role="tablist" aria-label="Map scope">
+              <button type="button" data-scope="coverage" aria-pressed="true">Our coverage</button>
+              <button type="button" data-scope="offices" aria-pressed="false">Our offices</button>
+            </div>
+            <div class="filters" role="tablist" aria-label="Status filters">
+              <button type="button" data-filter="all" aria-pressed="true">All</button>
+              <button type="button" data-filter="open" aria-pressed="false">Already open</button>
+              <button type="button" data-filter="green" aria-pressed="false">Good to open</button>
+              <button type="button" data-filter="yellow" aria-pressed="false">Watchlist</button>
+              <button type="button" data-filter="violet" aria-pressed="false">Licensing</button>
+              <button type="button" data-filter="red" aria-pressed="false">Do not enter</button>
+            </div>
+          </div>
+          <div class="toolbar-row">
+            <div class="continents" role="tablist" aria-label="Continent filters">
+              <button type="button" data-continent="all" aria-pressed="true">All regions</button>
+              <button type="button" data-continent="GCC" aria-pressed="false">GCC</button>
+              <button type="button" data-continent="Europe" aria-pressed="false">Europe</button>
+              <button type="button" data-continent="MENAT" aria-pressed="false">MENAT</button>
+              <button type="button" data-continent="Asia" aria-pressed="false">Asia</button>
+              <button type="button" data-continent="Long-haul" aria-pressed="false">Long-haul</button>
+            </div>
+            <div class="country-tools" aria-label="Country tools">
+              <label>
+                <span id="country-label">Country</span>
+                <select id="country-select">
+                  <option value="">All visible markets</option>
+                </select>
+              </label>
+              <div class="country-actions">
+                <button type="button" id="country-prev">Prev</button>
+                <button type="button" id="country-next">Next</button>
+                <button type="button" id="country-reset">Reset all</button>
+              </div>
+            </div>
+          </div>
+          <div class="toolbar-hint" id="toolbar-hint">Click a highlighted country to open the full deck card, or jump there directly with the country picker.</div>
+        </div>
+
+        <div class="stage">
+          <div class="map-wrap">
+            <svg id="map" viewBox="0 0 1600 760" aria-label="Interactive world map"></svg>
+            <div class="onboarding" id="onboarding">
+              <div class="onboarding-card">
+                <div class="onboarding-kicker">How To Use</div>
+                <h3>Explore the shortlist like a working map</h3>
+                <p>Start from the world view, then drill down market by market. This is meant to feel interactive, not like a static slide.</p>
+                <div class="onboarding-steps">
+                  <div class="onboarding-step">
+                    <strong>1</strong>
+                    <span>Click or tap any colored country to open its deck card and auto-zoom into that market.</span>
+                  </div>
+                  <div class="onboarding-step">
+                    <strong>2</strong>
+                    <span>Use your trackpad, mouse wheel, or pinch gesture to zoom. Drag the map to pan around.</span>
+                  </div>
+                  <div class="onboarding-step">
+                    <strong>3</strong>
+                    <span>Use filters above to narrow by region or status, then move through visible markets with <code>Prev</code> and <code>Next</code>.</span>
+                  </div>
+                </div>
+                <div class="onboarding-actions">
+                  <button type="button" id="onboarding-start">Start exploring</button>
+                  <button type="button" id="onboarding-dismiss">Hide tips</button>
+                </div>
+                <div class="onboarding-tip">Tip: press <code>Esc</code> or click empty map space to zoom back out.</div>
+              </div>
+            </div>
+            <div class="empty-state" id="empty-state" hidden>
+              <strong>No markets match this selection</strong>
+              <p>Try another status or region filter, or switch back to <code>All</code>.</p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="info-card is-hidden" id="info-card" aria-live="polite">
+          <div class="info-body">
+            <div class="eyebrow" id="info-status">Good to open</div>
+            <div class="headline">
+              <div>
+                <h2 id="info-title">Italy</h2>
+              </div>
+              <div class="headline-actions">
+                <button type="button" class="card-btn is-strong" id="card-overview">Back to map</button>
+                <button type="button" class="card-btn" id="card-close">Hide panel</button>
+                <div class="score">
+                  <strong id="info-score">82</strong>
+                  <span>Composite</span>
+                </div>
+              </div>
+            </div>
+            <p class="summary" id="info-summary"></p>
+
+            <div class="chips">
+              <span class="chip" id="info-path"></span>
+              <span class="chip" id="info-risk"></span>
+              <span class="chip" id="info-region"></span>
+              <span class="chip" id="info-timing"></span>
+            </div>
+
+            <div class="meta-grid" id="info-stats"></div>
+
+            <div class="lens-grid" id="lens-grid"></div>
+
+            <div class="detail-grid">
+              <div class="detail">
+                <h3>Why This Market</h3>
+                <p id="info-why"></p>
+              </div>
+              <div class="detail">
+                <h3>Recommended Path</h3>
+                <p id="info-recommendation"></p>
+              </div>
+            </div>
+
+            <div class="facts">
+              <h3>Deck Evidence</h3>
+              <ul class="facts-list" id="info-facts"></ul>
+            </div>
+            <div class="card-footnote" id="info-footnote"></div>
+          </div>
+        </aside>
+
+        <div class="legend">
+          <div><strong>Logic:</strong> countries carry only status color. Click a highlighted market to open the deck data.</div>
+          <div class="legend-row">
+            <span><span class="dot open"></span>Already open</span>
+            <span><span class="dot green"></span>Good to open</span>
+            <span><span class="dot yellow"></span>Watchlist</span>
+            <span><span class="dot violet"></span>Licensing</span>
+            <span><span class="dot red"></span>Do not enter</span>
+          </div>
+        </div>
+
+        <div class="tooltip" id="tooltip"></div>
+        <div class="mobile-gate" aria-hidden="true">
+          <div class="mobile-gate-card">
+            <h2>Desktop or tablet recommended</h2>
+            <p>This market map is designed for desktop and tablet screens. Please open it on a desktop or tablet for the full interactive experience.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      const statusColors = {
+        open: "#57e7ff",
+        green: "#45ff73",
+        yellow: "#ffd400",
+        red: "#ff5252",
+        violet: "#be8dff",
+      };
+
+      const lensLabels = {
+        demand: [25, "Demand"],
+        supply: [20, "Supply"],
+        regulatability: [15, "Regulatability"],
+        economics: [15, "Economics"],
+        gcc: [10, "GCC affinity"],
+        moat: [20, "Moat"],
+      };
+
+      const coverageData = {
+        "Saudi Arabia": {
+          status: "open",
+          title: "Saudi Arabia",
+          lon: 44.6,
+          lat: 23.7,
+          score: 100,
+          region: "GCC",
+          path: "Already open",
+          risk: "0 flags · live",
+          competition: "Home market footprint",
+          basket: "Live",
+          topTicket: "Baseline",
+          note: "Core market",
+          summary: "Current operating footprint and baseline demand base inside the GCC home region.",
+          why: "This is part of the proven core market Platinumlist already operates in.",
+          recommendation: "Use as commercial and operational base for expansion sequencing.",
+          lenses: { demand: 25, supply: 20, regulatability: 15, economics: 15, gcc: 10, moat: 20 },
+        },
+        "United Arab Emirates": {
+          status: "open",
+          title: "UAE",
+          lon: 54.3,
+          lat: 24.3,
+          score: 100,
+          region: "GCC",
+          path: "Already open",
+          risk: "0 flags · live",
+          competition: "Core market",
+          basket: "Live",
+          topTicket: "Baseline",
+          note: "HQ market",
+          summary: "Primary operating base and anchor market for the expansion program.",
+          why: "The UAE is both the benchmark market and the control center for organizer relationships and ops.",
+          recommendation: "Keep as HQ, proof point, and commercial launchpad.",
+          lenses: { demand: 25, supply: 20, regulatability: 15, economics: 15, gcc: 10, moat: 20 },
+        },
+        Qatar: {
+          status: "open",
+          title: "Qatar",
+          lon: 51.2,
+          lat: 25.3,
+          score: 100,
+          region: "GCC",
+          path: "Already open",
+          risk: "0 flags · live",
+          competition: "Active market",
+          basket: "Live",
+          topTicket: "Baseline",
+          note: "Open market",
+          summary: "Existing GCC market inside the current operating footprint.",
+          why: "Included as part of the already-open Gulf base rather than a net-new expansion target.",
+          recommendation: "Use as part of the home-region baseline.",
+          lenses: { demand: 22, supply: 18, regulatability: 15, economics: 15, gcc: 10, moat: 18 },
+        },
+        Oman: {
+          status: "open",
+          title: "Oman",
+          lon: 57.3,
+          lat: 20.6,
+          score: 100,
+          region: "GCC",
+          path: "Already open",
+          risk: "0 flags · live",
+          competition: "Active market",
+          basket: "Live",
+          topTicket: "Baseline",
+          note: "Open market",
+          summary: "Existing GCC market inside the current operating footprint.",
+          why: "Part of the active Gulf footprint, not a new launch market.",
+          recommendation: "Use as baseline market coverage.",
+          lenses: { demand: 20, supply: 17, regulatability: 15, economics: 15, gcc: 10, moat: 18 },
+        },
+        Bahrain: {
+          status: "open",
+          title: "Bahrain",
+          lon: 50.55,
+          lat: 26.07,
+          score: 100,
+          region: "GCC",
+          path: "Already open",
+          risk: "0 flags · live",
+          competition: "Active market",
+          basket: "Live",
+          topTicket: "Baseline",
+          note: "Open market",
+          summary: "Existing GCC market inside the current operating footprint.",
+          why: "Part of the open home-market base rather than the expansion shortlist.",
+          recommendation: "Maintain as current coverage.",
+          lenses: { demand: 18, supply: 16, regulatability: 15, economics: 15, gcc: 10, moat: 17 },
+        },
+        Kuwait: {
+          status: "open",
+          title: "Kuwait",
+          lon: 47.48,
+          lat: 29.37,
+          score: 100,
+          region: "GCC",
+          path: "Already open",
+          risk: "0 flags · live",
+          competition: "Active market",
+          basket: "Live",
+          topTicket: "Baseline",
+          note: "Open market",
+          summary: "Existing GCC market inside the current operating footprint.",
+          why: "One of the live Gulf markets that grounds the expansion strategy in a real operating base.",
+          recommendation: "Keep as part of current coverage.",
+          lenses: { demand: 20, supply: 17, regulatability: 15, economics: 15, gcc: 10, moat: 18 },
+        },
+        "United Kingdom": {
+          status: "open",
+          title: "UK",
+          lon: -2.5,
+          lat: 54.2,
+          score: 94,
+          region: "Europe",
+          path: "Live baseline",
+          risk: "0 flags · clean",
+          competition: "Competitive",
+          basket: "$55",
+          topTicket: "$35",
+          note: "Baseline",
+          summary: "Live benchmark market and the main European baseline for the global scorecard.",
+          why: "Highest absolute GCC demand corridor in Europe and already validated commercially.",
+          recommendation: "Keep as baseline comparator for Europe expansion decisions.",
+          lenses: { demand: 25, supply: 20, regulatability: 14, economics: 15, gcc: 9, moat: 11 },
+        },
+        France: {
+          status: "open",
+          lon: 2.2,
+          lat: 46.2,
+          title: "France",
+          score: 72,
+          region: "Europe",
+          path: "Launching",
+          risk: "0 flags · clean",
+          competition: "Competitive",
+          basket: "$50",
+          topTicket: "$30",
+          note: "Launching",
+          summary: "Launching market and one of the baselines used to calibrate the next launch wave.",
+          why: "France keeps European premium supply in play and informs basket assumptions before Italy and Spain.",
+          recommendation: "Use 90-day trading data to refine next-market sequencing.",
+          lenses: { demand: 13, supply: 19, regulatability: 12, economics: 13, gcc: 7, moat: 8 },
+        },
+        Italy: {
+          status: "green",
+          lon: 12.8,
+          lat: 42.8,
+          title: "Italy",
+          score: 82,
+          region: "Europe",
+          path: "Direct entry",
+          risk: "1 flag · workable",
+          competition: "Competitive",
+          basket: "$40",
+          topTicket: "$26",
+          note: "14-wk onboarding",
+          summary: "Rank 1 target with iconic supply, strong GCC affinity, and the cleanest Phase 1 launch case.",
+          why: "Colosseum-scale inventory and attractive basket economics make Italy the strongest next move after France.",
+          recommendation: "Q2'26 rollout with iconic inventory first and local onboarding in parallel.",
+          lenses: { demand: 10, supply: 20, regulatability: 11, economics: 12, gcc: 9, moat: 20 },
+        },
+        Spain: {
+          status: "green",
+          lon: -3.7,
+          lat: 40.3,
+          title: "Spain",
+          score: 76,
+          region: "Europe",
+          path: "Direct entry",
+          risk: "0 flags · clean",
+          competition: "Competitive",
+          basket: "$35",
+          topTicket: "$28",
+          note: "Lowest CPC globally",
+          summary: "Efficient acquisition market with iconic supply and a clean structural profile.",
+          why: "Spain combines Sagrada-level demand with the cheapest paid test economics in the shortlist.",
+          recommendation: "Q4'26 rollout centered on Barcelona and Madrid.",
+          lenses: { demand: 10, supply: 17, regulatability: 12, economics: 13, gcc: 8, moat: 16 },
+        },
+        Austria: {
+          status: "green",
+          lon: 14.2,
+          lat: 47.6,
+          title: "Austria",
+          score: 70,
+          region: "Europe",
+          path: "Direct entry",
+          risk: "0 flags · clean",
+          competition: "Competitive",
+          basket: "$40",
+          topTicket: "$35",
+          note: "Khaleeji Vienna",
+          summary: "Premium summer market with strong GCC seasonal fit and a clean operating profile.",
+          why: "Austria is a credible Phase 2 premium play tied to recurring Khaleeji summer demand.",
+          recommendation: "Launch Vienna-first once Phase 1 markets are in motion.",
+          lenses: { demand: 3, supply: 17, regulatability: 13, economics: 13, gcc: 9, moat: 15 },
+        },
+        Jordan: {
+          status: "green",
+          lon: 36.0,
+          lat: 31.2,
+          title: "Jordan",
+          score: 68,
+          region: "MENAT",
+          path: "API-led entry",
+          risk: "1 flag · workable",
+          competition: "Regulated-open",
+          basket: "~$30",
+          topTicket: "$77",
+          note: "Jordan Pass API",
+          summary: "The clean MENAT entry because regulation is paired with an actual reseller API path.",
+          why: "Jordan Pass API, halal fit, Arabic advantage, and USD peg make Jordan uniquely actionable in MENAT.",
+          recommendation: "Bundle Petra, Wadi Rum, and Dead Sea via API-led Phase 2 entry.",
+          lenses: { demand: 7, supply: 14, regulatability: 14, economics: 11, gcc: 10, moat: 12 },
+        },
+        Malaysia: {
+          status: "green",
+          lon: 102.0,
+          lat: 4.2,
+          title: "Malaysia",
+          score: 78,
+          region: "Asia",
+          path: "Direct entry",
+          risk: "0 flags · clean",
+          competition: "Klook belt, but workable",
+          basket: "$20",
+          topTicket: "$60",
+          note: "Visit Malaysia 2026",
+          summary: "The best Asia entry: halal-native, low-friction, and the only serious crack in the Klook belt.",
+          why: "Malaysia combines government tailwind, zero Turkey flags, and a native halal wedge.",
+          recommendation: "Set up Sdn Bhd + MDEC track, then launch Arabic-native acquisition.",
+          lenses: { demand: 8, supply: 15, regulatability: 13, economics: 13, gcc: 10, moat: 19 },
+        },
+        Germany: {
+          status: "yellow",
+          lon: 10.2,
+          lat: 51.2,
+          title: "Germany",
+          score: 58,
+          region: "Europe",
+          path: "Monitor",
+          risk: "0 flags · clean",
+          competition: "GYG home",
+          basket: "$40",
+          topTicket: "$23",
+          note: "Monitor only",
+          summary: "Attractive at a macro level, but incumbent advantage weakens the near-term case.",
+          why: "Demand is there, but Germany is structurally harder because the local moat is strong.",
+          recommendation: "Revisit if GYG weakens or a local M&A wedge appears.",
+          lenses: { demand: 10, supply: 13, regulatability: 11, economics: 11, gcc: 7, moat: 6 },
+        },
+        Portugal: {
+          status: "yellow",
+          lon: -8.2,
+          lat: 39.5,
+          title: "Portugal",
+          score: 59,
+          region: "Europe",
+          path: "Year 2",
+          risk: "0 flags · clean",
+          competition: "Competitive",
+          basket: "$35",
+          topTicket: "$22",
+          note: "Year 2",
+          summary: "Structurally clean market that sits better in the backlog than the immediate launch wave.",
+          why: "Portugal is attractive on paper but does not beat the top launch markets on absolute upside.",
+          recommendation: "Hold for a later expansion wave.",
+          lenses: { demand: 2, supply: 13, regulatability: 13, economics: 12, gcc: 5, moat: 14 },
+        },
+        Morocco: {
+          status: "yellow",
+          lon: -7.0,
+          lat: 31.8,
+          title: "Morocco",
+          score: 48,
+          region: "MENAT",
+          path: "Monitor",
+          risk: "1 flag · workable",
+          competition: "Fragmented",
+          basket: "$22",
+          topTicket: "$15",
+          note: "French SEO required",
+          summary: "Interesting adjacency market, but not strong enough to beat cleaner launch targets.",
+          why: "Morocco has some GCC affinity, but lower basket and French-language dependence limit urgency.",
+          recommendation: "Monitor after France validation and French SEO testing.",
+          lenses: { demand: 4, supply: 9, regulatability: 9, economics: 8, gcc: 8, moat: 10 },
+        },
+        Azerbaijan: {
+          status: "yellow",
+          lon: 47.7,
+          lat: 40.4,
+          title: "Azerbaijan",
+          score: 44,
+          region: "MENAT",
+          path: "Phase 3 / monitor",
+          risk: "0 flags · thin demand",
+          competition: "Open",
+          basket: "~$18",
+          topTicket: "~$18",
+          note: "Thin demand",
+          summary: "Clean enough structurally, but demand is too thin for an immediate move.",
+          why: "Azerbaijan passes the structural filter but lacks the scale to break into the main roadmap.",
+          recommendation: "Keep as a later-stage monitor market.",
+          lenses: { demand: 2, supply: 8, regulatability: 12, economics: 8, gcc: 5, moat: 9 },
+        },
+        Singapore: {
+          status: "violet",
+          lon: 103.8,
+          lat: 1.35,
+          title: "Singapore",
+          score: 62,
+          region: "Asia",
+          path: "Affiliate / white-label",
+          risk: "0 flags · clean",
+          competition: "Klook home",
+          basket: "$45",
+          topTicket: "$60",
+          note: "Licensing path",
+          summary: "Attractive on demand quality, but too dominated by Klook for organic entry.",
+          why: "The market itself is clean, but the incumbent moat is too entrenched.",
+          recommendation: "Pursue licensing or affiliate structures, not direct entry.",
+          lenses: { demand: 4, supply: 15, regulatability: 14, economics: 14, gcc: 7, moat: 8 },
+        },
+        Japan: {
+          status: "violet",
+          lon: 138.2,
+          lat: 36.2,
+          title: "Japan",
+          score: 48,
+          region: "Asia",
+          path: "Licensing only",
+          risk: "2 flags · caution",
+          competition: "Klook + direct lock",
+          basket: "$45 est",
+          topTicket: "$72",
+          note: "2 Turkey flags",
+          summary: "Huge supply value, but structurally too gated for direct entry.",
+          why: "JPY volatility, direct-only inventory, and Klook dominance break the organic-entry model.",
+          recommendation: "Stick to selective licensing and partnership structures.",
+          lenses: { demand: 3, supply: 18, regulatability: 7, economics: 9, gcc: 4, moat: 4 },
+        },
+        Netherlands: {
+          status: "red",
+          lon: 5.4,
+          lat: 52.2,
+          title: "Netherlands",
+          score: 22,
+          region: "Europe",
+          path: "Blocked",
+          risk: "2 flags · caution",
+          competition: "Tiqets home",
+          basket: "$43",
+          topTicket: "$25",
+          note: "2 Turkey flags",
+          summary: "Strong incumbent lock and local payment friction push this into the no-entry bucket.",
+          why: "Home-market Tiqets strength plus iDEAL friction make the market structurally unattractive.",
+          recommendation: "Do not enter organically.",
+          lenses: { demand: 0, supply: 8, regulatability: 4, economics: 3, gcc: 3, moat: 4 },
+        },
+        Egypt: {
+          status: "red",
+          lon: 30.6,
+          lat: 26.8,
+          title: "Egypt",
+          score: 32,
+          region: "MENAT",
+          path: "Wait for stabilization",
+          risk: "3 flags · high risk",
+          competition: "MoTA monopoly",
+          basket: "$33",
+          topTicket: "$30",
+          note: "3 Turkey flags",
+          summary: "Massive demand, but the filter rejects it on monopoly, FX, and execution conditions.",
+          why: "Egypt is the trap case: huge top-line demand with structurally broken operating mechanics.",
+          recommendation: "Do not enter now. Re-evaluate only after EGP stabilization and API opening.",
+          lenses: { demand: 8, supply: 16, regulatability: 3, economics: 2, gcc: 10, moat: 3 },
+        },
+        Turkey: {
+          status: "red",
+          lon: 35.2,
+          lat: 39.0,
+          title: "Turkey",
+          score: 18,
+          region: "MENAT",
+          path: "Hard stop",
+          risk: "4 flags · high risk",
+          competition: "Regulated-closed",
+          basket: "$35",
+          topTicket: "$25",
+          note: "4 Turkey flags",
+          summary: "The cautionary tale the filter is built around: attractive demand with broken market mechanics.",
+          why: "State gate, FX collapse, PSP friction, and poor pre-book behavior combine into a hard no.",
+          recommendation: "Do not enter organically under current conditions.",
+          lenses: { demand: 9, supply: 15, regulatability: 2, economics: 1, gcc: 10, moat: 1 },
+        },
+      };
+
+      Object.assign(coverageData, {
+        Ireland: {
+          status: "yellow",
+          title: "Ireland",
+          continent: "Europe",
+          lon: -8.1,
+          lat: 53.2,
+          score: 57,
+          region: "Europe",
+          path: "Year 2",
+          risk: "0 flags · clean",
+          competition: "Open",
+          basket: "$35",
+          topTicket: "$30",
+          note: "Guinness Storehouse",
+          summary: "Solid secondary Europe market, but not strong enough to outrank the main launch wave.",
+          why: "Clean structure and decent basket make Ireland viable, but demand is smaller than Italy and Spain.",
+          recommendation: "Keep in Year 2 backlog.",
+          lenses: { demand: 2, supply: 12, regulatability: 13, economics: 13, gcc: 4, moat: 13 },
+        },
+        Greece: {
+          status: "yellow",
+          title: "Greece",
+          continent: "Europe",
+          lon: 22.0,
+          lat: 39.1,
+          score: 52,
+          region: "Europe",
+          path: "State-gated",
+          risk: "1 flag · gated",
+          competition: "State-closed",
+          basket: "$30",
+          topTicket: "$33",
+          note: "Acropolis 4M",
+          summary: "Demand-positive market, but state gating blocks a straightforward organic entry.",
+          why: "The market is attractive from a travel perspective, but channel openness is the core issue.",
+          recommendation: "Pursue only if a state deal becomes possible.",
+          lenses: { demand: 7, supply: 15, regulatability: 5, economics: 8, gcc: 6, moat: 11 },
+        },
+        "Czech Republic": {
+          status: "yellow",
+          title: "Czech Republic",
+          continent: "Europe",
+          lon: 15.5,
+          lat: 49.8,
+          score: 50,
+          region: "Europe",
+          path: "Year 2 · city-break",
+          risk: "0 flags · niche",
+          competition: "Contested",
+          basket: "~$25",
+          topTicket: "~$25",
+          note: "Prague Castle 2M",
+          summary: "Interesting city-break market, but niche relative to the core shortlist.",
+          why: "Prague has appeal, yet it does not beat the larger, more scalable targets.",
+          recommendation: "Keep as a later-stage city-break expansion option.",
+          lenses: { demand: 3, supply: 11, regulatability: 12, economics: 10, gcc: 4, moat: 10 },
+        },
+        Poland: {
+          status: "yellow",
+          title: "Poland",
+          continent: "Europe",
+          lon: 19.1,
+          lat: 52.0,
+          score: 49,
+          region: "Europe",
+          path: "Niche",
+          risk: "1 flag · niche",
+          competition: "Contested",
+          basket: "~$18",
+          topTicket: "~$18",
+          note: "Auschwitz SOV",
+          summary: "Niche demand opportunity with some structural limits on flagship inventory.",
+          why: "Poland has some tourism value but remains more niche than the top shortlist markets.",
+          recommendation: "Keep for later review rather than active rollout.",
+          lenses: { demand: 2, supply: 10, regulatability: 10, economics: 9, gcc: 4, moat: 9 },
+        },
+        "Hong Kong": {
+          status: "yellow",
+          title: "Hong Kong",
+          continent: "Asia",
+          lon: 114.2,
+          lat: 22.3,
+          score: 45,
+          region: "Asia",
+          path: "Phase 3",
+          risk: "0 flags · later",
+          competition: "Klook-heavy",
+          basket: "$33",
+          topTicket: "~$50",
+          note: "Disney HK",
+          summary: "Viable later-stage Asia market, but not one of the immediate entry priorities.",
+          why: "Good tourism pull, but overshadowed by stronger Asia options and incumbent pressure.",
+          recommendation: "Hold for Phase 3 consideration.",
+          lenses: { demand: 3, supply: 12, regulatability: 11, economics: 10, gcc: 5, moat: 7 },
+        },
+        "South Korea": {
+          status: "yellow",
+          title: "South Korea",
+          continent: "Asia",
+          lon: 127.8,
+          lat: 36.2,
+          score: 44,
+          region: "Asia",
+          path: "Phase 3",
+          risk: "0 flags · later",
+          competition: "Klook + local",
+          basket: "$25",
+          topTicket: "~$45",
+          note: "Lotte / Myrealtrip",
+          summary: "Later-stage Asia option with some appeal but not enough to break into the near-term plan.",
+          why: "South Korea is workable, but not as compelling as Malaysia on the current filter.",
+          recommendation: "Keep as a Phase 3 market.",
+          lenses: { demand: 3, supply: 11, regulatability: 11, economics: 9, gcc: 4, moat: 7 },
+        },
+        Thailand: {
+          status: "red",
+          title: "Thailand",
+          continent: "Asia",
+          lon: 100.9,
+          lat: 15.7,
+          score: 35,
+          region: "Asia",
+          path: "Do not enter organically",
+          risk: "Moat · Ticketmaster",
+          competition: "Ticketmaster / TTM",
+          basket: "$20",
+          topTicket: "~$40",
+          note: "LN moat",
+          summary: "Demand exists, but the commercial moat makes direct entry unattractive.",
+          why: "Ticketmaster/TTM control makes the market structurally difficult to penetrate.",
+          recommendation: "Avoid organic entry. Partnership paths only if strategic.",
+          lenses: { demand: 6, supply: 12, regulatability: 8, economics: 7, gcc: 6, moat: 2 },
+        },
+        Indonesia: {
+          status: "red",
+          title: "Indonesia",
+          continent: "Asia",
+          lon: 117.3,
+          lat: -2.2,
+          score: 34,
+          region: "Asia",
+          path: "Partnership only",
+          risk: "Duopoly",
+          competition: "Loket + Tiket",
+          basket: "$18",
+          topTicket: "~$30",
+          note: "Duopoly",
+          summary: "Demand-positive market, but local platform control blocks a clean direct-entry path.",
+          why: "The Indonesia market is structurally constrained by strong local platform moats.",
+          recommendation: "Treat as partnership-only or revisit later.",
+          lenses: { demand: 5, supply: 10, regulatability: 8, economics: 7, gcc: 5, moat: 2 },
+        },
+        "South Africa": {
+          status: "yellow",
+          title: "South Africa",
+          continent: "Long-haul",
+          lon: 24.7,
+          lat: -29.0,
+          score: 47,
+          region: "Long-haul",
+          path: "Monitor",
+          risk: "1 flag · volatility",
+          competition: "Open",
+          basket: "$35 est",
+          topTicket: "$35 est",
+          note: "Long-haul niche",
+          summary: "A clean long-haul option, but too niche to pull into the core rollout sequence.",
+          why: "South Africa works structurally, yet GCC demand is too narrow for near-term focus.",
+          recommendation: "Keep as a monitor market.",
+          lenses: { demand: 2, supply: 10, regulatability: 12, economics: 9, gcc: 3, moat: 11 },
+        },
+        Switzerland: {
+          status: "violet",
+          title: "Switzerland",
+          continent: "Europe",
+          lon: 8.2,
+          lat: 46.8,
+          score: 65,
+          region: "Europe",
+          path: "Affiliate / premium niche",
+          risk: "0 flags · clean",
+          competition: "Premium niche",
+          basket: "$50",
+          topTicket: "$285",
+          note: "Jungfraujoch",
+          summary: "Premium Europe market with strong basket quality, but better suited to affiliate or premium-partner execution.",
+          why: "High-value inventory exists, yet supply depth is thinner than core Phase 1 markets and better matched to a premium partner route.",
+          recommendation: "Keep for affiliate or selective premium partnership in Phase 2+.",
+          lenses: { demand: 4, supply: 14, regulatability: 13, economics: 13, gcc: 7, moat: 14 },
+        },
+        Hungary: {
+          status: "yellow",
+          title: "Hungary",
+          continent: "Europe",
+          lon: 19.3,
+          lat: 47.2,
+          score: 56,
+          region: "Europe",
+          path: "Monitor / niche",
+          risk: "0 flags · clean",
+          competition: "Budapest-led",
+          basket: "~$22",
+          topTicket: "~$22",
+          note: "Budapest city-break",
+          summary: "Clean city-break market that stays in the backlog because it is too niche to outrank the main launch wave.",
+          why: "Budapest has enough appeal to monitor, but its opportunity size remains below the main shortlist.",
+          recommendation: "Keep in monitor mode for a later Europe wave.",
+          lenses: { demand: 2, supply: 10, regulatability: 12, economics: 10, gcc: 4, moat: 11 },
+        },
+        Croatia: {
+          status: "violet",
+          title: "Croatia",
+          continent: "Europe",
+          lon: 16.4,
+          lat: 45.2,
+          score: 41,
+          region: "Europe",
+          path: "Park / licensing",
+          risk: "0 flags · thin supply",
+          competition: "Tour-led",
+          basket: "~$25",
+          topTicket: "~$25",
+          note: "Thin supply 4/10",
+          summary: "Appealing leisure destination, but supply is too thin for a clean organic launch case.",
+          why: "Croatia is more tour-led than ticket-led, which breaks the inventory depth needed for priority rollout.",
+          recommendation: "Park or treat as a selective licensing market.",
+          lenses: { demand: 2, supply: 4, regulatability: 12, economics: 8, gcc: 4, moat: 7 },
+        },
+        Malta: {
+          status: "violet",
+          title: "Malta",
+          continent: "Europe",
+          lon: 14.4,
+          lat: 35.9,
+          score: 34,
+          region: "Europe",
+          path: "Micro-market / license-only",
+          risk: "0 flags · very thin supply",
+          competition: "Micro-market",
+          basket: "~$30",
+          topTicket: "~$30",
+          note: "Very thin 2/10",
+          summary: "Micro-market with hard supply limits, making it unsuitable for direct rollout.",
+          why: "The market is simply too thin and capacity-capped to justify active launch sequencing.",
+          recommendation: "Keep off the core roadmap and revisit only for niche licensing.",
+          lenses: { demand: 1, supply: 2, regulatability: 12, economics: 8, gcc: 3, moat: 8 },
+        },
+      });
+
+      const deckDetailData = {
+        "Saudi Arabia": {
+          timing: "Already open",
+          regProfile: "Live operating market",
+          moatSignal: "Owned footprint",
+          gccSignal: "Home-market demand",
+          evidence: [
+            "Operating footprint already live inside the GCC baseline.",
+            "Use as the commercial and organizer-success base for adjacent launches.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        "United Arab Emirates": {
+          timing: "Already open",
+          regProfile: "Live operating market",
+          moatSignal: "HQ market",
+          gccSignal: "Control market",
+          evidence: [
+            "Primary operating base and control market for expansion sequencing.",
+            "Holds the benchmark demand and ops assumptions for the roadmap.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        "United Kingdom": {
+          timing: "Live baseline",
+          cpc: "$1.40",
+          regProfile: "Benchmark baseline",
+          moatSignal: "Validated baseline",
+          gccSignal: "Largest absolute GCC Europe pool",
+          evidence: [
+            "Live comparator market for Europe; already validated commercially.",
+            "Used as the benchmark baseline in the deck alongside France.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        France: {
+          timing: "Launching",
+          regProfile: "Launching baseline",
+          moatSignal: "France adjacency",
+          gccSignal: "Premium Europe baseline",
+          evidence: [
+            "France is the active launch baseline feeding the next sequencing pass.",
+            "Post-launch basket and Arabic uplift data are explicitly called out as next validation inputs.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Italy: {
+          timing: "Phase 1 · Q2'26",
+          cpc: "$2.82",
+          contractable: "80% <= 6 mo",
+          onboarding: "14 weeks",
+          regProfile: "Regulatable-open",
+          moatSignal: "0.01x moat · iconic supply",
+          gccSignal: "Strong summer GCC pull",
+          evidence: [
+            "Phase 1 execution play with Colosseum-scale inventory and France adjacency.",
+            "Italy remains a 2026 commit despite low moat because supply quality is exceptional.",
+            "Nothing in the deck blocks Italy Phase 1; open items only refine sequencing.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Spain: {
+          timing: "Phase 1 · Q4'26",
+          cpc: "$3.46",
+          contractable: "Fast CAC payback profile",
+          onboarding: "10-14 weeks",
+          regProfile: "Regulatable-open",
+          moatSignal: "Tiny moat · execution market",
+          gccSignal: "High GCC leisure familiarity",
+          evidence: [
+            "Phase 1 execution play with Sagrada-level iconic supply.",
+            "Deck calls Spain an execution market, not a discovery market.",
+            "Compete on Arabic UX and curation rather than structural moat.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Austria: {
+          timing: "Phase 2 · Q1'27",
+          cpc: "$0.45",
+          contractable: "Efficient premium niche",
+          onboarding: "6 weeks",
+          regProfile: "Open",
+          moatSignal: "0.05x moat",
+          gccSignal: "Khaleeji Vienna repeat demand",
+          evidence: [
+            "Premium summer market with the Khaleeji Vienna demand pattern.",
+            "Austria stays strong because of clean structure and efficient CPC.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Jordan: {
+          timing: "Phase 2 · Q2'27",
+          cpc: "$0.58",
+          contractable: "API-led single-anchor",
+          onboarding: "API reseller path",
+          regProfile: "Regulated-open",
+          moatSignal: "0.11x moat",
+          gccSignal: "Halal 5/5 · JOD USD peg",
+          evidence: [
+            "Jordan Pass B2B API is the key reason Jordan survives the thin-supply filter.",
+            "Deck explicitly frames Jordan as Phase 2 via API reseller, not a full-catalog launch.",
+            "Arabic + halal fit compounds the otherwise modest absolute demand base.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Malaysia: {
+          timing: "Phase 1 · Q3'26",
+          cpc: "$0.68",
+          contractable: "80% <= 6 mo",
+          onboarding: "6 weeks",
+          regProfile: "Open",
+          moatSignal: "0.21x moat · strongest measurable",
+          gccSignal: "Halal family wedge · Visit Malaysia 2026",
+          evidence: [
+            "Best Asia entry in the deck and the only serious crack in the Klook belt.",
+            "Visit Malaysia 2026 and halal-first positioning create the cleanest Asia wedge.",
+            "Zero Turkey flags and fast onboarding make it a front-rank market.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Singapore: {
+          timing: "Licensing / affiliate",
+          cpc: "$0.56",
+          contractable: "Niche around family-tech",
+          regProfile: "Clean but incumbent-locked",
+          moatSignal: "0.14x moat vs Klook home",
+          gccSignal: "Strong family-tech niche",
+          evidence: [
+            "Deck treats Singapore as attractive structurally but too Klook-dominated for organic entry.",
+            "Recommended path is niche, licensing, or selective partner-led distribution.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Japan: {
+          timing: "Licensing / partner-only",
+          cpc: "$1.25",
+          contractable: "Direct-dominant top inventory",
+          regProfile: "Structurally gated",
+          moatSignal: "0.02x moat · Klook + direct",
+          gccSignal: "High family-tech demand",
+          evidence: [
+            "Japan is attractive on demand and supply, but the direct-only/Klook lock breaks organic entry.",
+            "Deck positions it as licensing or tie-up territory rather than direct launch.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Switzerland: {
+          timing: "Phase 2+ · affiliate",
+          cpc: "$0.84",
+          contractable: "Premium niche",
+          regProfile: "Open",
+          moatSignal: "Premium high-ticket profile",
+          gccSignal: "Khaleeji alpine extension",
+          evidence: [
+            "Deck calls Switzerland a premium niche better suited to affiliate execution.",
+            "High-ticket economics are attractive, but supply depth is thinner than Phase 1 markets.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Germany: {
+          timing: "Monitor",
+          cpc: "$1.62",
+          regProfile: "Open",
+          moatSignal: "GYG home",
+          gccSignal: "Macro demand present",
+          evidence: [
+            "Germany is demand-positive but weakened by incumbent strength.",
+            "Deck keeps it in the mid-tier monitor bucket rather than the launch wave.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Portugal: {
+          timing: "Park / Year 2",
+          cpc: "$0.25-$0.35 est",
+          contractable: "Thin anchor set",
+          regProfile: "Open",
+          moatSignal: "Low moat · thin supply",
+          gccSignal: "Solid but not priority",
+          evidence: [
+            "Portugal demotes once supply depth is revisited in Pass 2.",
+            "Deck explicitly parks Portugal until better property data exists.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Morocco: {
+          timing: "Monitor",
+          cpc: "$0.41",
+          contractable: "French SEO dependency",
+          regProfile: "Open",
+          moatSignal: "Workable with curation",
+          gccSignal: "French axis + GCC adjacency",
+          evidence: [
+            "Deck keeps Morocco as a monitor market rather than a committed launch.",
+            "French-language acquisition and lower basket quality limit urgency.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Azerbaijan: {
+          timing: "Phase 3 / monitor",
+          regProfile: "Open",
+          moatSignal: "Thin demand",
+          gccSignal: "Mountain / seasonal niche",
+          evidence: [
+            "Structurally clean but too small to outrank the main roadmap.",
+            "Used in the deck more as an optional later-stage seasonal niche.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Greece: {
+          timing: "Monitor pending state deal",
+          cpc: "$0.63",
+          regProfile: "State-gated",
+          moatSignal: "Demand-positive, access-gated",
+          gccSignal: "Leisure pull",
+          evidence: [
+            "Deck says Greece tier depends on whether a workable state deal exists.",
+            "Attractive demand does not override the channel-access problem.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Netherlands: {
+          timing: "Do not enter",
+          cpc: "$1.11",
+          regProfile: "Structurally blocked",
+          moatSignal: "Tiqets home",
+          gccSignal: "Demand not enough to offset friction",
+          evidence: [
+            "Two flags explicitly called out: Tiqets home moat and iDEAL payment friction.",
+            "Deck says do not enter organically.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Egypt: {
+          timing: "Wait / re-evaluate 2028+",
+          cpc: "$1.92",
+          contractable: "High demand, broken execution",
+          regProfile: "MoTA monopoly",
+          moatSignal: "3 Turkey flags",
+          gccSignal: "Huge GCC visitor pool",
+          evidence: [
+            "Deck frames Egypt as the trap case: large demand blocked by monopoly, FX, and execution risk.",
+            "Explicitly wait for EGP stabilization and MoTA API rollout before re-evaluating.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Turkey: {
+          timing: "Hard stop",
+          cpc: "$0.13",
+          contractable: "Unworkable under current conditions",
+          regProfile: "Regulated-closed",
+          moatSignal: "4 Turkey flags",
+          gccSignal: "Strong demand, broken mechanics",
+          evidence: [
+            "Turkey is the cautionary tale the filter is built around.",
+            "Four flags make it the canonical no-entry market in the deck.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Thailand: {
+          timing: "Partnership-only",
+          regProfile: "Commercially gated",
+          moatSignal: "Ticketmaster / TTM moat",
+          gccSignal: "Demand exists, moat blocks entry",
+          evidence: [
+            "Deck does not support organic entry because Ticketmaster / TTM owns the moat.",
+            "Only partnership-style routes remain realistic.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Indonesia: {
+          timing: "Partnership-only",
+          regProfile: "Local duopoly",
+          moatSignal: "Loket + Tiket moat",
+          gccSignal: "Demand-positive but blocked",
+          evidence: [
+            "Deck explicitly calls Indonesia partnership-only because local platforms control distribution.",
+            "Good demand does not clear the market-structure hurdle.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        "South Africa": {
+          timing: "Long-haul monitor",
+          regProfile: "Open",
+          moatSignal: "Clean but niche",
+          gccSignal: "Narrow GCC pull",
+          evidence: [
+            "Long-haul option kept for monitoring rather than active sequencing.",
+            "Deck notes clean regulation but narrow GCC demand and volatility.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Hungary: {
+          timing: "Year 2 / monitor",
+          regProfile: "Open",
+          moatSignal: "Budapest-only",
+          gccSignal: "Niche city-break",
+          evidence: [
+            "Clean backlog market but too niche to beat the main wave.",
+            "Budapest concentration keeps it out of the near-term rollout.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Croatia: {
+          timing: "Park / license-only",
+          contractable: "Tour-led supply",
+          regProfile: "Open but thin",
+          moatSignal: "Supply 4/10",
+          gccSignal: "Seasonal leisure appeal",
+          evidence: [
+            "Deck demotes Croatia because supply depth is too thin.",
+            "Better handled as a parked or selective licensing market.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+        Malta: {
+          timing: "Park / micro-market",
+          contractable: "UNESCO cap friction",
+          regProfile: "Open but micro",
+          moatSignal: "Supply 2/10",
+          gccSignal: "Very small market",
+          evidence: [
+            "Deck explicitly calls Malta a very thin micro-market.",
+            "Insufficient scale and inventory depth for active rollout.",
+          ],
+          updatedAt: "Deck v4 · April 2026",
+        },
+      };
+
+      Object.entries(deckDetailData).forEach(([name, details]) => {
+        if (coverageData[name]) Object.assign(coverageData[name], details);
+      });
+
+      const continentByName = {
+        "Saudi Arabia": "GCC",
+        "United Arab Emirates": "GCC",
+        Qatar: "GCC",
+        Oman: "GCC",
+        Bahrain: "GCC",
+        Kuwait: "GCC",
+        "United Kingdom": "Europe",
+        France: "Europe",
+        Italy: "Europe",
+        Spain: "Europe",
+        Austria: "Europe",
+        Germany: "Europe",
+        Portugal: "Europe",
+        Ireland: "Europe",
+        Greece: "Europe",
+        "Czech Republic": "Europe",
+        Poland: "Europe",
+        Netherlands: "Europe",
+        Switzerland: "Europe",
+        Hungary: "Europe",
+        Croatia: "Europe",
+        Malta: "Europe",
+        Jordan: "MENAT",
+        Morocco: "MENAT",
+        Azerbaijan: "MENAT",
+        Egypt: "MENAT",
+        Turkey: "MENAT",
+        Malaysia: "Asia",
+        Singapore: "Asia",
+        Japan: "Asia",
+        Thailand: "Asia",
+        Indonesia: "Asia",
+        "Hong Kong": "Asia",
+        "South Korea": "Asia",
+        "South Africa": "Long-haul",
+      };
+
+      Object.entries(coverageData).forEach(([name, entry]) => {
+        entry.continent = entry.continent || continentByName[name] || "Other";
+      });
+
+      const officeData = [
+        {
+          id: "dubai",
+          title: "Dubai HQ",
+          lon: 55.2708,
+          lat: 25.2048,
+          score: 100,
+          region: "Middle East",
+          path: "HQ / operations",
+          risk: "Open market",
+          competition: "Office node",
+          basket: "Live",
+          topTicket: "Ops base",
+          note: "Head office",
+          summary: "Regional command center for partnerships, organizer success, and rollout coordination.",
+          why: "This is the main operating node behind the expansion roadmap.",
+          recommendation: "Use as the execution hub for all launch waves.",
+          timing: "Live office",
+          regProfile: "Operating base",
+          moatSignal: "Execution hub",
+          gccSignal: "Regional command center",
+          updatedAt: "Deck v4 · April 2026",
+          evidence: [
+            "Acts as the HQ and operating base for rollout coordination.",
+            "Owns organizer success, commercial sequencing, and partner operations.",
+          ],
+          lenses: { demand: 25, supply: 20, regulatability: 15, economics: 15, gcc: 10, moat: 20 },
+        },
+        {
+          id: "riyadh",
+          title: "Riyadh",
+          lon: 46.6753,
+          lat: 24.7136,
+          score: 100,
+          region: "Middle East",
+          path: "Local office",
+          risk: "Open market",
+          competition: "Office node",
+          basket: "Live",
+          topTicket: "Support base",
+          note: "Saudi node",
+          summary: "Local presence for Saudi market support and organizer relationships.",
+          why: "Provides proximity to the largest GCC demand base.",
+          recommendation: "Keep as a market-side execution and relationship node.",
+          timing: "Live office",
+          regProfile: "Local operating node",
+          moatSignal: "Market-side presence",
+          gccSignal: "Largest GCC demand base",
+          updatedAt: "Deck v4 · April 2026",
+          evidence: [
+            "Market-side node supporting Saudi organizer relationships.",
+            "Gives local execution coverage in the biggest GCC demand pool.",
+          ],
+          lenses: { demand: 22, supply: 18, regulatability: 15, economics: 15, gcc: 10, moat: 18 },
+        },
+        {
+          id: "london",
+          title: "London",
+          lon: -0.1276,
+          lat: 51.5072,
+          score: 100,
+          region: "Europe",
+          path: "Business development",
+          risk: "Open market",
+          competition: "Office node",
+          basket: "Live",
+          topTicket: "Partner access",
+          note: "Europe node",
+          summary: "European business-development presence for supply relationships and market discovery.",
+          why: "Keeps Platinumlist close to European operators and partnership conversations.",
+          recommendation: "Use as the Europe-side strategic outpost.",
+          timing: "Live office",
+          regProfile: "Business-development base",
+          moatSignal: "Europe node",
+          gccSignal: "Supply-side proximity",
+          updatedAt: "Deck v4 · April 2026",
+          evidence: [
+            "Europe-side node for partnership discovery and supply relationships.",
+            "Supports the roadmap with local business-development coverage.",
+          ],
+          lenses: { demand: 18, supply: 20, regulatability: 14, economics: 14, gcc: 8, moat: 17 },
+        },
+      ];
+
+      const svg = d3.select("#map");
+      const tooltip = document.getElementById("tooltip");
+      const emptyState = document.getElementById("empty-state");
+      const onboarding = document.getElementById("onboarding");
+      const onboardingStart = document.getElementById("onboarding-start");
+      const onboardingDismiss = document.getElementById("onboarding-dismiss");
+      const infoCard = document.getElementById("info-card");
+      const toolbarHint = document.getElementById("toolbar-hint");
+      const countrySelect = document.getElementById("country-select");
+      const countryLabel = document.getElementById("country-label");
+      const countryPrev = document.getElementById("country-prev");
+      const countryNext = document.getElementById("country-next");
+      const countryReset = document.getElementById("country-reset");
+      const cardOverview = document.getElementById("card-overview");
+      const cardClose = document.getElementById("card-close");
+      const scopeButtons = [...document.querySelectorAll("[data-scope]")];
+      const filterButtons = [...document.querySelectorAll("[data-filter]")];
+      const continentButtons = [...document.querySelectorAll("[data-continent]")];
+      const lensGrid = document.getElementById("lens-grid");
+      const statsGrid = document.getElementById("info-stats");
+
+      const info = {
+        status: document.getElementById("info-status"),
+        title: document.getElementById("info-title"),
+        score: document.getElementById("info-score"),
+        summary: document.getElementById("info-summary"),
+        path: document.getElementById("info-path"),
+        risk: document.getElementById("info-risk"),
+        region: document.getElementById("info-region"),
+        timing: document.getElementById("info-timing"),
+        why: document.getElementById("info-why"),
+        recommendation: document.getElementById("info-recommendation"),
+        facts: document.getElementById("info-facts"),
+        footnote: document.getElementById("info-footnote"),
+      };
+
+      let currentScope = "coverage";
+      let currentFilter = "all";
+      let currentContinent = "all";
+      let activeKey = "Italy";
+      let isFocused = false;
+      let cardHidden = true;
+      let hasInteracted = false;
+      let onboardingVisible = true;
+      let countries = [];
+      let projection;
+      let path;
+
+      function setTooltip(text, x, y) {
+        tooltip.textContent = text;
+        tooltip.style.left = `${x}px`;
+        tooltip.style.top = `${y}px`;
+        tooltip.style.opacity = "1";
+      }
+
+      function hideTooltip() {
+        tooltip.style.opacity = "0";
+      }
+
+      function dismissOnboarding() {
+        hasInteracted = true;
+        onboardingVisible = false;
+        onboarding.hidden = true;
+      }
+
+      function showOnboardingIfNeeded() {
+        onboarding.hidden = !onboardingVisible;
+      }
+
+      function triggerMapMotion() {
+        if (!hasInteracted) return;
+        svg.classed("is-refocusing", false);
+        void svg.node().getBoundingClientRect();
+        svg.classed("is-refocusing", true);
+        window.clearTimeout(triggerMapMotion.timer);
+        triggerMapMotion.timer = window.setTimeout(() => {
+          svg.classed("is-refocusing", false);
+        }, 380);
+      }
+
+      function currentNavEntries() {
+        let entries = currentPickerEntries().slice();
+        if (currentScope === "coverage") {
+          if (currentContinent === "all" && coverageData[activeKey]) {
+            const localContinent = coverageData[activeKey].continent;
+            const localEntries = entries.filter((item) => item.entry.continent === localContinent);
+            if (localEntries.length) entries = localEntries;
+          }
+          return entries.sort((a, b) => {
+            return b.entry.score - a.entry.score || a.entry.title.localeCompare(b.entry.title);
+          });
+        }
+        return entries.sort((a, b) => a.entry.title.localeCompare(b.entry.title));
+      }
+
+      function buildStatPairs(data) {
+        const pairs = [
+          ["Competition", data.competition],
+          ["Avg basket", data.basket],
+          ["Top ticket", data.topTicket],
+          ["CPC range", data.cpc],
+          ["Contractable share", data.contractable],
+          ["Onboarding", data.onboarding],
+          ["Reg profile", data.regProfile],
+          ["Moat signal", data.moatSignal],
+          ["GCC signal", data.gccSignal],
+          ["Note", data.note],
+        ];
+        return pairs.filter(([, value]) => Boolean(value));
+      }
+
+      function buildEvidence(data) {
+        const lines = [];
+        if (Array.isArray(data.evidence)) lines.push(...data.evidence);
+        if (data.path) lines.push(`Path: ${data.path}`);
+        if (data.risk) lines.push(`Risk: ${data.risk}`);
+        if (data.competition) lines.push(`Competition: ${data.competition}`);
+        lines.push(`Demand ${data.lenses.demand}/25 · Supply ${data.lenses.supply}/20 · Regulatability ${data.lenses.regulatability}/15 · Economics ${data.lenses.economics}/15 · GCC ${data.lenses.gcc}/10 · Moat ${data.lenses.moat}/20`);
+        return [...new Set(lines)];
+      }
+
+      function renderStats(pairs) {
+        statsGrid.innerHTML = "";
+        pairs.forEach(([label, value]) => {
+          const item = document.createElement("div");
+          item.className = "meta";
+          item.innerHTML = `<span>${label}</span><strong>${value}</strong>`;
+          statsGrid.appendChild(item);
+        });
+      }
+
+      function renderFacts(lines) {
+        info.facts.innerHTML = "";
+        lines.forEach((line) => {
+          const item = document.createElement("li");
+          item.textContent = line;
+          info.facts.appendChild(item);
+        });
+      }
+
+      function updateInfo(data, statusLabel) {
+        info.status.textContent = statusLabel;
+        info.status.style.color = statusColors[data.status] || statusColors.open;
+        info.title.textContent = data.title;
+        info.score.textContent = data.score;
+        info.summary.textContent = data.summary;
+        info.path.textContent = data.path;
+        info.risk.textContent = data.risk;
+        info.region.textContent = data.region;
+        info.timing.textContent = data.timing || (currentScope === "offices" ? "Live office" : "Deck timing");
+        info.why.textContent = data.why;
+        info.recommendation.textContent = data.recommendation;
+        renderStats(buildStatPairs(data));
+        const evidence = buildEvidence(data);
+        renderFacts(evidence);
+        info.footnote.textContent = `${data.updatedAt || "Deck v4 · April 2026"} · ${evidence.length} evidence points surfaced`;
+
+        lensGrid.innerHTML = "";
+        Object.entries(lensLabels).forEach(([key, [max, label]]) => {
+          const value = data.lenses[key];
+          const row = document.createElement("div");
+          row.className = "lens-row";
+          row.innerHTML = `
+            <div class="lens-head">
+              <span>${label}</span>
+              <span>${value}/${max}</span>
+            </div>
+            <div class="bar"><span style="--width:${(value / max) * 100}%"></span></div>
+          `;
+          lensGrid.appendChild(row);
+        });
+      }
+
+      function applyCardVisibility() {
+        infoCard.classList.toggle("is-hidden", cardHidden);
+        cardOverview.disabled = !isFocused;
+      }
+
+      function updateToolbarHint() {
+        if (!hasInteracted && cardHidden && !isFocused) {
+          toolbarHint.textContent = "Start with a colored market: click or tap a country, zoom with scroll or pinch, and use the filters to narrow the shortlist.";
+          return;
+        }
+
+        if (cardHidden) {
+          toolbarHint.textContent = currentScope === "coverage"
+            ? "Panel hidden. Click a highlighted country or use the picker to reopen the deck card."
+            : "Panel hidden. Click an office node or use the office picker to reopen the node card.";
+          return;
+        }
+
+        if (isFocused) {
+          toolbarHint.textContent = `Selected: ${activeKey}. Use Prev / Next to move through the visible ${currentScope === "coverage" ? "markets" : "offices"}, Back to map to zoom out, or press Esc.`;
+          return;
+        }
+
+        toolbarHint.textContent = currentScope === "coverage"
+          ? "Click a highlighted country to open the full deck card, or jump there directly with the country picker."
+          : "Click an office node to inspect the operating base, or use the office picker to jump there.";
+      }
+
+      function getCountryStatus(name) {
+        if (currentScope !== "coverage") return null;
+        const entry = coverageData[name] || null;
+        if (!entry) return null;
+        if (currentContinent !== "all" && entry.continent !== currentContinent) return null;
+        if (currentFilter !== "all" && entry.status !== currentFilter) return null;
+        return entry;
+      }
+
+      function statusLabel(entry) {
+        if (entry.path === "Already open" || entry.path === "Live baseline" || entry.path === "Launching") return "Already open";
+        if (entry.path === "Blocked" || entry.path === "Hard stop" || entry.path === "Wait for stabilization") return "Do not enter";
+        if (entry.status === "violet") return "Licensing only";
+        if (entry.status === "yellow") return "Watchlist";
+        return "Good to open";
+      }
+
+      function countryKey(name) {
+        const aliases = {
+          USA: "United States",
+        };
+        return aliases[name] || name;
+      }
+
+      function shouldDim(entry) {
+        return false;
+      }
+
+      function shouldShowLabel(name, entry) {
+        if (currentScope === "offices") return false;
+        if (!entry) return false;
+        return true;
+      }
+
+      function labelPosition(name, anchor) {
+        const overrides = {
+          "United Arab Emirates": [30, -8],
+          Qatar: [18, 20],
+          Bahrain: [22, -16],
+          Kuwait: [26, -18],
+          Oman: [22, 24],
+          "Saudi Arabia": [-12, 36],
+          "United Kingdom": [-28, -24],
+          France: [-40, -2],
+          Germany: [20, -18],
+          Austria: [42, -8],
+          Portugal: [-34, 4],
+          Morocco: [-36, 10],
+          Egypt: [-38, 24],
+          Jordan: [26, 4],
+          Turkey: [42, -10],
+          Azerbaijan: [36, -8],
+          Malaysia: [28, 20],
+          Singapore: [28, 28],
+          Italy: [28, 2],
+          Spain: [-34, 16],
+          Ireland: [-40, -18],
+          Greece: [30, 8],
+          Netherlands: [6, -28],
+          Japan: [26, 2],
+          "Hong Kong": [24, 6],
+          "South Korea": [28, -8],
+          Thailand: [28, 12],
+          Indonesia: [24, 26],
+          "South Africa": [24, 18],
+          "Czech Republic": [18, -18],
+          Poland: [22, -22],
+          Switzerland: [18, -10],
+          Hungary: [30, 4],
+          Croatia: [28, 14],
+          Malta: [22, 16],
+        };
+        const [dx, dy] = overrides[name] || [0, 0];
+        return [anchor[0] + dx, anchor[1] + dy];
+      }
+
+      function visibleCoverageEntries() {
+        return Object.entries(coverageData)
+          .filter(([, entry]) => currentContinent === "all" || entry.continent === currentContinent)
+          .filter(([, entry]) => currentFilter === "all" || entry.status === currentFilter)
+          .map(([name, entry]) => ({ name, entry }));
+      }
+
+      function officeContinentMatch(entry, continent) {
+        if (continent === "all") return true;
+        if (continent === "Europe") return entry.region === "Europe";
+        if (continent === "GCC" || continent === "MENAT") return entry.region === "Middle East";
+        return false;
+      }
+
+      function visibleOfficeEntries() {
+        return officeData
+          .filter((entry) => officeContinentMatch(entry, currentContinent))
+          .map((entry) => ({ name: entry.title, entry }));
+      }
+
+      function currentPickerEntries() {
+        return currentScope === "coverage" ? visibleCoverageEntries() : visibleOfficeEntries();
+      }
+
+      function setPressed(buttons, activeValue, key) {
+        buttons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset[key] === activeValue));
+        });
+      }
+
+      function updateFilterAvailability() {
+        if (currentScope !== "coverage") {
+          filterButtons.forEach((button) => {
+            button.disabled = true;
+            button.style.opacity = "0.34";
+          });
+          return;
+        }
+
+        const entries = Object.values(coverageData).filter((entry) => currentContinent === "all" || entry.continent === currentContinent);
+        filterButtons.forEach((button) => {
+          const filter = button.dataset.filter;
+          const count = filter === "all" ? entries.length : entries.filter((entry) => entry.status === filter).length;
+          button.disabled = count === 0;
+          button.style.opacity = count === 0 ? "0.34" : "1";
+        });
+
+        const activeButton = filterButtons.find((button) => button.dataset.filter === currentFilter);
+        if (activeButton?.disabled) {
+          currentFilter = "all";
+        }
+        setPressed(filterButtons, currentFilter, "filter");
+      }
+
+      function updateContinentAvailability() {
+        continentButtons.forEach((button) => {
+          const continent = button.dataset.continent;
+          let count = 0;
+          if (currentScope === "coverage") {
+            count = continent === "all"
+              ? Object.keys(coverageData).length
+              : Object.values(coverageData).filter((entry) => entry.continent === continent).length;
+          } else {
+            count = continent === "all"
+              ? officeData.length
+              : officeData.filter((entry) => officeContinentMatch(entry, continent)).length;
+          }
+          button.disabled = count === 0;
+          button.style.opacity = count === 0 ? "0.34" : "1";
+        });
+
+        const activeButton = continentButtons.find((button) => button.dataset.continent === currentContinent);
+        if (activeButton?.disabled) {
+          currentContinent = "all";
+        }
+        setPressed(continentButtons, currentContinent, "continent");
+      }
+
+      function ensureActiveSelection() {
+        if (currentScope === "coverage") {
+          const visible = visibleCoverageEntries();
+          if (visible.length === 0) return;
+          if (!visible.some((item) => item.name === activeKey)) {
+            activeKey = visible[0].name;
+            isFocused = false;
+          }
+          updateInfo(coverageData[activeKey], statusLabel(coverageData[activeKey]));
+          return;
+        }
+
+        const visible = visibleOfficeEntries();
+        const next = visible[0] || { name: officeData[0].title, entry: officeData[0] };
+        if (!visible.some((item) => item.name === activeKey)) {
+          activeKey = next.name;
+          isFocused = false;
+        }
+        const office = officeData.find((entry) => entry.title === activeKey) || officeData[0];
+        updateInfo({ ...office, status: "open" }, "Office node");
+      }
+
+      function updateCountryPicker() {
+        const entries = currentPickerEntries();
+        const label = currentScope === "coverage" ? "Country" : "Office";
+        countryLabel.textContent = label;
+        countrySelect.innerHTML = "";
+        const first = document.createElement("option");
+        first.value = "";
+        first.textContent = currentScope === "coverage" ? "All visible markets" : "All visible offices";
+        countrySelect.appendChild(first);
+
+        entries
+          .slice()
+          .sort((a, b) => a.entry.title.localeCompare(b.entry.title))
+          .forEach(({ name, entry }) => {
+            const option = document.createElement("option");
+            option.value = name;
+            option.textContent = entry.title;
+            countrySelect.appendChild(option);
+          });
+
+        countrySelect.value = isFocused ? activeKey : "";
+        const navEntries = currentNavEntries();
+        countryPrev.disabled = !isFocused || navEntries.length < 2;
+        countryNext.disabled = !isFocused || navEntries.length < 2;
+        countryReset.disabled = currentScope === "coverage"
+          ? currentFilter === "all" && currentContinent === "all" && !isFocused && !cardHidden
+          : currentContinent === "all" && !isFocused && !cardHidden;
+      }
+
+      function estimateLabelWidth(text) {
+        return Math.max(92, Math.min(230, text.length * 6.6 + 34));
+      }
+
+      function overlaps(a, b) {
+        return !(a.x + a.w < b.x || b.x + b.w < a.x || a.y + a.h < b.y || b.y + b.h < a.y);
+      }
+
+      function labelCandidates() {
+        const source = isFocused
+          ? visibleCoverageEntries().filter((item) => item.name === activeKey)
+          : visibleCoverageEntries();
+        return source
+          .sort((a, b) => {
+            if (isFocused && a.name === activeKey) return -1;
+            if (isFocused && b.name === activeKey) return 1;
+            return b.entry.score - a.entry.score;
+          })
+          .map(({ name, entry }) => {
+            const anchor = projection([entry.lon, entry.lat]);
+            if (!anchor || !Number.isFinite(anchor[0]) || !Number.isFinite(anchor[1])) return null;
+            const [x, y] = labelPosition(name, anchor);
+            const text = `${entry.title} · ${entry.path}`;
+            return { name, entry, anchor, x, y, text, w: estimateLabelWidth(text), h: 28 };
+          })
+          .filter(Boolean);
+      }
+
+      function focusCollection() {
+        if (isFocused) {
+          if (currentScope === "coverage" && coverageData[activeKey]) {
+            const entry = coverageData[activeKey];
+            const matchedCountries = countries.filter((feature) => countryKey(feature.properties.name) === activeKey);
+            const padByContinent = {
+              GCC: [10, 7],
+              Europe: [10, 8],
+              MENAT: [12, 9],
+              Asia: [14, 10],
+              "Long-haul": [14, 10],
+            };
+            const [padLon, padLat] = padByContinent[entry.continent] || [12, 9];
+            const box = {
+              type: "Feature",
+              geometry: {
+                type: "Polygon",
+                coordinates: [[
+                  [entry.lon - padLon, entry.lat - padLat],
+                  [entry.lon + padLon, entry.lat - padLat],
+                  [entry.lon + padLon, entry.lat + padLat],
+                  [entry.lon - padLon, entry.lat + padLat],
+                  [entry.lon - padLon, entry.lat - padLat],
+                ]],
+              },
+              properties: {},
+            };
+            const point = {
+              type: "Feature",
+              geometry: { type: "Point", coordinates: [entry.lon, entry.lat] },
+              properties: {},
+            };
+            return { type: "FeatureCollection", features: [...matchedCountries, box, point] };
+          }
+
+          if (currentScope === "offices") {
+            const office = officeData.find((entry) => entry.title === activeKey) || officeData[0];
+            const box = {
+              type: "Feature",
+              geometry: {
+                type: "Polygon",
+                coordinates: [[
+                  [office.lon - 12, office.lat - 8],
+                  [office.lon + 12, office.lat - 8],
+                  [office.lon + 12, office.lat + 8],
+                  [office.lon - 12, office.lat + 8],
+                  [office.lon - 12, office.lat - 8],
+                ]],
+              },
+              properties: {},
+            };
+            const point = {
+              type: "Feature",
+              geometry: { type: "Point", coordinates: [office.lon, office.lat] },
+              properties: {},
+            };
+            return { type: "FeatureCollection", features: [box, point] };
+          }
+        }
+
+        const source = currentScope === "coverage" ? visibleCoverageEntries() : visibleOfficeEntries();
+        const safeSource = source.length > 0
+          ? source
+          : currentScope === "coverage"
+            ? Object.entries(coverageData).map(([name, entry]) => ({ name, entry }))
+            : officeData.map((entry) => ({ name: entry.title, entry }));
+        const wanted = new Set(safeSource.map(({ name }) => name));
+        const matchedCountries = countries.filter((feature) => wanted.has(countryKey(feature.properties.name)));
+        const points = safeSource
+          .filter(({ entry }) => Number.isFinite(entry.lon) && Number.isFinite(entry.lat))
+          .map(({ entry }) => ({
+            type: "Feature",
+            geometry: { type: "Point", coordinates: [entry.lon, entry.lat] },
+            properties: {},
+          }));
+
+        return {
+          type: "FeatureCollection",
+          features: [...matchedCountries, ...points],
+        };
+      }
+
+      function selectEntry(name, { focus = true, revealCard = true } = {}) {
+        dismissOnboarding();
+        if (currentScope === "coverage") {
+          const entry = coverageData[name];
+          if (!entry) return;
+          activeKey = name;
+          isFocused = focus;
+          if (revealCard) cardHidden = false;
+          updateInfo(entry, statusLabel(entry));
+          renderCountries();
+          return;
+        }
+
+        const office = officeData.find((entry) => entry.title === name);
+        if (!office) return;
+        activeKey = name;
+        isFocused = focus;
+        if (revealCard) cardHidden = false;
+        updateInfo({ ...office, status: "open" }, "Office node");
+        renderCountries();
+      }
+
+      function backToMap({ hidePanel = false } = {}) {
+        isFocused = false;
+        cardHidden = hidePanel;
+        renderCountries();
+      }
+
+      function resetAll() {
+        currentFilter = "all";
+        currentContinent = "all";
+        isFocused = false;
+        cardHidden = false;
+        if (currentScope === "coverage") {
+          activeKey = "Italy";
+        } else {
+          activeKey = officeData[0].title;
+        }
+        renderCountries();
+      }
+
+      function stepSelection(offset) {
+        const entries = currentNavEntries();
+        if (!entries.length) return;
+        let index = entries.findIndex((item) => item.name === activeKey);
+        if (index === -1) {
+          index = 0;
+        } else {
+          index = (index + offset + entries.length) % entries.length;
+        }
+        selectEntry(entries[index].name, { focus: true, revealCard: true });
+      }
+
+      function renderCountries() {
+        svg.selectAll("*").remove();
+        updateContinentAvailability();
+        updateFilterAvailability();
+        ensureActiveSelection();
+        updateCountryPicker();
+        applyCardVisibility();
+        updateToolbarHint();
+        showOnboardingIfNeeded();
+
+        projection = d3.geoMercator().fitExtent([[40, 92], [1560, 706]], focusCollection());
+        path = d3.geoPath(projection);
+
+        const zoomRoot = svg.append("g").attr("class", "zoom-root");
+        const countryLayer = zoomRoot.append("g");
+        const hitLayer = zoomRoot.append("g");
+        const labelLayer = zoomRoot.append("g");
+        const officeLayer = zoomRoot.append("g");
+
+        const zoomBehavior = d3.zoom()
+          .scaleExtent([1, 8])
+          .filter((event) => {
+            if (event.type === "wheel") return true;
+            if (event.type === "mousedown" || event.type === "touchstart" || event.type === "touchmove") return true;
+            if (event.type === "dblclick") return true;
+            return !event.ctrlKey && !event.button;
+          })
+          .on("start", () => {
+            svg.classed("is-dragging", true);
+            dismissOnboarding();
+          })
+          .on("zoom", (event) => {
+            zoomRoot.attr("transform", event.transform);
+          })
+          .on("end", () => {
+            svg.classed("is-dragging", false);
+          });
+
+        svg.call(zoomBehavior);
+
+        svg.on("click", (event) => {
+          if (event.target === svg.node() && isFocused) {
+            backToMap({ hidePanel: false });
+          }
+        });
+
+        countryLayer
+          .selectAll("path")
+          .data(countries)
+          .join("path")
+          .attr("class", (d) => `country${getCountryStatus(countryKey(d.properties.name)) ? " has-data" : ""}${isFocused && countryKey(d.properties.name) === activeKey ? " is-active" : ""}`)
+          .attr("d", path)
+          .style("fill", (d) => {
+            const entry = getCountryStatus(countryKey(d.properties.name));
+            return entry ? statusColors[entry.status] : "#1d1f21";
+          })
+          .style("opacity", (d) => {
+            const entry = getCountryStatus(countryKey(d.properties.name));
+            return entry ? 1 : 0.92;
+          })
+          .on("mousemove", function(event, d) {
+            const entry = currentScope === "coverage" ? coverageData[countryKey(d.properties.name)] : null;
+            const label = entry ? `${entry.title} · ${entry.path}` : d.properties.name;
+            setTooltip(label, event.clientX, event.clientY);
+          })
+          .on("mouseleave", hideTooltip)
+          .on("click", function(event, d) {
+            event.stopPropagation();
+            const key = countryKey(d.properties.name);
+            const entry = getCountryStatus(key);
+            if (!entry) return;
+            selectEntry(key, { focus: true, revealCard: true });
+          });
+
+        if (currentScope === "coverage") {
+          const visible = visibleCoverageEntries();
+          emptyState.hidden = visible.length !== 0;
+
+          hitLayer
+            .selectAll("circle")
+            .data(visible.map(({ name, entry }) => ({ name, entry, point: projection([entry.lon, entry.lat]) })).filter((item) => item.point))
+            .join("circle")
+            .attr("class", "tap-target")
+            .attr("r", ({ name }) => (isFocused && name === activeKey ? 22 : 16))
+            .attr("cx", ({ point }) => point[0])
+            .attr("cy", ({ point }) => point[1])
+            .on("mousemove", function(event, d) {
+              setTooltip(`${d.entry.title} · ${d.entry.path}`, event.clientX, event.clientY);
+            })
+            .on("mouseleave", hideTooltip)
+            .on("click", function(event, d) {
+              event.stopPropagation();
+              selectEntry(d.name, { focus: true, revealCard: true });
+            });
+
+          const acceptedBoxes = [];
+          const labelData = labelCandidates().filter((candidate) => {
+            if (candidate.name === activeKey) {
+              acceptedBoxes.push({ x: candidate.x, y: candidate.y, w: candidate.w, h: candidate.h });
+              return true;
+            }
+            const box = { x: candidate.x, y: candidate.y, w: candidate.w, h: candidate.h };
+            const collides = acceptedBoxes.some((accepted) => overlaps(box, accepted));
+            if (!collides) {
+              acceptedBoxes.push(box);
+              return true;
+            }
+            return false;
+          });
+
+          const labels = labelLayer
+            .selectAll("g")
+            .data(labelData)
+            .join("g")
+            .attr("class", "market-label")
+            .attr("transform", ({ x, y }) => {
+              return `translate(${x},${y})`;
+            })
+            .style("cursor", "pointer")
+            .on("mousemove", function(event, d) {
+              setTooltip(`${d.entry.title} · ${d.entry.path}`, event.clientX, event.clientY);
+            })
+            .on("mouseleave", hideTooltip)
+            .on("click", function(event, d) {
+              event.stopPropagation();
+              selectEntry(d.name, { focus: true, revealCard: true });
+            });
+
+          labels
+            .append("path")
+            .attr("class", "label-line")
+            .attr("d", ({ anchor, x, y }) => {
+              const edgeX = x < anchor[0] ? 6 : 0;
+              return `M${anchor[0] - x},${anchor[1] - y} L${edgeX},14`;
+            });
+
+          labels.append("rect");
+          labels
+            .append("circle")
+            .attr("class", "status-dot")
+            .attr("r", 4)
+            .attr("cx", 12)
+            .attr("cy", 14)
+            .attr("fill", ({ entry }) => statusColors[entry.status]);
+
+          labels
+            .append("text")
+            .attr("x", 24)
+            .attr("y", 18)
+            .text(({ text }) => text);
+
+          labels.each(function() {
+            const group = d3.select(this);
+            const bbox = this.querySelector("text").getBBox();
+            group
+              .select("rect")
+              .attr("x", 0)
+              .attr("y", 0)
+              .attr("width", bbox.width + 34)
+              .attr("height", 28);
+          });
+
+          labels
+            .selectAll("rect, circle, text")
+            .style("cursor", "pointer")
+            .on("mousemove", function(event, d) {
+              setTooltip(`${d.entry.title} · ${d.entry.path}`, event.clientX, event.clientY);
+            })
+            .on("mouseleave", hideTooltip)
+            .on("click", function(event, d) {
+              event.stopPropagation();
+              selectEntry(d.name, { focus: true, revealCard: true });
+            });
+        } else {
+          emptyState.hidden = true;
+        }
+
+        if (currentScope === "offices") {
+          const visibleOffices = visibleOfficeEntries();
+          officeLayer
+            .selectAll("circle")
+            .data(visibleOffices.map((item) => item.entry))
+            .join("circle")
+            .attr("class", "office-pin")
+            .attr("r", (d) => (d.title === activeKey ? 7 : 5))
+            .attr("cx", (d) => projection([d.lon, d.lat])[0])
+            .attr("cy", (d) => projection([d.lon, d.lat])[1])
+            .on("mousemove", function(event, d) {
+              setTooltip(d.title, event.clientX, event.clientY);
+            })
+            .on("mouseleave", hideTooltip)
+            .on("click", function(event, d) {
+              event.stopPropagation();
+              selectEntry(d.title, { focus: true, revealCard: true });
+            });
+
+          officeLayer
+            .selectAll("text")
+            .data(visibleOffices.map((item) => item.entry))
+            .join("text")
+            .attr("class", "office-label")
+            .attr("x", (d) => projection([d.lon, d.lat])[0] + 10)
+            .attr("y", (d) => projection([d.lon, d.lat])[1] - 10)
+            .text((d) => d.title);
+        }
+
+        triggerMapMotion();
+      }
+
+      function setScope(scope) {
+        currentScope = scope;
+        if (scope === "offices") {
+          activeKey = "Dubai HQ";
+          isFocused = false;
+        } else if (!coverageData[activeKey]) {
+          activeKey = "Italy";
+        }
+        scopeButtons.forEach((button) => {
+          button.setAttribute("aria-pressed", String(button.dataset.scope === scope));
+        });
+        renderCountries();
+      }
+
+      scopeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          dismissOnboarding();
+          setScope(button.dataset.scope);
+        });
+      });
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.disabled) return;
+          dismissOnboarding();
+          currentFilter = button.dataset.filter;
+          if (!visibleCoverageEntries().some((item) => item.name === activeKey)) {
+            isFocused = false;
+          }
+          renderCountries();
+        });
+      });
+
+      continentButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          if (button.disabled) return;
+          dismissOnboarding();
+          currentContinent = button.dataset.continent;
+          if (currentScope === "coverage" && !visibleCoverageEntries().some((item) => item.name === activeKey)) {
+            isFocused = false;
+          }
+          renderCountries();
+        });
+      });
+
+      countrySelect.addEventListener("change", () => {
+        if (!countrySelect.value) {
+          dismissOnboarding();
+          isFocused = false;
+          cardHidden = false;
+          renderCountries();
+          return;
+        }
+        selectEntry(countrySelect.value, { focus: true, revealCard: true });
+      });
+
+      countryPrev.addEventListener("click", () => {
+        dismissOnboarding();
+        stepSelection(-1);
+      });
+      countryNext.addEventListener("click", () => {
+        dismissOnboarding();
+        stepSelection(1);
+      });
+
+      countryReset.addEventListener("click", () => {
+        dismissOnboarding();
+        resetAll();
+      });
+
+      cardOverview.addEventListener("click", () => {
+        backToMap({ hidePanel: false });
+      });
+
+      cardClose.addEventListener("click", () => {
+        cardHidden = true;
+        renderCountries();
+      });
+
+      onboardingStart.addEventListener("click", () => {
+        dismissOnboarding();
+        renderCountries();
+      });
+
+      onboardingDismiss.addEventListener("click", () => {
+        dismissOnboarding();
+        renderCountries();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        const tag = document.activeElement?.tagName;
+        if (tag === "INPUT" || tag === "TEXTAREA" || tag === "SELECT") return;
+
+        if (event.key === "Escape") {
+          backToMap({ hidePanel: false });
+          return;
+        }
+
+        if (event.key === "ArrowLeft" && !cardHidden) {
+          stepSelection(-1);
+        }
+
+        if (event.key === "ArrowRight" && !cardHidden) {
+          stepSelection(1);
+        }
+      });
+
+      {
+        countries = window.WORLD_GEOJSON.features;
+        renderCountries();
+      }
+    </script>
+  </body>
+</html>
